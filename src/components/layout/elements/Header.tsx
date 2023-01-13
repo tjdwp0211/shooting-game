@@ -7,7 +7,7 @@ function Header() {
   return (
     <HeaderContainer>
       <TextButton>What About Your Click</TextButton>
-      <TextButton>Board</TextButton>
+      <TextButton>BOARD</TextButton>
     </HeaderContainer>
   );
 }
