@@ -1,12 +1,19 @@
 import React from "react";
+import Head from "next/head";
+import Layout from "../components/layout/Layout";
 import { globalStyle } from "../style/global";
 import { Global } from "@emotion/react";
 
 function App({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Test Your Click</title>
+      </Head>
       <Global styles={globalStyle} />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
