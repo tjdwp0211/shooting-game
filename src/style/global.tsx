@@ -9,8 +9,6 @@ const globalStyle = css`
   }
   body {
     margin: 0px;
-    width: 100vw;
-    height: 100vh;
     color: ${white};
     background-color: ${blue};
     ${regularFont}
