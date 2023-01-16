@@ -30,8 +30,6 @@ function Container() {
     }));
   };
 
-  console.log(targetInfo.clicked);
-
   return (
     <Changer x={targetInfo.x} y={targetInfo.y} clicked={targetInfo.clicked}>
       <Presenter handleClicked={handleClicked} />
