@@ -1,7 +1,8 @@
 import React from "react";
+import { Layout } from "../components";
 
 function Board() {
-  return <>BOARD</>;
+  return <Layout indexPage={false}>BOARD</Layout>;
 }
 
 export default Board;

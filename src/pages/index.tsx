@@ -1,12 +1,28 @@
 import React from "react";
-import TargetBoard from "../components/target-board/Container";
+import styled from "@emotion/styled";
+import { Layout, Box, TargetBoard } from "../components";
 
 function Home() {
   return (
-    <>
-      <TargetBoard></TargetBoard>
-    </>
+    <Layout indexPage>
+      <Wrapper>
+        <TargetBoard></TargetBoard>
+      </Wrapper>
+      <BoxWrapper>
+        <Box></Box>
+      </BoxWrapper>
+    </Layout>
   );
 }
 
 export default Home;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 500px;
+`;
+
+const BoxWrapper = styled.div`
+  width: 100%;
+  height: 600px;
+`;

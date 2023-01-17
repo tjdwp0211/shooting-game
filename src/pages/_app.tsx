@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import Layout from "../components/layout/Layout";
 import { globalStyle } from "../style/global";
 import { Global } from "@emotion/react";
 
@@ -11,9 +10,7 @@ function App({ Component, pageProps }) {
         <title>Test Your Click</title>
       </Head>
       <Global styles={globalStyle} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Component {...pageProps} />
     </>
   );
 }
