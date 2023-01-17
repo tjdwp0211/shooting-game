@@ -1,7 +1,5 @@
 import React from "react";
-import Circle from "./elements/Circle";
-import Line from "./elements/Line";
-import Wrapper from "./elements/Wrapper";
+import { Circle, Line, Wrapper } from "./elements/";
 
 interface PresenterProps {
   handleHit: () => void;
