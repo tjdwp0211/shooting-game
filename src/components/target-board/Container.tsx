@@ -31,11 +31,9 @@ function Container() {
   };
 
   return (
-    <>
-      <Changer x={targetInfo.x} y={targetInfo.y}>
-        <Presenter handleHit={handleHit} />
-      </Changer>
-    </>
+    <Changer x={targetInfo.x} y={targetInfo.y}>
+      <Presenter handleHit={handleHit} />
+    </Changer>
   );
 }
 
