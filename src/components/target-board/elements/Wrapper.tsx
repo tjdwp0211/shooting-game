@@ -4,11 +4,11 @@ import { css } from "@emotion/react";
 
 interface WrapperProps {
   children: React.ReactNode;
-  handleClicked: () => void;
+  handleHit: () => void;
 }
 
-function Wrapper({ children, handleClicked }: WrapperProps) {
-  return <Container onClick={handleClicked}>{children}</Container>;
+function Wrapper({ children, handleHit }: WrapperProps) {
+  return <Container onClick={handleHit}>{children}</Container>;
 }
 
 export default Wrapper;
