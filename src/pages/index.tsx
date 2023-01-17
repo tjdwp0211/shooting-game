@@ -1,17 +1,12 @@
 import React from "react";
-import styled from "@emotion/styled";
+import TargetBoard from "../components/target-board/Container";
 
 function Home() {
   return (
     <>
-      <Wrapper>안녕하세요</Wrapper>
-      <EnWrapper>hi everyone</EnWrapper>
+      <TargetBoard></TargetBoard>
     </>
   );
 }
 
 export default Home;
-
-const Wrapper = styled.div``;
-
-const EnWrapper = styled.div``;

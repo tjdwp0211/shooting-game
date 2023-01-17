@@ -4,12 +4,12 @@ import Line from "./elements/Line";
 import Wrapper from "./elements/Wrapper";
 
 interface PresenterProps {
-  handleClicked: () => void;
+  handleHit: () => void;
 }
 
-function Presenter({ handleClicked }: PresenterProps) {
+function Presenter({ handleHit }: PresenterProps) {
   return (
-    <Wrapper handleClicked={handleClicked}>
+    <Wrapper handleHit={handleHit}>
       <Circle radius={100}></Circle>
       <Circle radius={70}></Circle>
       <Circle radius={40}></Circle>
