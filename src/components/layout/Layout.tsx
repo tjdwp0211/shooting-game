@@ -1,17 +1,16 @@
 import React from "react";
-import Footer from "./elements/Footer";
-import Header from "./elements/Header";
-import Main from "./elements/Main";
+import { Header, Main, Footer } from "./elements";
 
 interface LayoutProps {
   children: React.ReactNode;
+  indexPage: boolean;
 }
 
-function Layout({ children }: LayoutProps) {
+function Layout({ children, indexPage }: LayoutProps) {
   return (
     <>
       <Header />
-      <Main>{children}</Main>
+      <Main indexPage={indexPage}>{children}</Main>
       <Footer />
     </>
   );
