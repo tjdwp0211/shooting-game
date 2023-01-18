@@ -37,6 +37,9 @@ const Root = styled.div`
   width: fit-content;
   height: fit-content;
   position: absolute;
+  * {
+    border-radius: 50%;
+  }
 `;
 
 const CoordinatesChanger = styled(Root)<{

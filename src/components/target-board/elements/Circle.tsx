@@ -15,6 +15,7 @@ const CircleElement = styled.div<{ size: number }>`
   border-radius: 50%;
   border: 3px solid white;
   background-color: rgba(168, 222, 255, 0.4);
+  cursor: pointer;
   @media (prefers-color-scheme: dark) {
     background-color: rgba(217, 205, 184, 0.4);
   }
