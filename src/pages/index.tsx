@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { Layout, Box, TargetBoard } from "../components";
+import { Layout, Box, TargetBoard, CurGameState } from "../components";
 
 function Home() {
+  const [gameStart, setGameStart] = useState(false);
+  const handleGameStart = () => setGameStart((prev) => !prev);
+
   return (
     <Layout indexPage>
       <Wrapper>
-        <TargetBoard></TargetBoard>
+        <TargetBoard gameStart={gameStart} handleGameStart={handleGameStart} />
       </Wrapper>
+      <CurGameState gameStart={gameStart} />
       <BoxWrapper>
         <Box></Box>
       </BoxWrapper>
