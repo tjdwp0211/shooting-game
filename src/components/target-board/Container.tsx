@@ -1,14 +1,8 @@
 import React, { useCallback, useState } from "react";
-import styled from "@emotion/styled";
 import Presenter from "./Presenter";
+import { ContainerProps, TargetInfo } from "../../type/targetBoardType";
 
-interface TargetInfo {
-  x: number;
-  y: number;
-  hit: boolean;
-}
-
-function Container() {
+function Container({ gameStart, handleGameStart }: ContainerProps) {
   const [targetInfo, setTargetInfo] = useState<TargetInfo>({
     x: Math.random(),
     y: Math.random(),
@@ -22,6 +16,7 @@ function Container() {
     }),
     []
   );
+
   const handleHit = () => {
     setTargetInfo((prev) => ({
       ...prev,
@@ -29,37 +24,16 @@ function Container() {
       ...randomCoordinates(),
     }));
   };
+  console.log(gameStart);
 
   return (
-    <Changer x={targetInfo.x} y={targetInfo.y}>
-      <Presenter handleHit={handleHit} />
-    </Changer>
+    <Presenter
+      gameStart={gameStart}
+      targetInfo={targetInfo}
+      handleGameStart={handleGameStart}
+      handleHit={handleHit}
+    />
   );
 }
 
 export default Container;
-
-const Changer = styled.div<{
-  x: number;
-  y: number;
-}>`
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  @media (width > 1020px) {
-    transform: translateX(${(props) => props.x * 1000}px)
-      translateY(${(porps) => porps.y * 200}px) scaleX(1) scaleY(1);
-  }
-  @media (830px < width < 1020px) {
-    transform: translateX(${(props) => props.x * 700}px)
-      translateY(${(porps) => porps.y * 200}px) scaleX(1) scaleY(1);
-  }
-  @media (500px < width < 830px) {
-    transform: translateX(${(props) => props.x * 500}px)
-      translateY(${(porps) => porps.y * 200}px) scaleX(1) scaleY(1);
-  }
-  @media (width < 500px) {
-    transform: translateX(${(props) => props.x * 300}px)
-      translateY(${(porps) => porps.y * 200}px) scaleX(1) scaleY(1);
-  }
-`;
