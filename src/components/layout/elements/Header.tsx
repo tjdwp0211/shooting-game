@@ -7,7 +7,9 @@ import Link from "next/link";
 function Header() {
   return (
     <HeaderContainer>
-      <TextButton className="text-button">What About Your Click</TextButton>
+      <Link href={"/"}>
+        <TextButton className="text-button">What About Your Click</TextButton>
+      </Link>
       <Link href={"/board"}>
         <TextButton className="text-button">BOARD</TextButton>
       </Link>
