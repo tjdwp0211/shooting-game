@@ -18,4 +18,24 @@ interface PresenterProps {
   handleGameStart: () => void;
 }
 
-export type { TargetInfo, ContainerProps, PresenterProps };
+interface WrapperProps {
+  children: React.ReactNode;
+  handleHit: () => void;
+}
+
+interface LineProps {
+  rotation: boolean;
+}
+
+interface CircleProps {
+  radius: number;
+}
+
+export type {
+  TargetInfo,
+  ContainerProps,
+  PresenterProps,
+  WrapperProps,
+  LineProps,
+  CircleProps,
+};
