@@ -11,9 +11,10 @@ function Line({ rotation }: LineProps) {
 
 export default Line;
 
-const LineElement = styled.line<{ rotation: boolean }>`
+const LineElement = styled.hr<{ rotation: boolean }>`
   background-color: white;
   width: ${(props) => (props.rotation ? "3px" : "100%")};
   height: ${(props) => (props.rotation ? "100%" : "3px")};
   position: absolute;
+  border: none;
 `;
