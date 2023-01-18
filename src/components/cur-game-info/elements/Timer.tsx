@@ -1,19 +1,23 @@
 import React, { useRef, useState } from "react";
 import styled from "@emotion/styled";
 import { boldFont } from "../../../style/fonts/inedx";
+import { TimerProps } from "../../../type/curGameStateType";
 
-function Timer() {
+function Timer({ gameStart }: TimerProps) {
   const timerRef = useRef<NodeJS.Timeout>();
   const [timer, setTimer] = useState<number>(0);
 
-  if (timerRef.current) {
-    clearInterval(timerRef.current);
-    timerRef.current = null;
-  }
+  const timeIsTickTock = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+    timerRef.current = setInterval(() => setTimer((prev) => prev + 1), 1000);
+    return timer;
+  };
 
-  timerRef.current = setInterval(() => setTimer((prev) => prev + 1), 1000);
-
-  return <Container>{timer}s</Container>;
+  if (!gameStart) return <Container>{timer}s</Container>;
+  else return <Container>{timeIsTickTock()}s</Container>;
 }
 
 export default Timer;
