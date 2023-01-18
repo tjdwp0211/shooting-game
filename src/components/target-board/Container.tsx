@@ -24,7 +24,6 @@ function Container({ gameStart, handleGameStart }: ContainerProps) {
       ...randomCoordinates(),
     }));
   };
-  console.log(gameStart);
 
   return (
     <Presenter

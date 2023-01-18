@@ -1,9 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-
-interface CircleProps {
-  radius: number;
-}
+import { CircleProps } from "../../../type/targetBoardType";
 
 function Circle({ radius }: CircleProps) {
   return <CircleElement size={radius} />;

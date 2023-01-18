@@ -1,11 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-
-interface WrapperProps {
-  children: React.ReactNode;
-  handleHit: () => void;
-}
+import { WrapperProps } from "../../../type/targetBoardType";
 
 function Wrapper({ children, handleHit }: WrapperProps) {
   return <Container onClick={handleHit}>{children}</Container>;
