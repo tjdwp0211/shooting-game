@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 import { regularFont } from "./fonts/inedx";
-import { black, blue, white } from "./palette/palette";
+import { black, blue, lightGray, white } from "./palette/palette";
 
 const globalStyle = css`
   * {
@@ -13,7 +13,7 @@ const globalStyle = css`
     color: ${white};
     @media (prefers-color-scheme: dark) {
       background-color: ${black};
-      color: ${white};
+      color: ${lightGray};
     }
     ${regularFont}
   }
