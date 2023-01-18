@@ -1,5 +1,7 @@
 import React from "react";
 import Head from "next/head";
+import store from "../redux/root";
+import { Provider } from "react-redux";
 import { globalStyle } from "../style/global";
 import { Global } from "@emotion/react";
 
@@ -10,7 +12,9 @@ function App({ Component, pageProps }) {
         <title>Test Your Click</title>
       </Head>
       <Global styles={globalStyle} />
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }
