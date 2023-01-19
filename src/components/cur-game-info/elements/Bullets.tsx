@@ -1,16 +1,27 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { boldFont } from "../../../style/fonts/inedx";
+import BulletImgs from "./BulletImgs";
+import { useSelector } from "react-redux";
+import { RootStore } from "../../../redux/root";
 
 function Bullets() {
-  return <Container>Bullet: {30}</Container>;
+  const { remainBullets } = useSelector((state: RootStore) => state.gameState);
+
+  return (
+    <Container>
+      Remain: {remainBullets}
+      <BulletImgs />
+    </Container>
+  );
 }
 
 export default Bullets;
 
-const Container = styled.div`
+const Container = styled.article`
   width: fit-content;
   height: fit-content;
   font-size: 30px;
-  ${boldFont}
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `;
