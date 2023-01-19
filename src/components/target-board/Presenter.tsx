@@ -20,9 +20,11 @@ function Presenter(props: PresenterProps) {
     <>
       {waitingForGameStart(
         <Wrapper handleHit={handleHit}>
-          <Circle radius={100}></Circle>
-          <Circle radius={70}></Circle>
-          <Circle radius={40}></Circle>
+          <Circle radius={100} background={"#f2f5f5"}></Circle>
+          <Circle radius={85} background={"#2f3030"}></Circle>
+          <Circle radius={65} background={"#1a21ed"}></Circle>
+          <Circle radius={40} background={"#fc1212"}></Circle>
+          <Circle radius={20} background={"#edea26"}></Circle>
           <Line rotation={true} />
           <Line rotation={false} />
         </Wrapper>
@@ -37,7 +39,7 @@ const Root = styled.div`
   width: fit-content;
   height: fit-content;
   position: absolute;
-  * {
+  *:not(hr) {
     border-radius: 50%;
   }
 `;
