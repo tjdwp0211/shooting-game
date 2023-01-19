@@ -29,6 +29,7 @@ interface LineProps {
 
 interface CircleProps {
   radius: number;
+  background: string;
 }
 
 export type {
