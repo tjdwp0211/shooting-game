@@ -1,12 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
+import gameStateReducer from "./gameState/reducer";
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    gameState: gameStateReducer,
+  },
 });
 
 export type Dispatch = typeof store.dispatch;
-export const dispatcher = () => useDispatch<Dispatch>();
+export const dispatch = () => useDispatch<Dispatch>();
 
-export type Root = ReturnType<typeof store.getState>;
+export type RootStore = ReturnType<typeof store.getState>;
 export default store;
