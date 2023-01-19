@@ -2,6 +2,13 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Circle, Line, Wrapper } from "./elements/";
 import { PresenterProps } from "../../type/targetBoardType";
+import {
+  blue,
+  lightBlack,
+  red,
+  white,
+  yellow,
+} from "../../style/palette/palette";
 
 function Presenter(props: PresenterProps) {
   const { targetInfo, gameStart, handleHit, handleGameStart } = props;
@@ -20,11 +27,11 @@ function Presenter(props: PresenterProps) {
     <>
       {waitingForGameStart(
         <Wrapper handleHit={handleHit}>
-          <Circle radius={100} background={"#f2f5f5"}></Circle>
-          <Circle radius={85} background={"#2f3030"}></Circle>
-          <Circle radius={65} background={"#1a21ed"}></Circle>
-          <Circle radius={40} background={"#fc1212"}></Circle>
-          <Circle radius={20} background={"#edea26"}></Circle>
+          <Circle radius={100} background={white}></Circle>
+          <Circle radius={85} background={lightBlack}></Circle>
+          <Circle radius={65} background={blue}></Circle>
+          <Circle radius={40} background={red}></Circle>
+          <Circle radius={20} background={yellow}></Circle>
           <Line rotation={true} />
           <Line rotation={false} />
         </Wrapper>
