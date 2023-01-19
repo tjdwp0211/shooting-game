@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import styled from "@emotion/styled";
-import { boldFont } from "../../../style/fonts/inedx";
 import { TimerProps } from "../../../type/curGameStateType";
 
 function Timer({ gameStart }: TimerProps) {
@@ -26,5 +25,4 @@ const Container = styled.div`
   width: fit-content;
   height: fit-content;
   font-size: 30px;
-  ${boldFont}
 `;

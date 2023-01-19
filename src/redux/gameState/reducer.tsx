@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface InitialState {
-  remainShot: number;
+  remainBullets: number;
   stackingHit: boolean[];
 }
 
 const initialState: InitialState = {
-  remainShot: 30,
+  remainBullets: 30,
   stackingHit: [],
 };
 
@@ -15,7 +15,7 @@ const gameStatus = createSlice({
   initialState: initialState,
   reducers: {
     pullTrigger(state, action: PayloadAction<boolean>) {
-      state.remainShot = state.remainShot - 1;
+      state.remainBullets = state.remainBullets - 1;
       state.stackingHit.push(action.payload);
     },
   },

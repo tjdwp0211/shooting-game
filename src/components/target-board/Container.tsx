@@ -1,8 +1,11 @@
 import React, { useCallback, useState } from "react";
 import Presenter from "./Presenter";
 import { ContainerProps, TargetInfo } from "../../type/targetBoardType";
+import { useDispatch } from "react-redux";
+import { pullTrigger } from "../../redux/gameState/reducer";
 
 function Container({ gameStart, handleGameStart }: ContainerProps) {
+  const dispatch = useDispatch();
   const [targetInfo, setTargetInfo] = useState<TargetInfo>({
     x: Math.random(),
     y: Math.random(),
@@ -23,6 +26,7 @@ function Container({ gameStart, handleGameStart }: ContainerProps) {
       hit: !prev.hit,
       ...randomCoordinates(),
     }));
+    dispatch(pullTrigger(targetInfo.hit));
   };
 
   return (
