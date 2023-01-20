@@ -18,9 +18,11 @@ const gameStatus = createSlice({
       state.remainBullets = state.remainBullets - 1;
       state.stackingHit.push(action.payload);
     },
+    reloadbullets(state) {
+      state.remainBullets = 30;
+      state.stackingHit = [];
+    },
   },
 });
 
-const { reducer, actions } = gameStatus;
-export const { pullTrigger } = actions;
-export default reducer;
+export const { reducer, actions } = gameStatus;
