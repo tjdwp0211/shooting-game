@@ -7,11 +7,15 @@ import { pullTrigger } from "../redux/root";
 
 function Home() {
   const dispatch = useDispatch();
-  const [gameStart, setGameStart] = useState(false);
+  const [gameProgress, setGameProgress] = useState({
+    start: false,
+    checkScore: false,
+  });
 
   const handleStackingHit = (hit: boolean, e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!gameStart) setGameStart((prev) => !prev);
+    if (!gameProgress.start)
+      setGameProgress((prev) => ({ ...prev, start: !prev.start }));
     else dispatch(pullTrigger(hit));
   };
 
@@ -31,13 +35,16 @@ function Home() {
   return (
     <Layout indexPage>
       <Wrapper onClick={(e) => handleStackingHit(false, e)}>
-        {!gameStart && containTexts()}
+        {!gameProgress.start && containTexts()}
         <TargetBoard
-          gameStart={gameStart}
+          gameProgress={gameProgress}
           handleStackingHit={handleStackingHit}
         />
       </Wrapper>
-      <CurGameState gameStart={gameStart} setGameStart={setGameStart} />
+      <CurGameState
+        gameProgress={gameProgress}
+        setGameProgress={setGameProgress}
+      />
       <BoxWrapper>
         <Box>
           <></>
