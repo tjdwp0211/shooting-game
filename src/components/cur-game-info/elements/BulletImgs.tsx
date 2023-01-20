@@ -18,7 +18,11 @@ export default BulletImgs;
 
 const ImgsWrapper = styled.div`
   display: flex;
+  flex-direction: row-reverse;
   gap: 4px;
+  width: calc((0.5vw + 4px) * 30 - 4px);
+  max-width: calc(16px * 30);
+  min-width: calc(4px * 30);
 `;
 
 const Img = styled.div`
