@@ -1,26 +1,26 @@
 import React from "react";
 
-interface TargetInfo {
+interface TargetCoordinates {
   x: number;
   y: number;
-  hit: boolean;
 }
 
 interface ContainerProps {
   gameStart: boolean;
-  handleGameStart: () => void;
+  handleStackingHit: (hit: boolean, e: React.MouseEvent) => void;
 }
 
 interface PresenterProps {
-  targetInfo: TargetInfo;
+  targetCoordinates: TargetCoordinates;
   gameStart: boolean;
-  handleHit: () => void;
-  handleGameStart: () => void;
+  handleCoordinates: () => void;
+  handleStackingHit: (hit: boolean, e: React.MouseEvent) => void;
 }
 
 interface WrapperProps {
   children: React.ReactNode;
-  handleHit: () => void;
+  handleCoordinates: () => void;
+  handleStackingHit: (hit: boolean, e: React.MouseEvent) => void;
 }
 
 interface LineProps {
@@ -33,7 +33,7 @@ interface CircleProps {
 }
 
 export type {
-  TargetInfo,
+  TargetCoordinates,
   ContainerProps,
   PresenterProps,
   WrapperProps,

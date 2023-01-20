@@ -14,7 +14,4 @@ const LineElement = styled.hr<{ rotation: boolean }>`
   height: ${(props) => (props.rotation ? "100%" : "3px")};
   position: absolute;
   border: none;
-  @media (prefers-color-scheme: dark) {
-    opacity: 0.9;
-  }
 `;

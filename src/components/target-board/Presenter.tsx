@@ -11,13 +11,14 @@ import {
 } from "../../style/palette/palette";
 
 function Presenter(props: PresenterProps) {
-  const { targetInfo, gameStart, handleHit, handleGameStart } = props;
+  const { targetCoordinates, gameStart, handleCoordinates, handleStackingHit } =
+    props;
 
   const waitingForGameStart = (children: React.ReactNode) => {
     return !gameStart ? (
-      <CoordinatesFixer onClick={handleGameStart}>{children}</CoordinatesFixer>
+      <CoordinatesFixer>{children}</CoordinatesFixer>
     ) : (
-      <CoordinatesChanger x={targetInfo.x} y={targetInfo.y}>
+      <CoordinatesChanger x={targetCoordinates.x} y={targetCoordinates.y}>
         {children}
       </CoordinatesChanger>
     );
@@ -26,7 +27,10 @@ function Presenter(props: PresenterProps) {
   return (
     <>
       {waitingForGameStart(
-        <Wrapper handleHit={handleHit}>
+        <Wrapper
+          handleCoordinates={handleCoordinates}
+          handleStackingHit={handleStackingHit}
+        >
           <Circle radius={100} background={white}></Circle>
           <Circle radius={85} background={lightBlack}></Circle>
           <Circle radius={65} background={blue}></Circle>

@@ -1,16 +1,14 @@
 import React, { useCallback, useState } from "react";
 import Presenter from "./Presenter";
-import { ContainerProps, TargetInfo } from "../../type/targetBoardType";
-import { useDispatch } from "react-redux";
-import { pullTrigger } from "../../redux/gameState/reducer";
+import { ContainerProps, TargetCoordinates } from "../../type/targetBoardType";
 
-function Container({ gameStart, handleGameStart }: ContainerProps) {
-  const dispatch = useDispatch();
-  const [targetInfo, setTargetInfo] = useState<TargetInfo>({
-    x: Math.random(),
-    y: Math.random(),
-    hit: false,
-  });
+function Container({ gameStart, handleStackingHit }: ContainerProps) {
+  const [targetCoordinates, setTargetCoordinates] = useState<TargetCoordinates>(
+    {
+      x: Math.random(),
+      y: Math.random(),
+    }
+  );
 
   const randomCoordinates = useCallback(
     () => ({
@@ -20,21 +18,16 @@ function Container({ gameStart, handleGameStart }: ContainerProps) {
     []
   );
 
-  const handleHit = () => {
-    setTargetInfo((prev) => ({
-      ...prev,
-      hit: !prev.hit,
-      ...randomCoordinates(),
-    }));
-    dispatch(pullTrigger(targetInfo.hit));
+  const handleCoordinates = () => {
+    setTargetCoordinates({ ...randomCoordinates() });
   };
 
   return (
     <Presenter
       gameStart={gameStart}
-      targetInfo={targetInfo}
-      handleGameStart={handleGameStart}
-      handleHit={handleHit}
+      targetCoordinates={targetCoordinates}
+      handleStackingHit={handleStackingHit}
+      handleCoordinates={handleCoordinates}
     />
   );
 }

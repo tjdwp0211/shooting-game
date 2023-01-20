@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
 import React from "react";
+import styled from "@emotion/styled";
 import { CircleProps } from "../../../type/targetBoardType";
 
 function Circle({ radius, background }: CircleProps) {
@@ -15,8 +15,4 @@ const CircleElement = styled.div<{ size: number; background: string }>`
   border-radius: 50%;
   border: 3px solid white;
   background-color: ${(props) => props.background};
-  cursor: pointer;
-  @media (prefers-color-scheme: dark) {
-    opacity: 0.9;
-  }
 `;
