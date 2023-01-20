@@ -11,11 +11,15 @@ import {
 } from "../../style/palette/palette";
 
 function Presenter(props: PresenterProps) {
-  const { targetCoordinates, gameStart, handleCoordinates, handleStackingHit } =
-    props;
+  const {
+    targetCoordinates,
+    gameProgress,
+    handleCoordinates,
+    handleStackingHit,
+  } = props;
 
   const waitingForGameStart = (children: React.ReactNode) => {
-    return !gameStart ? (
+    return !gameProgress.start ? (
       <CoordinatesFixer>{children}</CoordinatesFixer>
     ) : (
       <CoordinatesChanger x={targetCoordinates.x} y={targetCoordinates.y}>

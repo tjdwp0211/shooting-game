@@ -4,11 +4,11 @@ import { Timer, Bullets } from "./elements";
 import { CurGameStateProps } from "../../type/curGameStateType";
 import { boldFont } from "../../style/fonts/inedx";
 
-function CurGameState({ gameStart, setGameStart }: CurGameStateProps) {
+function CurGameState({ gameProgress, setGameProgress }: CurGameStateProps) {
   return (
     <Wrapper>
-      <Timer gameStart={gameStart} />
-      <Bullets setGameStart={setGameStart} />
+      <Timer gameProgress={gameProgress} />
+      <Bullets setGameProgress={setGameProgress} />
     </Wrapper>
   );
 }

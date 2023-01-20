@@ -1,14 +1,11 @@
-import React, { Dispatch, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import BulletImgs from "./BulletImgs";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore, reloadbullets } from "../../../redux/root";
+import { BulletsProps } from "../../../type/curGameStateType";
 
-interface BulletsProps {
-  setGameStart: Dispatch<React.SetStateAction<boolean>>;
-}
-
-function Bullets({ setGameStart }: BulletsProps) {
+function Bullets({ setGameProgress }: BulletsProps) {
   const dispatch = useDispatch();
   const { remainBullets } = useSelector((state: RootStore) => state.gameState);
 
@@ -16,7 +13,7 @@ function Bullets({ setGameStart }: BulletsProps) {
     if (remainBullets === 1)
       return () => {
         dispatch(reloadbullets());
-        setGameStart(false);
+        setGameProgress({ start: false, checkScore: true });
       };
   }, [remainBullets]);
 
@@ -31,7 +28,6 @@ function Bullets({ setGameStart }: BulletsProps) {
 export default Bullets;
 
 const Container = styled.article`
-  width: fit-content;
   height: fit-content;
   font-size: 30px;
   display: flex;

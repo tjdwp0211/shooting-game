@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import Presenter from "./Presenter";
 import { ContainerProps, TargetCoordinates } from "../../type/targetBoardType";
 
-function Container({ gameStart, handleStackingHit }: ContainerProps) {
+function Container({ gameProgress, handleStackingHit }: ContainerProps) {
   const [targetCoordinates, setTargetCoordinates] = useState<TargetCoordinates>(
     {
       x: Math.random(),
@@ -24,7 +24,7 @@ function Container({ gameStart, handleStackingHit }: ContainerProps) {
 
   return (
     <Presenter
-      gameStart={gameStart}
+      gameProgress={gameProgress}
       targetCoordinates={targetCoordinates}
       handleStackingHit={handleStackingHit}
       handleCoordinates={handleCoordinates}
