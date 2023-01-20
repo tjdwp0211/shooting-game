@@ -2,10 +2,18 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { boldFont, regularFont } from "../style/fonts/inedx";
 import { TargetBoard, CurGameState, Layout, Box, Text } from "../components";
+import { useDispatch } from "react-redux";
+import { pullTrigger } from "../redux/root";
 
 function Home() {
+  const dispatch = useDispatch();
   const [gameStart, setGameStart] = useState(false);
-  const handleGameStart = () => setGameStart((prev) => !prev);
+
+  const handleStackingHit = (hit: boolean, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!gameStart) setGameStart((prev) => !prev);
+    else dispatch(pullTrigger(hit));
+  };
 
   const containTexts = () => {
     return (
@@ -22,11 +30,14 @@ function Home() {
 
   return (
     <Layout indexPage>
-      <Wrapper>
+      <Wrapper onClick={(e) => handleStackingHit(false, e)}>
         {!gameStart && containTexts()}
-        <TargetBoard gameStart={gameStart} handleGameStart={handleGameStart} />
+        <TargetBoard
+          gameStart={gameStart}
+          handleStackingHit={handleStackingHit}
+        />
       </Wrapper>
-      <CurGameState gameStart={gameStart} />
+      <CurGameState gameStart={gameStart} setGameStart={setGameStart} />
       <BoxWrapper>
         <Box>
           <></>

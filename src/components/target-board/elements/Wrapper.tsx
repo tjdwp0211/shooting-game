@@ -2,8 +2,15 @@ import React from "react";
 import styled from "@emotion/styled";
 import { WrapperProps } from "../../../type/targetBoardType";
 
-function Wrapper({ children, handleHit }: WrapperProps) {
-  return <Container onClick={handleHit}>{children}</Container>;
+function Wrapper(props: WrapperProps) {
+  const { children, handleCoordinates, handleStackingHit } = props;
+
+  const handleClick = (e: React.MouseEvent) => {
+    handleCoordinates();
+    handleStackingHit(true, e);
+  };
+
+  return <Container onClick={handleClick}>{children}</Container>;
 }
 
 export default Wrapper;
@@ -19,6 +26,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   animation: come-out-motion 0.2s ease;
+  opacity: 0.9;
+  cursor: pointer;
+
   :active {
     animation: slip-away-motion 0.2s ease;
   }
