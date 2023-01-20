@@ -1,11 +1,24 @@
-import React from "react";
+import React, { Dispatch, useEffect } from "react";
 import styled from "@emotion/styled";
 import BulletImgs from "./BulletImgs";
-import { useSelector } from "react-redux";
-import { RootStore } from "../../../redux/root";
+import { useDispatch, useSelector } from "react-redux";
+import { RootStore, reloadbullets } from "../../../redux/root";
 
-function Bullets() {
+interface BulletsProps {
+  setGameStart: Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Bullets({ setGameStart }: BulletsProps) {
+  const dispatch = useDispatch();
   const { remainBullets } = useSelector((state: RootStore) => state.gameState);
+
+  useEffect(() => {
+    if (remainBullets === 1)
+      return () => {
+        dispatch(reloadbullets());
+        setGameStart(false);
+      };
+  }, [remainBullets]);
 
   return (
     <Container>
