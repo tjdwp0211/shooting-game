@@ -10,8 +10,11 @@ export default Line;
 
 const LineElement = styled.hr<{ rotation: boolean }>`
   background-color: white;
-  width: ${(props) => (props.rotation ? "3px" : "100%")};
-  height: ${(props) => (props.rotation ? "100%" : "3px")};
+  width: ${(props) => (props.rotation ? "2px" : "100%")};
+  height: ${(props) => (props.rotation ? "100%" : "2px")};
   position: absolute;
   border: none;
+  @media (width < 500px) {
+    display: none;
+  }
 `;
