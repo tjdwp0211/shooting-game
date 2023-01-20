@@ -6,13 +6,13 @@ interface TargetCoordinates {
 }
 
 interface ContainerProps {
-  gameStart: boolean;
+  gameProgress: { start: boolean; checkScore: boolean };
   handleStackingHit: (hit: boolean, e: React.MouseEvent) => void;
 }
 
 interface PresenterProps {
   targetCoordinates: TargetCoordinates;
-  gameStart: boolean;
+  gameProgress: { start: boolean; checkScore: boolean };
   handleCoordinates: () => void;
   handleStackingHit: (hit: boolean, e: React.MouseEvent) => void;
 }

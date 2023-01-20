@@ -1,12 +1,20 @@
 import React, { Dispatch } from "react";
 
 interface CurGameStateProps {
-  gameStart: boolean;
-  setGameStart: Dispatch<React.SetStateAction<boolean>>;
+  gameProgress: { start: boolean; checkScore: boolean };
+  setGameProgress: Dispatch<
+    React.SetStateAction<{ start: boolean; checkScore: boolean }>
+  >;
+}
+
+interface BulletsProps {
+  setGameProgress: Dispatch<
+    React.SetStateAction<{ start: boolean; checkScore: boolean }>
+  >;
 }
 
 interface TimerProps {
-  gameStart: boolean;
+  gameProgress: { start: boolean; checkScore: boolean };
 }
 
-export type { CurGameStateProps, TimerProps };
+export type { CurGameStateProps, BulletsProps, TimerProps };
