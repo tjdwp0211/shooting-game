@@ -4,11 +4,11 @@ import { Timer, Bullets } from "./elements";
 import { CurGameStateProps } from "../../type/curGameStateType";
 import { boldFont } from "../../style/fonts/inedx";
 
-function CurGameState({ gameStart }: CurGameStateProps) {
+function CurGameState({ gameStart, setGameStart }: CurGameStateProps) {
   return (
     <Wrapper>
       <Timer gameStart={gameStart} />
-      <Bullets />
+      <Bullets setGameStart={setGameStart} />
     </Wrapper>
   );
 }

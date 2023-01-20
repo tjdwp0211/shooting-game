@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Dispatch } from "react";
 
 interface CurGameStateProps {
   gameStart: boolean;
+  setGameStart: Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface TimerProps {

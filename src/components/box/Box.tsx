@@ -19,6 +19,6 @@ const Container = styled.div`
   color: ${black};
   @media (prefers-color-scheme: dark) {
     background-color: ${lightGray};
-    color: ${black};
+    color: white;
   }
 `;
