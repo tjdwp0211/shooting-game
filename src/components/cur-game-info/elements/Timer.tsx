@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import styled from "@emotion/styled";
 import { TimerProps } from "../../../type/curGameStateType";
 
-function Timer({ gameStart }: TimerProps) {
+function Timer({ gameProgress }: TimerProps) {
   const timerRef = useRef<NodeJS.Timeout>();
   const [timer, setTimer] = useState<number>(0);
 
@@ -11,24 +11,40 @@ function Timer({ gameStart }: TimerProps) {
     timerRef.current = null;
   };
 
-  if (timerRef.current || !gameStart) clearTimer();
+  if (timerRef.current || !gameProgress.start) clearTimer();
 
   const timeIsTickTock = () => {
     timerRef.current = setInterval(
-      () => setTimer((prev) => (gameStart ? prev + 1 : 0)),
+      () => (gameProgress.start ? setTimer((prev) => prev + 1) : setTimer(0)),
       1000
     );
 
     return timer;
   };
 
-  return <Container>{timeIsTickTock()}s</Container>;
+  return (
+    <Container ticktock={gameProgress.start}>{timeIsTickTock()}</Container>
+  );
 }
 
 export default Timer;
 
-const Container = styled.div`
+const Container = styled.div<{ ticktock: boolean }>`
   width: fit-content;
   height: fit-content;
   font-size: 30px;
+  position: relative;
+  animation: ${(props) => props.ticktock && "focus 1s infinite alternate"};
+  ::after {
+    content: "s";
+    position: absolute;
+  }
+  @keyframes focus {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
 `;
