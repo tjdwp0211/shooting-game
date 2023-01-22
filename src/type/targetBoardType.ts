@@ -7,20 +7,20 @@ interface TargetCoordinates {
 
 interface ContainerProps {
   gameProgress: { start: boolean; checkScore: boolean };
-  handleStackingHit: (hit: boolean, e: React.MouseEvent) => void;
+  handleStackingHit: (e: React.MouseEvent) => void;
 }
 
 interface PresenterProps {
   targetCoordinates: TargetCoordinates;
   gameProgress: { start: boolean; checkScore: boolean };
   handleCoordinates: () => void;
-  handleStackingHit: (hit: boolean, e: React.MouseEvent) => void;
+  handleStackingHit: (e: React.MouseEvent) => void;
 }
 
 interface WrapperProps {
   children: React.ReactNode;
   handleCoordinates: () => void;
-  handleStackingHit: (hit: boolean, e: React.MouseEvent) => void;
+  handleStackingHit: (e: React.MouseEvent) => void;
 }
 
 interface LineProps {
