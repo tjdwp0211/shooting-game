@@ -4,6 +4,7 @@ import { boldFont, regularFont } from "../style/fonts/inedx";
 import { TargetBoard, CurGameState, Layout, Box, Text } from "../components";
 import { useDispatch } from "react-redux";
 import { pullTrigger } from "../redux/root";
+import Presenter from "../components/check-score/Presenter";
 
 function Home() {
   const dispatch = useDispatch();
@@ -12,11 +13,11 @@ function Home() {
     checkScore: false,
   });
 
-  const handleStackingHit = (hit: boolean, e: React.MouseEvent) => {
+  const handleStackingHit = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!gameProgress.start)
       setGameProgress((prev) => ({ ...prev, start: !prev.start }));
-    else dispatch(pullTrigger(hit));
+    else dispatch(pullTrigger(e.currentTarget.id === "hit"));
   };
 
   const containTexts = () => {
@@ -34,7 +35,8 @@ function Home() {
 
   return (
     <Layout indexPage>
-      <Wrapper onClick={(e) => handleStackingHit(false, e)}>
+      {gameProgress.checkScore && <Presenter />}
+      <Wrapper onClick={handleStackingHit}>
         {!gameProgress.start && containTexts()}
         <TargetBoard
           gameProgress={gameProgress}
