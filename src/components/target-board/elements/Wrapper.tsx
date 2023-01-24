@@ -4,13 +4,16 @@ import { WrapperProps } from "../../../type/targetBoardType";
 
 function Wrapper(props: WrapperProps) {
   const { children, handleCoordinates, handleStackingHit } = props;
-
   const handleClick = (e: React.MouseEvent) => {
     handleCoordinates();
-    handleStackingHit(true, e);
+    handleStackingHit(e);
   };
 
-  return <Container onClick={handleClick}>{children}</Container>;
+  return (
+    <Container id="hit" onClick={handleClick}>
+      {children}
+    </Container>
+  );
 }
 
 export default Wrapper;
