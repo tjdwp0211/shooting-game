@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import BulletImgs from "./BulletImgs";
+import Text from "../../text/Text";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore, reloadbullets } from "../../../redux/root";
 import { BulletsProps } from "../../../type/curGameStateType";
+import { boldFont, regularFont } from "../../../style/fonts/inedx";
 
 function Bullets({ setGameProgress }: BulletsProps) {
   const dispatch = useDispatch();
@@ -19,7 +21,14 @@ function Bullets({ setGameProgress }: BulletsProps) {
 
   return (
     <Container>
-      Remain: {remainBullets}
+      <RemainWrapper>
+        <Text size={32} weight={boldFont}>
+          {remainBullets}
+        </Text>
+        <Text size={12} weight={regularFont}>
+          / 30
+        </Text>
+      </RemainWrapper>
       <BulletImgs />
     </Container>
   );
@@ -29,8 +38,16 @@ export default Bullets;
 
 const Container = styled.article`
   height: fit-content;
-  font-size: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+`;
+
+const RemainWrapper = styled.div`
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  p:nth-of-type(2) {
+    padding: 12% 0px 0px 0px;
+  }
 `;
