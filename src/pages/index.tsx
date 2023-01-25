@@ -36,17 +36,19 @@ function Home() {
   return (
     <Layout indexPage>
       {gameProgress.checkScore && <Presenter />}
-      <Wrapper onClick={handleStackingHit}>
-        {!gameProgress.start && containTexts()}
-        <TargetBoard
+      <ResponsiveWrapper>
+        <Wrapper onClick={handleStackingHit}>
+          {!gameProgress.start && containTexts()}
+          <TargetBoard
+            gameProgress={gameProgress}
+            handleStackingHit={handleStackingHit}
+          />
+        </Wrapper>
+        <CurGameState
           gameProgress={gameProgress}
-          handleStackingHit={handleStackingHit}
+          setGameProgress={setGameProgress}
         />
-      </Wrapper>
-      <CurGameState
-        gameProgress={gameProgress}
-        setGameProgress={setGameProgress}
-      />
+      </ResponsiveWrapper>
       <BoxWrapper>
         <Box>
           <></>
@@ -78,4 +80,9 @@ const TextsWrapper = styled.div`
 const BoxWrapper = styled.div`
   width: 100%;
   height: 600px;
+`;
+
+const ResponsiveWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
 `;
