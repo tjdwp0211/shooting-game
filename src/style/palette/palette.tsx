@@ -19,7 +19,7 @@ const {
   blue: "#1a21ed",
   lightBlue: "#3279A6",
   gray: "#3B3C40",
-  lightGray: "#ffffffb2",
+  lightGray: "#B2B2B6",
   black: "#00010D",
   lightBlack: "#2f3030",
 };
