@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { LineProps } from "../../../type/targetBoardType";
+import { LineProps } from "../../../type/components/targetBoardType";
 
 function Line({ rotation }: LineProps) {
   return <LineElement rotation={rotation}></LineElement>;

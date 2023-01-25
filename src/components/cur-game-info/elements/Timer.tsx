@@ -1,13 +1,15 @@
 import React, { useRef } from "react";
 import styled from "@emotion/styled";
-import { RootStore, timeTickTock } from "../../../redux/root";
+import { Store, timeTickTock } from "../../../redux/root";
 import { TimerProps } from "../../../type/components/curGameStateType";
 import { useDispatch, useSelector } from "react-redux";
+import { regularFont } from "../../../style/fonts/inedx";
+import Text from "../../text/Text";
 
 function Timer({ gameProgress }: TimerProps) {
   const dispatch = useDispatch();
   const timerRef = useRef<NodeJS.Timeout>();
-  const time = useSelector((state: RootStore) => state.gameState.time);
+  const time = useSelector((state: Store) => state.gameState.time);
 
   const clearTimer = () => {
     clearInterval(timerRef.current);
@@ -26,7 +28,12 @@ function Timer({ gameProgress }: TimerProps) {
   };
 
   return (
-    <Container ticktock={gameProgress.start}>{timeIsTickTock()}</Container>
+    <Container ticktock={gameProgress.start}>
+      {timeIsTickTock()}
+      <Text size={24} weight={regularFont}>
+        s
+      </Text>
+    </Container>
   );
 }
 
@@ -35,19 +42,67 @@ export default Timer;
 const Container = styled.div<{ ticktock: boolean }>`
   width: fit-content;
   height: fit-content;
+  display: flex;
+  align-items: center;
+  p {
+    padding: 4px 0px 0px 2px;
+  }
   font-size: 30px;
   position: relative;
-  animation: ${(props) => props.ticktock && "focus 1s infinite alternate"};
-  ::after {
-    content: "s";
-    position: absolute;
-  }
+  animation: ${(props) => props.ticktock && "focus 1s infinite"};
+  -webkit-animation: ${(props) => props.ticktock && "focus 1s infinite"};
   @keyframes focus {
     from {
       transform: scale(1);
     }
-    to {
+    5%,
+    10%,
+    20%,
+    30% {
+      transform: scale(1.1);
+    }
+    35%,
+    40%,
+    50% {
       transform: scale(1.2);
+    }
+    55%,
+    60%,
+    70%,
+    80%,
+    90% {
+      transform: scale(1.3);
+    }
+    95%,
+    to {
+      transform: scale(1.3);
+    }
+  }
+  @-webkit-keyframes focus {
+    from {
+      transform: scale(1);
+    }
+    5%,
+    10%,
+    20%,
+    30% {
+      transform: scale(1.1);
+    }
+    35%,
+    40%,
+    50% {
+      transform: scale(1.2);
+    }
+    55%,
+    60%,
+    70%,
+    80%,
+    90% {
+      transform: scale(1.3);
+    }
+    95%,
+    to {
+      transform: scale(1.3);
     }
   }
 `;

@@ -3,12 +3,12 @@ import styled from "@emotion/styled";
 import BulletImgs from "./BulletImgs";
 import Text from "../../text/Text";
 import { useSelector } from "react-redux";
-import { RootStore } from "../../../redux/root";
+import { Store } from "../../../redux/root";
 import { BulletsProps } from "../../../type/components/curGameStateType";
 import { boldFont, regularFont } from "../../../style/fonts/inedx";
 
 function Bullets({ setGameProgress }: BulletsProps) {
-  const { remainBullets } = useSelector((state: RootStore) => state.gameState);
+  const { remainBullets } = useSelector((state: Store) => state.gameState);
 
   useEffect(() => {
     if (remainBullets === 1)

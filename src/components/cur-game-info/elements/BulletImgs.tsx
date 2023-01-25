@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
-import { RootStore } from "../../../redux/root";
+import { Store } from "../../../redux/root";
 import { gray } from "../../../style/palette/palette";
 
 function BulletImgs() {
-  const { remainBullets } = useSelector((state: RootStore) => state.gameState);
+  const { remainBullets } = useSelector((state: Store) => state.gameState);
 
   const createImgs = () => {
     return Array.from({ length: remainBullets }).map((_, i) => <Img key={i} />);

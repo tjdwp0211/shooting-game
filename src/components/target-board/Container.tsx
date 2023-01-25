@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from "react";
 import Presenter from "./Presenter";
-import { ContainerProps, TargetCoordinates } from "../../type/targetBoardType";
+import {
+  ContainerProps,
+  TargetCoordinates,
+} from "../../type/components/targetBoardType";
 
 function Container({ gameProgress, handleStackingHit }: ContainerProps) {
   const [targetCoordinates, setTargetCoordinates] = useState<TargetCoordinates>(

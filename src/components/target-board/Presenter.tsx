@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Circle, Line, Wrapper } from "./elements/";
-import { PresenterProps } from "../../type/targetBoardType";
+import { PresenterProps } from "../../type/components/targetBoardType";
 import {
   blue,
   lightBlack,
@@ -63,11 +63,11 @@ const CoordinatesChanger = styled(Root)<{
   x: number;
   y: number;
 }>`
-  @media (width > 1020px) {
+  @media (width > 1100px) {
     transform: translateX(${(props) => props.x * 1000}px)
       translateY(${(porps) => porps.y * 200}px) scaleX(1) scaleY(1);
   }
-  @media (830px < width < 1020px) {
+  @media (830px < width < 1100px) {
     transform: translateX(${(props) => props.x * 700}px)
       translateY(${(porps) => porps.y * 200}px) scaleX(1) scaleY(1);
   }
