@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { boldFont, regularFont } from "../style/fonts/inedx";
-import { TargetBoard, CurGameState, Layout, Box, Text } from "../components";
 import { useDispatch } from "react-redux";
 import { pullTrigger } from "../redux/root";
-import Container from "../components/check-score/Container";
 import { GameProgress } from "../type/pages/indexType";
+import {
+  TargetBoard,
+  CurGameState,
+  CheckScore,
+  Layout,
+  Box,
+  Text,
+} from "../components";
 
 function Home() {
   const dispatch = useDispatch();
@@ -13,11 +19,11 @@ function Home() {
     start: false,
     checkScore: false,
   });
+  const { start, checkScore } = gameProgress;
 
   const handleStackingHit = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!gameProgress.start)
-      setGameProgress((prev) => ({ ...prev, start: !prev.start }));
+    if (!start) setGameProgress((prev) => ({ ...prev, start: !prev.start }));
     else dispatch(pullTrigger(e.currentTarget.id === "hit"));
   };
 
@@ -36,21 +42,22 @@ function Home() {
 
   return (
     <Layout indexPage>
-      {gameProgress.checkScore && (
-        <Container setGameProgress={setGameProgress} />
-      )}
       <ResponsiveWrapper>
-        <Wrapper onClick={handleStackingHit}>
-          {!gameProgress.start && containTexts()}
-          <TargetBoard
-            gameProgress={gameProgress}
-            handleStackingHit={handleStackingHit}
-          />
-        </Wrapper>
         <CurGameState
           gameProgress={gameProgress}
           setGameProgress={setGameProgress}
         />
+        <Wrapper onClick={handleStackingHit}>
+          {!start && !checkScore && containTexts()}
+          {checkScore ? (
+            <CheckScore setGameProgress={setGameProgress} />
+          ) : (
+            <TargetBoard
+              gameProgress={gameProgress}
+              handleStackingHit={handleStackingHit}
+            />
+          )}
+        </Wrapper>
       </ResponsiveWrapper>
       <BoxWrapper>
         <Box>
@@ -87,5 +94,5 @@ const BoxWrapper = styled.div`
 
 const ResponsiveWrapper = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 `;
