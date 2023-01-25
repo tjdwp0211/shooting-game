@@ -2,19 +2,17 @@ import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import BulletImgs from "./BulletImgs";
 import Text from "../../text/Text";
-import { useDispatch, useSelector } from "react-redux";
-import { RootStore, reloadbullets } from "../../../redux/root";
-import { BulletsProps } from "../../../type/curGameStateType";
+import { useSelector } from "react-redux";
+import { RootStore } from "../../../redux/root";
+import { BulletsProps } from "../../../type/components/curGameStateType";
 import { boldFont, regularFont } from "../../../style/fonts/inedx";
 
 function Bullets({ setGameProgress }: BulletsProps) {
-  const dispatch = useDispatch();
   const { remainBullets } = useSelector((state: RootStore) => state.gameState);
 
   useEffect(() => {
     if (remainBullets === 1)
       return () => {
-        dispatch(reloadbullets());
         setGameProgress({ start: false, checkScore: true });
       };
   }, [remainBullets]);
@@ -48,6 +46,6 @@ const RemainWrapper = styled.div`
   display: flex;
   align-items: center;
   p:nth-of-type(2) {
-    padding: 12% 0px 0px 0px;
+    padding: 16% 0px 0px 0px;
   }
 `;

@@ -4,11 +4,12 @@ import { boldFont, regularFont } from "../style/fonts/inedx";
 import { TargetBoard, CurGameState, Layout, Box, Text } from "../components";
 import { useDispatch } from "react-redux";
 import { pullTrigger } from "../redux/root";
-import Presenter from "../components/check-score/Presenter";
+import Container from "../components/check-score/Container";
+import { GameProgress } from "../type/pages/indexType";
 
 function Home() {
   const dispatch = useDispatch();
-  const [gameProgress, setGameProgress] = useState({
+  const [gameProgress, setGameProgress] = useState<GameProgress>({
     start: false,
     checkScore: false,
   });
@@ -35,7 +36,9 @@ function Home() {
 
   return (
     <Layout indexPage>
-      {gameProgress.checkScore && <Presenter />}
+      {gameProgress.checkScore && (
+        <Container setGameProgress={setGameProgress} />
+      )}
       <ResponsiveWrapper>
         <Wrapper onClick={handleStackingHit}>
           {!gameProgress.start && containTexts()}
