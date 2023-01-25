@@ -1,10 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import styled from "@emotion/styled";
-import { TimerProps } from "../../../type/curGameStateType";
+import { RootStore, timeTickTock } from "../../../redux/root";
+import { TimerProps } from "../../../type/components/curGameStateType";
+import { useDispatch, useSelector } from "react-redux";
 
 function Timer({ gameProgress }: TimerProps) {
+  const dispatch = useDispatch();
   const timerRef = useRef<NodeJS.Timeout>();
-  const [timer, setTimer] = useState<number>(0);
+  const time = useSelector((state: RootStore) => state.gameState.time);
 
   const clearTimer = () => {
     clearInterval(timerRef.current);
@@ -15,11 +18,11 @@ function Timer({ gameProgress }: TimerProps) {
 
   const timeIsTickTock = () => {
     timerRef.current = setInterval(
-      () => (gameProgress.start ? setTimer((prev) => prev + 1) : setTimer(0)),
+      () => (gameProgress.start ? dispatch(timeTickTock()) : clearTimer()),
       1000
     );
 
-    return timer;
+    return time;
   };
 
   return (

@@ -16,5 +16,5 @@ export const dispatch = () => useDispatch<Dispatch>();
 export type RootStore = ReturnType<typeof store.getState>;
 export default store;
 
-const { pullTrigger, reloadbullets } = gameStateAction;
-export { pullTrigger, reloadbullets };
+const { pullTrigger, clearGameState, timeTickTock } = gameStateAction;
+export { pullTrigger, clearGameState, timeTickTock };
