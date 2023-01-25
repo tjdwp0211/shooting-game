@@ -20,12 +20,26 @@ const globalStyle = css`
   a,
   button {
     cursor: pointer;
+    border: none;
     width: fit-content;
     height: fit-content;
   }
-  .text-button:hover {
+  .text-button:hover,
+  .text-button:active {
     animation: button-hover-motion 0.2s ease;
+    -webkit-animation: button-hover-motion 0.2s ease;
     @keyframes button-hover-motion {
+      from {
+        transform: scale(0.95);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+    @-webkit-keyframes button-hover-motion {
       from {
         transform: scale(0.95);
       }
