@@ -3,15 +3,24 @@ import styled from "@emotion/styled";
 import { boldFont } from "../../../style/fonts/inedx";
 import { black, white, gray } from "../../../style/palette/palette";
 import Link from "next/link";
+import Text from "../../text/Text";
 
 function Header() {
   return (
     <HeaderContainer>
       <Link href={"/"}>
-        <TextButton className="text-button">What About Your Click</TextButton>
+        <TextButton className="text-button">
+          <Text size={20} weight={boldFont}>
+            What About Your Click
+          </Text>
+        </TextButton>
       </Link>
       <Link href={"/board"}>
-        <TextButton className="text-button">BOARD</TextButton>
+        <TextButton className="text-button">
+          <Text size={20} weight={boldFont}>
+            DASHBOARD
+          </Text>
+        </TextButton>
       </Link>
     </HeaderContainer>
   );
@@ -35,7 +44,5 @@ const HeaderContainer = styled.header`
 `;
 
 const TextButton = styled.button`
-  font-size: 20px;
   padding: 4px 6px;
-  ${boldFont}
 `;

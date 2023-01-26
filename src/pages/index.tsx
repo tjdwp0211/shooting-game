@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import styled from "@emotion/styled";
 import { boldFont, regularFont } from "../style/fonts/inedx";
 import { useDispatch } from "react-redux";
@@ -27,8 +27,8 @@ function Home() {
     else dispatch(pullTrigger(e.currentTarget.id === "hit"));
   };
 
-  const containTexts = () => {
-    return (
+  const containTexts = useMemo(
+    () => (
       <TextsWrapper>
         <Text size={40} weight={boldFont}>
           Accurate Aim, Fast Hit
@@ -37,28 +37,27 @@ function Home() {
           Click the target to game start
         </Text>
       </TextsWrapper>
-    );
-  };
+    ),
+    []
+  );
 
   return (
     <Layout indexPage>
-      <ResponsiveWrapper>
-        <CurGameState
-          gameProgress={gameProgress}
-          setGameProgress={setGameProgress}
-        />
-        <Wrapper onClick={handleStackingHit}>
-          {!start && !checkScore && containTexts()}
-          {checkScore ? (
-            <CheckScore setGameProgress={setGameProgress} />
-          ) : (
-            <TargetBoard
-              gameProgress={gameProgress}
-              handleStackingHit={handleStackingHit}
-            />
-          )}
-        </Wrapper>
-      </ResponsiveWrapper>
+      <CurGameState
+        gameProgress={gameProgress}
+        setGameProgress={setGameProgress}
+      />
+      <Wrapper onClick={handleStackingHit} id="1">
+        {!start && !checkScore && containTexts}
+        {checkScore ? (
+          <CheckScore setGameProgress={setGameProgress} />
+        ) : (
+          <TargetBoard
+            gameProgress={gameProgress}
+            handleStackingHit={handleStackingHit}
+          />
+        )}
+      </Wrapper>
       <BoxWrapper>
         <Box>
           <></>
@@ -72,7 +71,8 @@ export default Home;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 500px;
+  height: calc(100vh - 48px);
+  max-height: 500px;
 `;
 
 const TextsWrapper = styled.div`
@@ -90,9 +90,4 @@ const TextsWrapper = styled.div`
 const BoxWrapper = styled.div`
   width: 100%;
   height: 600px;
-`;
-
-const ResponsiveWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
