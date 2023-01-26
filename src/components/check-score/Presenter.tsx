@@ -1,15 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { HitScore, Time } from "./elements/";
-import { regularFont } from "../../style/fonts/inedx";
 import { yellow } from "../../style/palette/palette";
+import { regularFont } from "../../style/fonts/inedx";
 import { PresenterProps } from "../../type/components/checkScoreType";
 
 function Presenter({ resetGameState }: PresenterProps) {
-  const stopBubbling = (e: React.MouseEvent) => e.stopPropagation();
-
   return (
-    <Wrapper onClick={stopBubbling}>
+    <Wrapper>
       <HitScore />
       <Time />
       <ButtonWrapper>
@@ -39,11 +37,7 @@ const Wrapper = styled.article`
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
-  @media (max-height: 400px) {
-    justify-content: flex-start;
-    gap: 8px;
-  }
+  justify-content: space-evenly;
 `;
 
 const VerticalLine = styled.hr`
