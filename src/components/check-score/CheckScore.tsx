@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Time from "./elements/Time";
-import HitsInfo from "./elements/HitsInfo";
+import { HitScore, Time } from "./elements/";
 import { useDispatch } from "react-redux";
 import { clearGameState } from "../../redux/root";
 import { CheckScoreProps } from "../../type/components/checkScoreType";
@@ -11,7 +10,7 @@ import { yellow } from "../../style/palette/palette";
 function CheckScore({ setGameProgress }: CheckScoreProps) {
   const dispatch = useDispatch();
 
-  const resetCurGameState = (e: React.MouseEvent) => {
+  const resetGameState = (e: React.MouseEvent) => {
     e.stopPropagation();
     dispatch(clearGameState());
     setGameProgress((prev) => ({ ...prev, start: false, checkScore: false }));
@@ -20,25 +19,23 @@ function CheckScore({ setGameProgress }: CheckScoreProps) {
   const stopBubbling = (e: React.MouseEvent) => e.stopPropagation();
 
   return (
-    <>
-      <Wrapper onClick={stopBubbling}>
-        <HitsInfo />
-        <Time />
-        <ButtonWrapper>
-          <CloseButton className="text-button" color="white">
-            Save Score
-          </CloseButton>
-          <VerticalLine />
-          <CloseButton
-            className="text-button"
-            color={yellow}
-            onClick={resetCurGameState}
-          >
-            Try again
-          </CloseButton>
-        </ButtonWrapper>
-      </Wrapper>
-    </>
+    <Wrapper onClick={stopBubbling}>
+      <HitScore />
+      <Time />
+      <ButtonWrapper>
+        <CloseButton className="text-button" color="white">
+          Save Score
+        </CloseButton>
+        <VerticalLine />
+        <CloseButton
+          className="text-button"
+          color={yellow}
+          onClick={resetGameState}
+        >
+          Try again
+        </CloseButton>
+      </ButtonWrapper>
+    </Wrapper>
   );
 }
 
