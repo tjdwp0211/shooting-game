@@ -23,8 +23,9 @@ function Home() {
 
   const handleStackingHit = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!start) setGameProgress((prev) => ({ ...prev, start: !prev.start }));
-    else dispatch(pullTrigger(e.currentTarget.id === "hit"));
+    if (!start && !checkScore)
+      setGameProgress((prev) => ({ ...prev, start: !prev.start }));
+    else if (start) dispatch(pullTrigger(e.currentTarget.id === "hit"));
   };
 
   const containTexts = useMemo(
