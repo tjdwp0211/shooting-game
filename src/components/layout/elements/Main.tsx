@@ -10,7 +10,9 @@ function Main({ children, indexPage }: MainProps) {
   return (
     <>
       {indexPage ? (
-        <IndexWrapper>{children}</IndexWrapper>
+        <IndexWrapper>
+          <div className="container">{children}</div>
+        </IndexWrapper>
       ) : (
         <Wrapper>
           <div className="container">{children}</div>
@@ -30,6 +32,10 @@ const IndexWrapper = styled.main`
   flex-direction: column;
   justify-content: center;
   overflow-y: scroll;
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Wrapper = styled.main`

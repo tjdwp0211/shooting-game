@@ -64,14 +64,14 @@ const Container = styled.div<{ ticktock: boolean }>`
     35%,
     40%,
     50% {
-      transform: scale(1.2);
+      transform: scale(1.15);
     }
     55%,
     60%,
     70%,
     80%,
     90% {
-      transform: scale(1.3);
+      transform: scale(1.2);
     }
     95%,
     to {
@@ -91,14 +91,14 @@ const Container = styled.div<{ ticktock: boolean }>`
     35%,
     40%,
     50% {
-      transform: scale(1.2);
+      transform: scale(1.15);
     }
     55%,
     60%,
     70%,
     80%,
     90% {
-      transform: scale(1.3);
+      transform: scale(1.2);
     }
     95%,
     to {
