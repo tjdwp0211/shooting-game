@@ -35,7 +35,6 @@ const HeaderContainer = styled.header`
 `;
 
 const TextButton = styled.button`
-  border: none;
   font-size: 20px;
   padding: 4px 6px;
   ${boldFont}
