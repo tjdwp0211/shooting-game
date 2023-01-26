@@ -10,7 +10,7 @@ function Wrapper(props: WrapperProps) {
   };
 
   return (
-    <Container id="hit" onClick={handleClick}>
+    <Container id="hit" onMouseDown={handleClick}>
       {children}
     </Container>
   );

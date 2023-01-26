@@ -47,7 +47,7 @@ function Home() {
         gameProgress={gameProgress}
         setGameProgress={setGameProgress}
       />
-      <Wrapper onClick={handleStackingHit} id="1">
+      <Wrapper onMouseDown={handleStackingHit}>
         {!start && !checkScore && containTexts}
         {checkScore ? (
           <CheckScore setGameProgress={setGameProgress} />
