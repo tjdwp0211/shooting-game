@@ -1,36 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "@emotion/styled";
+import { HitScore, Time } from "./elements/";
 import { regularFont } from "../../style/fonts/inedx";
 import { yellow } from "../../style/palette/palette";
-import { HitScore, Time } from "./elements/";
-import { useDispatch, useSelector } from "react-redux";
-import { clearGameState, Store } from "../../redux/root";
-import { CheckScoreProps } from "../../type/components/checkScoreType";
+import { PresenterProps } from "../../type/components/checkScoreType";
 
-function CheckScore({ setGameProgress }: CheckScoreProps) {
-  const dispatch = useDispatch();
-  const { time, stackingHit } = useSelector((state: Store) => state.gameState);
-  const localstorageItem = JSON.parse(localStorage.getItem("dashboard")) || [];
-
+function Presenter({ resetGameState }: PresenterProps) {
   const stopBubbling = (e: React.MouseEvent) => e.stopPropagation();
-
-  const resetGameState = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    dispatch(clearGameState());
-    setGameProgress((prev) => ({ ...prev, start: false, checkScore: false }));
-  };
-
-  useEffect(() => {
-    const { length } = stackingHit.filter((el) => el);
-    const newItem = [
-      ...localstorageItem,
-      { time: time, stackingHit: stackingHit, makeHit: length },
-    ];
-
-    return () => {
-      localStorage.setItem("dashboard", JSON.stringify(newItem));
-    };
-  }, []);
 
   return (
     <Wrapper onClick={stopBubbling}>
@@ -53,7 +29,7 @@ function CheckScore({ setGameProgress }: CheckScoreProps) {
   );
 }
 
-export default CheckScore;
+export default Presenter;
 
 const Wrapper = styled.article`
   width: 100%;
