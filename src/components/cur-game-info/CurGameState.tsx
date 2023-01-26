@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Timer, Bullets } from "./elements";
-import { CurGameStateProps } from "../../type/components/curGameStateType";
 import { boldFont } from "../../style/fonts/inedx";
+import { CurGameStateProps } from "../../type/components/curGameStateType";
 
 function CurGameState({ gameProgress, setGameProgress }: CurGameStateProps) {
   return (
@@ -21,4 +21,7 @@ const Wrapper = styled.div`
   padding: 2px 16px;
   cursor: default;
   ${boldFont}
+  @media (width > 1340px) {
+    justify-content: space-around;
+  }
 `;
