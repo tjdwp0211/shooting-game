@@ -1,8 +1,12 @@
 import React, { Dispatch } from "react";
 import { GameProgress } from "../pages/indexType";
 
-interface CheckScoreProps {
+interface ContainerProps {
   setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
 }
 
-export type { CheckScoreProps };
+interface PresenterProps {
+  resetGameState: (e: React.MouseEvent) => void;
+}
+
+export type { ContainerProps, PresenterProps };

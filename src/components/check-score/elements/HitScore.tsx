@@ -13,7 +13,7 @@ function HitScore() {
     (prev, cur, i) => {
       prev.history.push(
         <Block hit={cur} key={i}>
-          {cur ? "O" : "X"}
+          {i + 1}
         </Block>
       );
       if (cur) return { ...prev, num: prev.num + 1 };
@@ -26,7 +26,7 @@ function HitScore() {
     <>
       <TextWrapper>
         <Text size={32} weight={boldFont}>
-          Hit : {checkShootingHistory.num}
+          Hits : {checkShootingHistory.num}
         </Text>
         <Text size={16} weight={regularFont}>
           / 30
@@ -59,9 +59,6 @@ const HistoryBoard = styled.article`
   flex-wrap: wrap;
   gap: 2px;
   background-color: #9b9b9b72;
-  & > div:nth-last-of-type(1) {
-    border-right: none;
-  }
 `;
 
 const Block = styled.div<{ hit: boolean }>`
@@ -75,4 +72,5 @@ const Block = styled.div<{ hit: boolean }>`
   align-items: center;
   justify-content: center;
   position: relative;
+  border-radius: 4px;
 `;
