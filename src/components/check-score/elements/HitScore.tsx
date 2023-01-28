@@ -23,7 +23,7 @@ function HitScore() {
   );
 
   return (
-    <>
+    <Wrapper>
       <TextWrapper>
         <Text size={32} weight={boldFont}>
           Hits : {checkShootingHistory.num}
@@ -33,11 +33,18 @@ function HitScore() {
         </Text>
       </TextWrapper>
       <HistoryBoard>{checkShootingHistory.history}</HistoryBoard>
-    </>
+    </Wrapper>
   );
 }
 
 export default HitScore;
+
+const Wrapper = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+`;
 
 const TextWrapper = styled.div`
   display: flex;
@@ -50,9 +57,9 @@ const TextWrapper = styled.div`
 
 const HistoryBoard = styled.article`
   width: 20%;
-  min-width: calc(34px * 5);
-  height: 30vh;
-  min-height: calc(24px * 6);
+  min-width: calc(34px * 10);
+  height: 20vh;
+  min-height: calc(24px * 3);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -62,8 +69,8 @@ const HistoryBoard = styled.article`
 `;
 
 const Block = styled.div<{ hit: boolean }>`
-  width: calc(20% - 2px);
-  height: calc((100% / 6) - 2px);
+  width: calc(10% - 2px);
+  height: calc((100% / 3) - 2px);
   color: ${white};
   background-color: ${(props) => (props.hit ? lightBlue : "inherit")};
   font-size: 12px;

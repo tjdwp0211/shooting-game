@@ -7,12 +7,12 @@ import { ContainerProps } from "../../type/components/checkScoreType";
 function Container({ setGameProgress }: ContainerProps) {
   const dispatch = useDispatch();
   const { time, stackingHit } = useSelector((state: Store) => state.gameState);
-  const localstorageItem = JSON.parse(localStorage.getItem("dashboard")) || [];
+  const localStorageItems = JSON.parse(localStorage.getItem("dashboard")) || [];
 
   useEffect(() => {
     const { length } = stackingHit.filter((el) => el);
     const newItem = [
-      ...localstorageItem,
+      ...localStorageItems,
       { time: time, stackingHit: stackingHit, makeHit: length },
     ];
     return () => localStorage.setItem("dashboard", JSON.stringify(newItem));

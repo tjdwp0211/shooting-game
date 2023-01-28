@@ -12,6 +12,7 @@ import {
   Box,
   Text,
 } from "../components";
+import LineChart from "../components/chart/LineChart";
 
 function Home() {
   const dispatch = useDispatch();
@@ -61,7 +62,7 @@ function Home() {
       </Wrapper>
       <BoxWrapper>
         <Box>
-          <></>
+          <LineChart></LineChart>
         </Box>
       </BoxWrapper>
     </Layout>
