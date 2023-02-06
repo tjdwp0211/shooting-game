@@ -25,13 +25,12 @@ function Main({ children, indexPage }: MainProps) {
 export default Main;
 
 const IndexWrapper = styled.main`
-  width: 100%;
-  min-height: 100vh;
+  width: 100vw;
+  min-height: calc(100vh - 100px);
   height: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow-y: scroll;
+  justify-content: space-between;
   .container {
     display: flex;
     flex-direction: column;

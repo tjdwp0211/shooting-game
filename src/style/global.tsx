@@ -11,6 +11,7 @@ const globalStyle = css`
     margin: 0px;
     background-color: #76914a;
     color: ${white};
+    overflow-x: hidden;
     @media (prefers-color-scheme: dark) {
       background-color: ${black};
       color: white;
