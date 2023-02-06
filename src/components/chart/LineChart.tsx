@@ -51,9 +51,12 @@ function LineChart() {
 
   return (
     <Wrapper>
-      <div className="chart-container">
-        <Line options={chartOptionsProps} data={chartDataProps}></Line>
-      </div>
+      <Line
+        options={chartOptionsProps}
+        data={chartDataProps}
+        width="600"
+        height="600"
+      />
     </Wrapper>
   );
 }
@@ -77,8 +80,15 @@ const Wrapper = styled.article`
   display: flex;
   align-items: center;
   justify-content: center;
-  .chart-container {
-    width: 50%;
-    min-width: 400px;
+  padding: 24px;
+  canvas {
+    @media (width < 1024px) {
+      width: 80% !important;
+      height: 35vw !important;
+    }
+    @media (width < 642px) {
+      width: 50vw !important;
+      height: 50vw !important;
+    }
   }
 `;
