@@ -17,8 +17,12 @@ const Container = styled.div`
   height: 100%;
   background-color: white;
   color: ${black};
+  display: flex;
   @media (prefers-color-scheme: dark) {
     background-color: ${lightGray};
     color: white;
+  }
+  @media (width < 642px) {
+    flex-direction: column;
   }
 `;

@@ -25,7 +25,7 @@ function Home() {
   const handleStackingHit = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!start && !checkScore)
-      setGameProgress((prev) => ({ ...prev, start: !prev.start }));
+      setGameProgress(prev => ({ ...prev, start: !prev.start }));
     else if (start) dispatch(pullTrigger(e.currentTarget.id === "hit"));
   };
 
@@ -62,7 +62,8 @@ function Home() {
       </Wrapper>
       <BoxWrapper>
         <Box>
-          <LineChart></LineChart>
+          <LineChart />
+          <LineChart />
         </Box>
       </BoxWrapper>
     </Layout>
@@ -75,6 +76,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: calc(100vh - 48px);
   max-height: 500px;
+  position: relative;
 `;
 
 const TextsWrapper = styled.div`
@@ -91,5 +93,6 @@ const TextsWrapper = styled.div`
 
 const BoxWrapper = styled.div`
   width: 100%;
-  height: 600px;
+  height: 105vh;
+  max-height: 600px;
 `;
