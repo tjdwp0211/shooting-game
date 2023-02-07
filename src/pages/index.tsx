@@ -1,18 +1,8 @@
-import React, { useMemo, useState } from "react";
-import styled from "@emotion/styled";
-import { boldFont, regularFont } from "../style/fonts/inedx";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { pullTrigger } from "../redux/root";
 import { GameProgress } from "../type/pages/indexType";
-import {
-  TargetBoard,
-  CurGameState,
-  CheckScore,
-  Layout,
-  Box,
-  Text,
-} from "../components";
-import LineChart from "../components/chart/LineChart";
+import Presenter from "../layout/pages/index/Presenter";
 
 function Home() {
   const dispatch = useDispatch();
@@ -20,8 +10,24 @@ function Home() {
     start: false,
     checkScore: false,
   });
-  const { start, checkScore } = gameProgress;
 
+  const dataForChart = [
+    {
+      type: "line" as "line",
+      label: "Hit",
+      data: [12, 12, 21, 123, 124, 3],
+      borderColor: "rgb(255, 99, 132)",
+      backgroundColor: "rgb(255, 99, 132)",
+    },
+    {
+      type: "bar" as "line",
+      label: "Time To Clear",
+      data: [12, 12, 21, 123, 124, 3],
+      backgroundColor: "rgb(75, 192, 192)",
+    },
+  ];
+
+  const { start, checkScore } = gameProgress;
   const handleStackingHit = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!start && !checkScore)
@@ -29,70 +35,14 @@ function Home() {
     else if (start) dispatch(pullTrigger(e.currentTarget.id === "hit"));
   };
 
-  const containTexts = useMemo(
-    () => (
-      <TextsWrapper>
-        <Text size={40} weight={boldFont}>
-          Accurate Aim, Fast Hit
-        </Text>
-        <Text size={20} weight={regularFont}>
-          Click the target to game start
-        </Text>
-      </TextsWrapper>
-    ),
-    []
-  );
-
   return (
-    <Layout indexPage>
-      <CurGameState
-        gameProgress={gameProgress}
-        setGameProgress={setGameProgress}
-      />
-      <Wrapper onMouseDown={handleStackingHit}>
-        {!start && !checkScore && containTexts}
-        {checkScore ? (
-          <CheckScore setGameProgress={setGameProgress} />
-        ) : (
-          <TargetBoard
-            gameProgress={gameProgress}
-            handleStackingHit={handleStackingHit}
-          />
-        )}
-      </Wrapper>
-      <BoxWrapper>
-        <Box>
-          <LineChart />
-          <LineChart />
-        </Box>
-      </BoxWrapper>
-    </Layout>
+    <Presenter
+      gameProgress={gameProgress}
+      setGameProgress={setGameProgress}
+      handleStackingHit={handleStackingHit}
+      dataForChart={dataForChart}
+    />
   );
 }
 
 export default Home;
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: calc(100vh - 48px);
-  max-height: 500px;
-  position: relative;
-`;
-
-const TextsWrapper = styled.div`
-  text-align: center;
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 12px;
-  p {
-    margin: 0px;
-  }
-`;
-
-const BoxWrapper = styled.div`
-  width: 100%;
-  height: 105vh;
-  max-height: 600px;
-`;
