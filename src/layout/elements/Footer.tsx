@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { black, gray, white } from "../../../style/palette/palette";
-import { boldFont } from "../../../style/fonts/inedx";
+import { black, gray, white } from "../../style/palette/palette";
+import { boldFont } from "../../style/fonts/inedx";
 
 function Footer() {
   return <Container>Footer</Container>;

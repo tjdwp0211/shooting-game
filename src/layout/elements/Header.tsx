@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { boldFont } from "../../../style/fonts/inedx";
-import { black, white, gray } from "../../../style/palette/palette";
+import { boldFont } from "../../style/fonts/inedx";
+import { black, white, gray } from "../../style/palette/palette";
 import Link from "next/link";
-import Text from "../../text/Text";
+import { Text } from "../../components";
 
 function Header() {
   return (
