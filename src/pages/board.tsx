@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout } from "../components";
+import Layout from "../layout/default/Layout";
 
 function Board() {
   return <Layout indexPage={false}>BOARD</Layout>;
