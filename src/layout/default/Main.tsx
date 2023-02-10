@@ -28,13 +28,6 @@ const IndexWrapper = styled.main`
   width: 100vw;
   min-height: calc(100vh - 100px);
   height: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
 `;
 
 const Wrapper = styled.main`
