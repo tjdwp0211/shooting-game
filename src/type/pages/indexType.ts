@@ -13,4 +13,19 @@ interface PresenterProps {
   dataForChart: ChartDatas[];
 }
 
-export type { GameProgress, PresenterProps };
+interface UserInteractionProps {
+  gameProgress: GameProgress;
+  setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
+  handleStackingHit: (e: React.MouseEvent) => void;
+}
+
+interface RecentlyGamesProps {
+  dataForChart: ChartDatas[];
+}
+
+export type {
+  GameProgress,
+  PresenterProps,
+  UserInteractionProps,
+  RecentlyGamesProps,
+};
