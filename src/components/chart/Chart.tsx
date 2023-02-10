@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import {
-  Chart,
+  Chart as ChartJS,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -13,13 +13,22 @@ import {
   ChartData,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { lightBlack } from "../../style/palette/palette";
+import { ChartProps } from "../../type/components/chartType";
 
-function LineChart() {
+function Chart(props: ChartProps) {
+  const { size, title, labelsForLineX, chartDatas } = props;
   const chartOptionsProps = {
     responsive: true,
+    color: lightBlack,
     plugins: {
       legend: { position: "bottom" as "bottom", usePointStyle: true },
-      title: { display: true, text: "Recently 5 Games", font: { size: 30 } },
+      title: {
+        display: true,
+        text: title,
+        color: lightBlack,
+        font: { size: 18 },
+      },
     },
     interaction: { mode: "index" as "index", intersect: false },
     y: {
@@ -31,22 +40,8 @@ function LineChart() {
   };
 
   const chartDataProps: ChartData<"line", number[], string> = {
-    labels: ["1st", "2nd", "3rd", "4th", "5th"],
-    datasets: [
-      {
-        type: "line",
-        label: "Hit",
-        data: [12, 12, 21, 123, 124, 3],
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgb(255, 99, 132)",
-      },
-      {
-        type: "bar" as "line",
-        label: "Time To Clear",
-        data: [12, 12, 21, 123, 124, 3],
-        backgroundColor: "rgb(75, 192, 192)",
-      },
-    ],
+    labels: labelsForLineX,
+    datasets: chartDatas,
   };
 
   return (
@@ -54,16 +49,16 @@ function LineChart() {
       <Line
         options={chartOptionsProps}
         data={chartDataProps}
-        width="600"
-        height="600"
+        width={size[0]}
+        height={size[1]}
       />
     </Wrapper>
   );
 }
 
-export default LineChart;
+export default Chart;
 
-Chart.register(
+ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
@@ -80,15 +75,4 @@ const Wrapper = styled.article`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
-  canvas {
-    @media (width < 1024px) {
-      width: 80% !important;
-      height: 35vw !important;
-    }
-    @media (width < 642px) {
-      width: 50vw !important;
-      height: 50vw !important;
-    }
-  }
 `;
