@@ -3,20 +3,23 @@ import React from "react";
 interface StorageItems {
   makeHit: number;
   stackingHit: boolean[];
-  time: number;
+  timeToClear: number;
+  playTimes: string;
 }
 
 interface UseCheckStorageItems {
   allTrys: {
-    time: number[] | [];
+    timeToClear: number[] | [];
     makeHit: number[] | [];
     stackingHit: boolean[][] | [][];
-  },
+    playTimes: string[];
+  };
   recentlyTrys: {
-    time: number[] | [];
+    timeToClear: number[] | [];
     makeHit: number[] | [];
     stackingHit: boolean[][] | [][];
-  }
+    playTimes: string[];
+  };
 }
 
 export type { StorageItems, UseCheckStorageItems };
