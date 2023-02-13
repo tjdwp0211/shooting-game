@@ -5,9 +5,13 @@ import { boldFont } from "../../../../style/fonts/inedx";
 import { RecentlyGamesProps } from "../../../../type/pages/indexType";
 import { lightBlack } from "../../../../style/palette/palette";
 
-function RecentlyGames({ dataForChart }: RecentlyGamesProps) {
+function RecentlyGames({ dataForChart, playTimes }: RecentlyGamesProps) {
+  const defaultArray = ["-", "-", "-", "-", "-"];
   const defaultChartProps = {
-    labelsForLineX: ["1st", "2nd", "3rd", "4th", "5th"],
+    labelsForLineX: [
+      ...playTimes,
+      ...Array.from(defaultArray).slice(0, 5 - playTimes.length),
+    ],
     size: ["600", "600"],
   };
 
