@@ -16,7 +16,7 @@ function Container({ setGameProgress }: ContainerProps) {
       { time: time, stackingHit: stackingHit, makeHit: length },
     ];
     return () => localStorage.setItem("dashboard", JSON.stringify(newItem));
-  }, []);
+  });
 
   const resetGameState = (e: React.MouseEvent) => {
     e.stopPropagation();
