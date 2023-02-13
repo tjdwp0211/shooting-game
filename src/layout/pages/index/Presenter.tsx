@@ -1,15 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../../default/Layout";
+import useCheckStorageItems from "../../../customhook/useCheckStorageItems";
 import { RecentlyGames, UserInteraction } from "./elements";
 import { PresenterProps } from "../../../type/pages/indexType";
+import { UseCheckStorageItems } from "../../../type/customhook/useCheckStorageItemsType";
 
 function Presenter(props: PresenterProps) {
-  const { dataForChart } = props;
+  const { gameProgress } = props;
+  const [storageItems, setStorageItems] = useState<UseCheckStorageItems>();
+  useEffect(() => {
+    setStorageItems(useCheckStorageItems);
+  }, [gameProgress.checkScore]);
+
+  const recentlyGamesProps = {
+    playTimes: storageItems ? storageItems.recentlyTrys.playTimes : [],
+    dataForChart: [
+      {
+        type: "bar" as "line",
+        label: "Hit",
+        data: storageItems && storageItems.recentlyTrys.makeHit,
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgb(255, 99, 132)",
+      },
+      {
+        type: "bar" as "line",
+        label: "Time To Clear",
+        data: storageItems && storageItems.recentlyTrys.timeToClear,
+        borderColor: "rgb(75, 192, 192)",
+        backgroundColor: "rgb(75, 192, 192)",
+      },
+    ],
+  };
 
   return (
     <Layout indexPage>
       <UserInteraction {...props} />
-      <RecentlyGames dataForChart={dataForChart} />
+      <RecentlyGames {...recentlyGamesProps} />
     </Layout>
   );
 }

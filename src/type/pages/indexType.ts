@@ -10,7 +10,6 @@ interface PresenterProps {
   gameProgress: GameProgress;
   setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
   handleStackingHit: (e: React.MouseEvent) => void;
-  dataForChart: ChartDatas[];
 }
 
 interface UserInteractionProps {
@@ -21,6 +20,7 @@ interface UserInteractionProps {
 
 interface RecentlyGamesProps {
   dataForChart: ChartDatas[];
+  playTimes: string[];
 }
 
 export type {
