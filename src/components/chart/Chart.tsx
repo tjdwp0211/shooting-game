@@ -34,7 +34,7 @@ function Chart(props: ChartProps) {
     y: {
       type: "linear",
       afterDataLimits(scale: LinearScale) {
-        scale.max = scale.max * 1.2;
+        scale.max = scale.max * 1.1;
       },
     },
   };
