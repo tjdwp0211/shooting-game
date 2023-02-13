@@ -6,12 +6,12 @@ import { boldFont, regularFont } from "../../../style/fonts/inedx";
 import Text from "../../text/Text";
 
 function Time() {
-  const { time } = useSelector((state: Store) => state.gameState);
+  const { timeToClear } = useSelector((state: Store) => state.gameState);
 
   return (
     <TimeContainer>
       <Text size={32} weight={boldFont}>
-        Time to clear : {time}
+        Time to clear : {timeToClear}
       </Text>
       <Text size={20} weight={regularFont}>
         s

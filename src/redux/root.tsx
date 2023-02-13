@@ -12,7 +12,7 @@ const store = configureStore({
 });
 
 export type Dispatch = typeof store.dispatch;
-export const dispatch = () => useDispatch<Dispatch>();
+export const dispatch = () => useDispatch<Dispatch>;
 export type Store = ReturnType<typeof store.getState>;
 export default store;
 

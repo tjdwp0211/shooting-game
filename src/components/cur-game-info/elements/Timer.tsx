@@ -9,7 +9,7 @@ import Text from "../../text/Text";
 function Timer({ gameProgress }: TimerProps) {
   const dispatch = useDispatch();
   const timerRef = useRef<NodeJS.Timeout>();
-  const time = useSelector((state: Store) => state.gameState.time);
+  const time = useSelector((state: Store) => state.gameState.timeToClear);
 
   const clearTimer = () => {
     clearInterval(timerRef.current);
@@ -23,7 +23,6 @@ function Timer({ gameProgress }: TimerProps) {
       () => (gameProgress.start ? dispatch(timeTickTock()) : clearTimer()),
       1000
     );
-
     return time;
   };
 
@@ -49,8 +48,8 @@ const Container = styled.div<{ ticktock: boolean }>`
   }
   font-size: 30px;
   position: relative;
-  animation: ${(props) => props.ticktock && "focus 1s infinite"};
-  -webkit-animation: ${(props) => props.ticktock && "focus 1s infinite"};
+  animation: ${props => props.ticktock && "focus 1s infinite"};
+  -webkit-animation: ${props => props.ticktock && "focus 1s infinite"};
   @keyframes focus {
     from {
       transform: scale(1);

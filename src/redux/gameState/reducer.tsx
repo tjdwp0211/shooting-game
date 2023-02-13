@@ -3,13 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface InitialState {
   remainBullets: number;
   stackingHit: boolean[];
-  time: number;
+  timeToClear: number;
 }
 
 const initialState: InitialState = {
   remainBullets: 30,
   stackingHit: [],
-  time: 0,
+  timeToClear: 0,
 };
 
 const gameStatus = createSlice({
@@ -23,10 +23,10 @@ const gameStatus = createSlice({
     clearGameState(state) {
       state.remainBullets = 30;
       state.stackingHit = [];
-      state.time = 0;
+      state.timeToClear = 0;
     },
     timeTickTock(state) {
-      state.time = state.time + 1;
+      state.timeToClear = state.timeToClear + 1;
     },
   },
 });
