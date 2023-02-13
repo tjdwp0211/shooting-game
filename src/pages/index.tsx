@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { pullTrigger } from "../redux/root";
@@ -15,21 +14,21 @@ function Home() {
   });
   const [storageItems, setStorageItems] = useState<UseCheckStorageItems>();
   useEffect(() => {
-    setStorageItems(useCheckStorageItems());
+    setStorageItems(useCheckStorageItems);
   }, []);
 
   const dataForChart = [
     {
       type: "bar" as "line",
       label: "Hit",
-      data: storageItems && storageItems.makeHit,
+      data: storageItems && storageItems.recentlyTrys.makeHit,
       borderColor: "rgb(255, 99, 132)",
       backgroundColor: "rgb(255, 99, 132)",
     },
     {
       type: "bar" as "line",
       label: "Time To Clear",
-      data: storageItems && storageItems.time,
+      data: storageItems && storageItems.recentlyTrys.time,
       borderColor: "rgb(75, 192, 192)",
       backgroundColor: "rgb(75, 192, 192)",
     },

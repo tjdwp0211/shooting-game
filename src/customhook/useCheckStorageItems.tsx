@@ -32,10 +32,28 @@ function useCheckStorageItems(): UseCheckStorageItems {
     })
     .filter(item => item);
 
-  return {
+  const { time, makeHit, stackingHit } = {
     time: validateValues.map(item => item.time),
     makeHit: validateValues.map(item => item.makeHit),
     stackingHit: validateValues.map(item => item.stackingHit),
+  };
+
+  localStorage.setItem("dashboard", JSON.stringify(validateValues));
+
+  return {
+    allTrys: {
+      time: time,
+      makeHit: makeHit,
+      stackingHit: stackingHit,
+    },
+    recentlyTrys: {
+      time: time.slice(time.length - 5, time.length + 1),
+      makeHit: makeHit.slice(makeHit.length - 5, makeHit.length + 1),
+      stackingHit: stackingHit.slice(
+        stackingHit.length - 5,
+        stackingHit.length + 1
+      ),
+    },
   };
 }
 

@@ -7,9 +7,16 @@ interface StorageItems {
 }
 
 interface UseCheckStorageItems {
-  time: number[] | [];
-  makeHit: number[] | [];
-  stackingHit: boolean[][] | [][];
+  allTrys: {
+    time: number[] | [];
+    makeHit: number[] | [];
+    stackingHit: boolean[][] | [][];
+  },
+  recentlyTrys: {
+    time: number[] | [];
+    makeHit: number[] | [];
+    stackingHit: boolean[][] | [][];
+  }
 }
 
 export type { StorageItems, UseCheckStorageItems };
