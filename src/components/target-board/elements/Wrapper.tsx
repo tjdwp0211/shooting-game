@@ -3,17 +3,9 @@ import styled from "@emotion/styled";
 import { WrapperProps } from "../../../type/components/targetBoardType";
 
 function Wrapper(props: WrapperProps) {
-  const { children, handleCoordinates, handleStackingHit } = props;
-  const handleClick = (e: React.MouseEvent) => {
-    handleCoordinates();
-    handleStackingHit(e);
-  };
+  const { children } = props;
 
-  return (
-    <Container id="hit" onMouseDown={handleClick}>
-      {children}
-    </Container>
-  );
+  return <Container>{children}</Container>;
 }
 
 export default Wrapper;

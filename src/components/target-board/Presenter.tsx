@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Circle, Line, Wrapper } from "./elements/";
+import { Circle, Wrapper } from "./elements/";
 import { PresenterProps } from "../../type/components/targetBoardType";
 import {
   blue,
@@ -15,7 +15,7 @@ function Presenter(props: PresenterProps) {
     targetCoordinates,
     gameProgress,
     handleCoordinates,
-    handleStackingHit,
+    handleStackingScore,
   } = props;
 
   const waitingForGameStart = (children: React.ReactNode) => {
@@ -28,20 +28,29 @@ function Presenter(props: PresenterProps) {
     );
   };
 
+  const handleTargetBoardClick = (e: React.MouseEvent) => {
+    handleCoordinates();
+    handleStackingScore(e);
+  };
+
+  const circleProps = (point: string, radius: number, color: string) => {
+    return {
+      handleCircleClick: handleTargetBoardClick,
+      point: point,
+      radius: radius,
+      background: color,
+    };
+  };
+
   return (
     <>
       {waitingForGameStart(
-        <Wrapper
-          handleCoordinates={handleCoordinates}
-          handleStackingHit={handleStackingHit}
-        >
-          <Circle radius={100} background={white}></Circle>
-          <Circle radius={85} background={lightBlack}></Circle>
-          <Circle radius={65} background={blue}></Circle>
-          <Circle radius={40} background={red}></Circle>
-          <Circle radius={20} background={yellow}></Circle>
-          <Line rotation={true} />
-          <Line rotation={false} />
+        <Wrapper>
+          <Circle {...circleProps("1", 100, white)} />
+          <Circle {...circleProps("2", 90, lightBlack)} />
+          <Circle {...circleProps("3", 65, blue)} />
+          <Circle {...circleProps("4", 40, red)} />
+          <Circle {...circleProps("5", 20, yellow)} />
         </Wrapper>
       )}
     </>
@@ -64,25 +73,25 @@ const CoordinatesChanger = styled(Root)<{
   y: number;
 }>`
   @media (width > 1100px) {
-    transform: translateX(${(props) => props.x * 1000}px)
-      translateY(${(porps) => porps.y * 200}px) scaleX(1) scaleY(1);
+    transform: translateX(${props => props.x * 1000}px)
+      translateY(${porps => porps.y * 200}px) scaleX(1) scaleY(1);
   }
   @media (830px < width < 1100px) {
-    transform: translateX(${(props) => props.x * 700}px)
-      translateY(${(porps) => porps.y * 200}px) scaleX(1) scaleY(1);
+    transform: translateX(${props => props.x * 700}px)
+      translateY(${porps => porps.y * 200}px) scaleX(1) scaleY(1);
   }
   @media (500px < width < 830px) {
-    transform: translateX(${(props) => props.x * 500}px)
-      translateY(${(porps) => porps.y * 200}px) scaleX(1) scaleY(1);
+    transform: translateX(${props => props.x * 500}px)
+      translateY(${porps => porps.y * 200}px) scaleX(1) scaleY(1);
   }
   @media (width < 500px) {
-    transform: translateX(${(props) => props.x * 300}px)
-      translateY(${(porps) => porps.y * 200}px) scaleX(1) scaleY(1);
+    transform: translateX(${props => props.x * 300}px)
+      translateY(${porps => porps.y * 200}px) scaleX(1) scaleY(1);
   }
 `;
 
 const CoordinatesFixer = styled(Root)`
-  top: 50%;
+  top: 55%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -10%);
 `;
