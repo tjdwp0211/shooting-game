@@ -21,8 +21,13 @@ function Chart(props: ChartProps) {
   const chartOptionsProps = {
     responsive: true,
     color: lightBlack,
+    borderWidth: 4,
     plugins: {
-      legend: { position: "bottom" as "bottom", usePointStyle: true },
+      legend: {
+        position: "bottom" as "bottom",
+        usePointStyle: true,
+        labels: { font: { size: 9 } },
+      },
       title: {
         display: true,
         text: title,
