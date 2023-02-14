@@ -24,13 +24,13 @@ function RecentlyGames({ dataForChart, playTimes }: RecentlyGamesProps) {
         <Box>
           <Chart
             {...defaultChartProps}
-            chartDatas={[dataForChart[0]]}
-            title="Hits"
+            chartDatas={[dataForChart[0], dataForChart[1]]}
+            title="Time To Clear / Hits"
           />
           <Chart
             {...defaultChartProps}
-            chartDatas={[dataForChart[1]]}
-            title="Time To Clear"
+            chartDatas={[dataForChart[2]]}
+            title="Score"
           />
         </Box>
       </BoxWrapper>
