@@ -6,22 +6,22 @@ import { ContainerProps } from "../../type/components/checkScoreType";
 
 function Container({ setGameProgress }: ContainerProps) {
   const dispatch = useDispatch();
-  const { timeToClear, stackingHit } = useSelector(
+  const { timeToClear, stackingScore } = useSelector(
     (state: Store) => state.gameState
   );
   const localStorageItems = JSON.parse(localStorage.getItem("dashboard")) || [];
 
   const date = new Date();
-  const playTimes = `${date.getDate()}, ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  const playTimes = `${date.getHours()}:${date.getMinutes()}`;
 
   useEffect(() => {
-    const { length } = stackingHit.filter(el => el);
+    const { length } = stackingScore.filter(el => el);
     const newItem = [
       ...localStorageItems,
       {
         playTimes: playTimes,
         timeToClear: timeToClear,
-        stackingHit: stackingHit,
+        stackingScore: stackingScore,
         makeHit: length,
       },
     ];
