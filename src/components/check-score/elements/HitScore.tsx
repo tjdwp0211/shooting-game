@@ -4,16 +4,24 @@ import Text from "../../text/Text";
 import { useSelector } from "react-redux";
 import { Store } from "../../../redux/root";
 import { boldFont, regularFont } from "../../../style/fonts/inedx";
-import { white, lightBlue, lightBlack } from "../../../style/palette/palette";
+import { white, lightBlack } from "../../../style/palette/palette";
 
 function HitScore() {
-  const { stackingHit } = useSelector((state: Store) => state.gameState);
+  const { stackingScore } = useSelector((state: Store) => state.gameState);
 
-  const checkShootingHistory = stackingHit.reduce(
+  const returnColorByPoint = (point: number) => {
+    if (point === 1) return "#f2f5f5bf";
+    if (point === 2) return "#2f3030bf";
+    if (point === 3) return "#1a21edbf";
+    if (point === 4) return "#fc1212bf";
+    if (point === 5) return "#edea26bf";
+  };
+
+  const checkShootingHistory = stackingScore.reduce(
     (prev, cur, i) => {
       prev.history.push(
-        <Block hit={cur} key={i}>
-          {i + 1}
+        <Block bgColor={returnColorByPoint(cur)} key={i}>
+          <p>{cur}</p>
         </Block>
       );
       if (cur) return { ...prev, num: prev.num + 1 };
@@ -68,12 +76,13 @@ const HistoryBoard = styled.article`
   background-color: #9b9b9b72;
 `;
 
-const Block = styled.div<{ hit: boolean }>`
+const Block = styled.div<{ bgColor: string }>`
   width: calc(10% - 2px);
   height: calc((100% / 3) - 2px);
   color: ${white};
-  background-color: ${(props) => (props.hit ? lightBlue : "inherit")};
-  font-size: 12px;
+  background-color: ${props => props.bgColor};
+  font-size: 16px;
+  ${boldFont}
   box-shadow: 0px 0px 4px 0px ${lightBlack};
   display: flex;
   align-items: center;
