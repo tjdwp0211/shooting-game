@@ -2,7 +2,7 @@ import React from "react";
 
 interface StorageItems {
   makeHit: number;
-  stackingHit: boolean[];
+  stackingScore: number[];
   timeToClear: number;
   playTimes: string;
 }
@@ -11,13 +11,13 @@ interface UseCheckStorageItems {
   allTrys: {
     timeToClear: number[] | [];
     makeHit: number[] | [];
-    stackingHit: boolean[][] | [][];
+    stackingScore: number[][] | [][];
     playTimes: string[];
   };
   recentlyTrys: {
     timeToClear: number[] | [];
     makeHit: number[] | [];
-    stackingHit: boolean[][] | [][];
+    stackingScore: number[][] | [][];
     playTimes: string[];
   };
 }

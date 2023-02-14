@@ -8,20 +8,18 @@ interface TargetCoordinates {
 
 interface ContainerProps {
   gameProgress: GameProgress;
-  handleStackingHit: (e: React.MouseEvent) => void;
+  handleStackingScore: (e: React.MouseEvent) => void;
 }
 
 interface PresenterProps {
   targetCoordinates: TargetCoordinates;
   gameProgress: GameProgress;
   handleCoordinates: () => void;
-  handleStackingHit: (e: React.MouseEvent) => void;
+  handleStackingScore: (e: React.MouseEvent) => void;
 }
 
 interface WrapperProps {
   children: React.ReactNode;
-  handleCoordinates: () => void;
-  handleStackingHit: (e: React.MouseEvent) => void;
 }
 
 interface LineProps {
@@ -31,6 +29,8 @@ interface LineProps {
 interface CircleProps {
   radius: number;
   background: string;
+  point: string;
+  handleCircleClick: (e: React.MouseEvent) => void;
 }
 
 export type {

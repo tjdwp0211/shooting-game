@@ -9,13 +9,13 @@ interface GameProgress {
 interface PresenterProps {
   gameProgress: GameProgress;
   setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
-  handleStackingHit: (e: React.MouseEvent) => void;
+  handleStackingScore: (e: React.MouseEvent) => void;
 }
 
 interface UserInteractionProps {
   gameProgress: GameProgress;
   setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
-  handleStackingHit: (e: React.MouseEvent) => void;
+  handleStackingScore: (e: React.MouseEvent) => void;
 }
 
 interface RecentlyGamesProps {

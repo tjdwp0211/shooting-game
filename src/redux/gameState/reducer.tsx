@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface InitialState {
   remainBullets: number;
-  stackingHit: boolean[];
+  stackingScore: number[];
   timeToClear: number;
 }
 
 const initialState: InitialState = {
   remainBullets: 30,
-  stackingHit: [],
+  stackingScore: [],
   timeToClear: 0,
 };
 
@@ -16,13 +16,13 @@ const gameStatus = createSlice({
   name: "gameStatus",
   initialState: initialState,
   reducers: {
-    pullTrigger(state, action: PayloadAction<boolean>) {
+    pullTrigger(state, action: PayloadAction<number>) {
       state.remainBullets = state.remainBullets - 1;
-      state.stackingHit.push(action.payload);
+      state.stackingScore.push(action.payload);
     },
     clearGameState(state) {
       state.remainBullets = 30;
-      state.stackingHit = [];
+      state.stackingScore = [];
       state.timeToClear = 0;
     },
     timeTickTock(state) {

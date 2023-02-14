@@ -5,7 +5,7 @@ import {
   TargetCoordinates,
 } from "../../type/components/targetBoardType";
 
-function Container({ gameProgress, handleStackingHit }: ContainerProps) {
+function Container({ gameProgress, handleStackingScore }: ContainerProps) {
   const [targetCoordinates, setTargetCoordinates] = useState<TargetCoordinates>(
     {
       x: Math.random(),
@@ -29,7 +29,7 @@ function Container({ gameProgress, handleStackingHit }: ContainerProps) {
     <Presenter
       gameProgress={gameProgress}
       targetCoordinates={targetCoordinates}
-      handleStackingHit={handleStackingHit}
+      handleStackingScore={handleStackingScore}
       handleCoordinates={handleCoordinates}
     />
   );

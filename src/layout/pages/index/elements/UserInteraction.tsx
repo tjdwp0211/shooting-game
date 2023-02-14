@@ -10,7 +10,7 @@ import { boldFont, regularFont } from "../../../../style/fonts/inedx";
 import { UserInteractionProps } from "../../../../type/pages/indexType";
 
 function UserInteraction(props: UserInteractionProps) {
-  const { gameProgress, setGameProgress, handleStackingHit } = props;
+  const { gameProgress, setGameProgress, handleStackingScore } = props;
   const { start, checkScore } = gameProgress;
   const containTexts = useMemo(() => {
     return (
@@ -31,14 +31,14 @@ function UserInteraction(props: UserInteractionProps) {
         gameProgress={gameProgress}
         setGameProgress={setGameProgress}
       />
-      <Wrapper onMouseDown={handleStackingHit}>
+      <Wrapper onMouseDown={handleStackingScore} id="0">
         {!start && !checkScore && containTexts}
         {checkScore ? (
           <CheckScore setGameProgress={setGameProgress} />
         ) : (
           <TargetBoard
             gameProgress={gameProgress}
-            handleStackingHit={handleStackingHit}
+            handleStackingScore={handleStackingScore}
           />
         )}
       </Wrapper>

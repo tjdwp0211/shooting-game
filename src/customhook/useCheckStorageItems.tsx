@@ -8,7 +8,7 @@ function useCheckStorageItems(): UseCheckStorageItems {
   const storageItems: StorageItems[] =
     JSON.parse(localStorage.getItem("dashboard")) || [];
   const checkArrayEmpty = (array: StorageItems[]) => {
-    if (!array.length) return { time: [], makeHit: [], stackingHit: [] };
+    if (!array.length) return { time: [], makeHit: [], stackingScore: [] };
   };
 
   checkArrayEmpty(storageItems);
@@ -18,7 +18,7 @@ function useCheckStorageItems(): UseCheckStorageItems {
       const { length: keyArrayLength } = Object.keys(item).filter(
         key =>
           key === "makeHit" ||
-          key === "stackingHit" ||
+          key === "stackingScore" ||
           key === "timeToClear" ||
           key === "playTimes"
       );
@@ -30,11 +30,11 @@ function useCheckStorageItems(): UseCheckStorageItems {
 
   const validateValues = validateKeys
     .map(item => {
-      const { makeHit, stackingHit, timeToClear, playTimes } = item;
+      const { makeHit, stackingScore, timeToClear, playTimes } = item;
       if (
         makeHit >= 0 &&
         makeHit <= 30 &&
-        stackingHit.length === 30 &&
+        stackingScore.length === 30 &&
         timeToClear &&
         playTimes
       )
@@ -42,16 +42,16 @@ function useCheckStorageItems(): UseCheckStorageItems {
     })
     .filter(item => item);
 
-  const { timeToClear, makeHit, stackingHit, playTimes } = {
+  const { timeToClear, makeHit, stackingScore, playTimes } = {
     timeToClear: validateValues.map(item => item.timeToClear),
     makeHit: validateValues.map(item => item.makeHit),
-    stackingHit: validateValues.map(item => item.stackingHit),
+    stackingScore: validateValues.map(item => item.stackingScore),
     playTimes: validateValues.map(item => item.playTimes),
   };
 
   localStorage.setItem("dashboard", JSON.stringify(validateValues));
 
-  const recentlyFifthTrys = (arr: Array<string | number> | boolean[][]) => {
+  const recentlyFifthTrys = (arr: Array<string | number> | number[][]) => {
     if (arr.length > 5) return arr.slice(arr.length - 5, arr.length + 1);
     else return arr;
   };
@@ -60,13 +60,13 @@ function useCheckStorageItems(): UseCheckStorageItems {
     allTrys: {
       timeToClear: timeToClear,
       makeHit: makeHit,
-      stackingHit: stackingHit,
+      stackingScore: stackingScore,
       playTimes: playTimes,
     },
     recentlyTrys: {
       timeToClear: recentlyFifthTrys(timeToClear) as number[] | [],
       makeHit: recentlyFifthTrys(makeHit) as number[] | [],
-      stackingHit: recentlyFifthTrys(stackingHit) as boolean[][] | [],
+      stackingScore: recentlyFifthTrys(stackingScore) as number[][] | [],
       playTimes: recentlyFifthTrys(playTimes) as string[],
     },
   };

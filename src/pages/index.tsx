@@ -12,18 +12,18 @@ function Home() {
   });
   const { start, checkScore } = gameProgress;
 
-  const handleStackingHit = (e: React.MouseEvent) => {
+  const handleStackingScore = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!start && !checkScore)
       setGameProgress(prev => ({ ...prev, start: !prev.start }));
-    else if (start) dispatch(pullTrigger(e.currentTarget.id === "hit"));
+    else if (start) dispatch(pullTrigger(Number(e.currentTarget.id)));
   };
 
   return (
     <Presenter
       gameProgress={gameProgress}
       setGameProgress={setGameProgress}
-      handleStackingHit={handleStackingHit}
+      handleStackingScore={handleStackingScore}
     />
   );
 }
