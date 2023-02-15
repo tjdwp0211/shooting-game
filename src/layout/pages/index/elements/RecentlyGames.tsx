@@ -42,33 +42,41 @@ export default RecentlyGames;
 
 const RecentlyGamesWrapper = styled.div`
   width: 100%;
-  height: 105vh;
+  height: 50%;
   max-height: 600px;
+  min-height: 436px;
   background-color: white;
   color: ${lightBlack};
   p {
     text-align: center;
     padding: 16px 0px;
   }
-  @media (width < 1024px) {
-    height: 462px;
-  }
 `;
 
 const BoxWrapper = styled.div`
   width: 100%;
-  height: 90%;
+  height: 95%;
   padding: 0px 24px 24px 24px;
   display: flex;
   justify-content: center;
-  & > * {
-    @media (width < 1024px) {
+  background-color: white;
+  @media (width > 642px) {
+    align-items: center;
+  }
+  @media (width < 1024px) {
+    & > * {
       width: 80% !important;
       height: 35vw !important;
     }
-    @media (width < 642px) {
+  }
+  @media (width < 642px) {
+    & > * {
       width: 50vw !important;
       height: 50vw !important;
+    }
+    canvas {
+      width: 192px !important;
+      height: 192px !important;
     }
   }
 `;
