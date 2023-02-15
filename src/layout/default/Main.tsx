@@ -10,9 +10,7 @@ function Main({ children, indexPage }: MainProps) {
   return (
     <>
       {indexPage ? (
-        <IndexWrapper>
-          <div className="container">{children}</div>
-        </IndexWrapper>
+        <IndexWrapper>{children}</IndexWrapper>
       ) : (
         <Wrapper>
           <div className="container">{children}</div>
@@ -26,8 +24,7 @@ export default Main;
 
 const IndexWrapper = styled.main`
   width: 100vw;
-  min-height: calc(100vh - 100px);
-  height: fit-content;
+  height: calc(100vh - 48px);
 `;
 
 const Wrapper = styled.main`
