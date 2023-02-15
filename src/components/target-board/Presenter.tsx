@@ -84,7 +84,7 @@ const CoordinatesChanger = styled(Root)<{
     transform: translateX(${props => props.x * 500}px)
       translateY(${porps => porps.y * 200}px) scaleX(1) scaleY(1);
   }
-  @media (width < 500px) {
+  @media (width < 524px) {
     transform: translateX(${props => props.x * 300}px)
       translateY(${porps => porps.y * 200}px) scaleX(1) scaleY(1);
   }
