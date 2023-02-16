@@ -21,7 +21,7 @@ function RecentlyGames({ dataForChart, playTimes }: RecentlyGamesProps) {
         Recently 5 Games
       </Text>
       <BoxWrapper>
-        <Box>
+        <Box bgColor="white">
           <Chart
             {...defaultChartProps}
             chartDatas={[dataForChart[0], dataForChart[1]]}
