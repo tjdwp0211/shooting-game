@@ -35,7 +35,7 @@ function useCheckStorageItems(): UseCheckStorageItems {
         makeHit >= 0 &&
         makeHit <= 30 &&
         stackingScore >= 0 &&
-        stackingScore <= 150 &&
+        stackingScore <= 300 &&
         timeToClear &&
         playTimes
       )

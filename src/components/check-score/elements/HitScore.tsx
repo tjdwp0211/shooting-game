@@ -10,11 +10,11 @@ function HitScore() {
   const { stackingScore } = useSelector((state: Store) => state.gameState);
 
   const returnColorByPoint = (point: number) => {
-    if (point === 1) return "#f2f5f5bf";
-    if (point === 2) return "#2f3030bf";
-    if (point === 3) return "#1a21edbf";
-    if (point === 4) return "#fc1212bf";
-    if (point === 5) return "#edea26bf";
+    if (point === 2) return "#f2f5f5bf";
+    if (point === 4) return "#2f3030bf";
+    if (point === 6) return "#1a21edbf";
+    if (point === 8) return "#fc1212bf";
+    if (point === 10) return "#edea26bf";
   };
 
   const checkShootingHistory = stackingScore.reduce(

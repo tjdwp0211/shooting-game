@@ -46,11 +46,11 @@ function Presenter(props: PresenterProps) {
     <>
       {waitingForGameStart(
         <Wrapper>
-          <Circle {...circleProps("1", 100, white)} />
-          <Circle {...circleProps("2", 90, lightBlack)} />
-          <Circle {...circleProps("3", 65, blue)} />
-          <Circle {...circleProps("4", 40, red)} />
-          <Circle {...circleProps("5", 20, yellow)} />
+          <Circle {...circleProps("2", 100, white)} />
+          <Circle {...circleProps("4", 90, lightBlack)} />
+          <Circle {...circleProps("6", 65, blue)} />
+          <Circle {...circleProps("8", 40, red)} />
+          <Circle {...circleProps("10", 20, yellow)} />
         </Wrapper>
       )}
     </>
