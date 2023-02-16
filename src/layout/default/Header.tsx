@@ -36,6 +36,8 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 0px 5vw;
   color: ${black};
+  z-index: 1;
+  position: relative;
   box-shadow: 0px 0px 12px 0px ${gray};
   &,
   * {
