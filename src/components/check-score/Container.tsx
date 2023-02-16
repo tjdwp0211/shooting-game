@@ -21,7 +21,7 @@ function Container({ setGameProgress }: ContainerProps) {
       {
         playTimes: playTimes,
         timeToClear: timeToClear,
-        stackingScore: stackingScore,
+        stackingScore: stackingScore.reduce((prev, cur) => prev + cur, 0),
         makeHit: length,
       },
     ];
