@@ -34,7 +34,8 @@ function useCheckStorageItems(): UseCheckStorageItems {
       if (
         makeHit >= 0 &&
         makeHit <= 30 &&
-        stackingScore.length === 30 &&
+        stackingScore >= 0 &&
+        stackingScore <= 150 &&
         timeToClear &&
         playTimes
       )
@@ -66,7 +67,7 @@ function useCheckStorageItems(): UseCheckStorageItems {
     recentlyTrys: {
       timeToClear: recentlyFifthTrys(timeToClear) as number[] | [],
       makeHit: recentlyFifthTrys(makeHit) as number[] | [],
-      stackingScore: recentlyFifthTrys(stackingScore) as number[][] | [],
+      stackingScore: recentlyFifthTrys(stackingScore) as number[] | [],
       playTimes: recentlyFifthTrys(playTimes) as string[],
     },
   };
