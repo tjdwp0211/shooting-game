@@ -10,7 +10,6 @@ interface ChartDatas {
 
 interface ChartProps {
   size: string[];
-  title: string;
   labelsForLineX: string[];
   chartDatas: ChartDatas[];
 }
