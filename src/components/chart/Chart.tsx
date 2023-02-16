@@ -17,22 +17,17 @@ import { lightBlack } from "../../style/palette/palette";
 import { ChartProps } from "../../type/components/chartType";
 
 function Chart(props: ChartProps) {
-  const { size, title, labelsForLineX, chartDatas } = props;
+  const { size, labelsForLineX, chartDatas } = props;
+  console.log(labelsForLineX);
   const chartOptionsProps = {
     responsive: true,
     color: lightBlack,
     borderWidth: 4,
     plugins: {
       legend: {
-        position: "bottom" as "bottom",
+        position: "top" as "top",
         usePointStyle: true,
-        labels: { font: { size: 9 } },
-      },
-      title: {
-        display: true,
-        text: title,
-        color: lightBlack,
-        font: { size: 18 },
+        labels: { font: { size: 10 } },
       },
     },
     interaction: { mode: "index" as "index", intersect: false },
