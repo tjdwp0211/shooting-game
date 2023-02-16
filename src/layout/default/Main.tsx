@@ -35,7 +35,7 @@ const Wrapper = styled.main`
   justify-content: center;
   .container {
     width: 90vw;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 48px);
     position: relative;
   }
 `;
