@@ -12,12 +12,6 @@ function Presenter(props: PresenterProps) {
     setStorageItems(useCheckStorageItems);
   }, [gameProgress.checkScore]);
 
-  const recentlyFifthScores =
-    storageItems &&
-    storageItems.recentlyTrys.stackingScore.map((el: number[]) =>
-      el.reduce((prev, cur) => prev + cur, 0)
-    );
-
   const recentlyGamesProps = {
     playTimes: storageItems ? storageItems.recentlyTrys.playTimes : [],
     dataForChart: [
@@ -38,7 +32,7 @@ function Presenter(props: PresenterProps) {
       {
         type: "bar" as "line",
         label: "Score",
-        data: recentlyFifthScores,
+        data: storageItems && storageItems.recentlyTrys.stackingScore,
         borderColor: "#76914a",
         backgroundColor: "#76914a",
       },
