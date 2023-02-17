@@ -6,12 +6,9 @@ import { RecentlyGamesProps } from "../../../../type/pages/indexType";
 import { lightBlack } from "../../../../style/palette/palette";
 
 function RecentlyGames({ dataForChart, playTimes }: RecentlyGamesProps) {
-  const defaultArray = ["-", "-", "-", "-", "-"];
+  const nullLabel = Array.from({ length: 5 }).fill("-") as string[];
   const defaultChartProps = {
-    labelsForLineX: [
-      ...playTimes,
-      ...Array.from(defaultArray).slice(0, 5 - playTimes.length),
-    ],
+    labelsForLineX: [...playTimes, ...nullLabel.slice(0, 5 - playTimes.length)],
     size: ["600", "600"],
   };
 
@@ -25,13 +22,8 @@ function RecentlyGames({ dataForChart, playTimes }: RecentlyGamesProps) {
           <Chart
             {...defaultChartProps}
             chartDatas={[dataForChart[0], dataForChart[1]]}
-            title="Time To Clear / Hits"
           />
-          <Chart
-            {...defaultChartProps}
-            chartDatas={[dataForChart[2]]}
-            title="Score"
-          />
+          <Chart {...defaultChartProps} chartDatas={[dataForChart[2]]} />
         </Box>
       </BoxWrapper>
     </RecentlyGamesWrapper>
