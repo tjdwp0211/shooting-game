@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Text from "../text/Text";
 import { HitScore, Time, PlayerNameInput } from "./elements/";
 import { yellow } from "../../style/palette/palette";
-import { regularFont } from "../../style/fonts/inedx";
+import { boldFont, regularFont } from "../../style/fonts/inedx";
 import { PresenterProps } from "../../type/components/checkScoreType";
 
 function Presenter(props: PresenterProps) {
@@ -13,11 +14,16 @@ function Presenter(props: PresenterProps) {
     <Wrapper onSubmit={handleSubmit}>
       <HitScore />
       <Time />
-      <PlayerNameInput
-        playerNameInput={playerNameInput}
-        handleOnChange={handleOnChange}
-      />
-      <ButtonWrapper>
+      <InputWrapper blocking={playerNameInput.blocking}>
+        <Text size={20} weight={boldFont}>
+          Must be between 2 and 6 in length
+        </Text>
+        <PlayerNameInput
+          playerNameInput={playerNameInput}
+          handleOnChange={handleOnChange}
+        />
+      </InputWrapper>
+      <ButtonsWrapper>
         <TextButton
           className="text-button"
           color="white"
@@ -35,7 +41,7 @@ function Presenter(props: PresenterProps) {
         >
           Save Score
         </TextButton>
-      </ButtonWrapper>
+      </ButtonsWrapper>
     </Wrapper>
   );
 }
@@ -54,14 +60,20 @@ const Wrapper = styled.form`
   gap: 4%;
 `;
 
-const VerticalLine = styled.hr`
-  width: 1px;
-  height: 100%;
-  background-color: white;
-  border: none;
+const InputWrapper = styled.article<{ blocking: boolean }>`
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  p {
+    visibility: ${props => (props.blocking ? "visible" : "hidden")};
+    color: ${yellow};
+    margin: 0;
+  }
 `;
 
-const ButtonWrapper = styled.div`
+const ButtonsWrapper = styled.div`
   padding: 6px 12px 18px 12px;
   display: flex;
   align-items: center;
@@ -74,4 +86,11 @@ const TextButton = styled.button<{ color: string }>`
   color: ${props => props.color};
   font-size: 20px;
   ${regularFont}
+`;
+
+const VerticalLine = styled.hr`
+  width: 1px;
+  height: 100%;
+  background-color: white;
+  border: none;
 `;

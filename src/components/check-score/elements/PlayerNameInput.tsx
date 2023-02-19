@@ -2,40 +2,20 @@ import React from "react";
 import styled from "@emotion/styled";
 import { PlayerNameInputProps } from "../../../type/components/checkScoreType";
 import { white, yellow } from "../../../style/palette/palette";
-import { boldFont } from "../../../style/fonts/inedx";
-import Text from "../../text/Text";
 
 function PlayerNameInput(props: PlayerNameInputProps) {
   const { playerNameInput, handleOnChange } = props;
   return (
-    <Wrapper blocking={playerNameInput.blocking}>
-      <Text size={20} weight={boldFont}>
-        Must be between 2 and 6 in length
-      </Text>
-      <StyledInput
-        blocking={playerNameInput.blocking}
-        placeholder="Save score as your name"
-        value={playerNameInput.value}
-        onChange={handleOnChange}
-      />
-    </Wrapper>
+    <StyledInput
+      blocking={playerNameInput.blocking}
+      placeholder="Save score as your name"
+      value={playerNameInput.value}
+      onChange={handleOnChange}
+    />
   );
 }
 
 export default PlayerNameInput;
-
-const Wrapper = styled.article<{ blocking: boolean }>`
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  p {
-    visibility: ${props => (props.blocking ? "visible" : "hidden")};
-    color: ${yellow};
-    margin: 0;
-  }
-`;
 
 const StyledInput = styled.input<{ blocking: boolean }>`
   width: 204px;
