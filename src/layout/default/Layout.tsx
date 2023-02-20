@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Main from "./Main";
+import { useCheckDeviceSize } from "../../customhook";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,6 +9,7 @@ interface LayoutProps {
 }
 
 function Layout({ children, indexPage }: LayoutProps) {
+  useCheckDeviceSize();
   return (
     <>
       <Header />
