@@ -1,22 +1,40 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { HitScore, Time } from "./elements/";
+import { HitScore, Time, PlayerNameInput } from "./elements/";
 import { yellow } from "../../style/palette/palette";
 import { regularFont } from "../../style/fonts/inedx";
 import { PresenterProps } from "../../type/components/checkScoreType";
 
 function Presenter(props: PresenterProps) {
-  const { resetGameState, handlePlayerName, savePlayerScore } = props;
+  const {
+    playerNameInput,
+    setPlayerNameInput,
+    resetGameState,
+    savePlayerScore,
+  } = props;
+
+  const handleSubmit = (
+    e: React.FormEvent<Element> | React.MouseEvent<Element, MouseEvent>
+  ) => {
+    e.preventDefault();
+    if (playerNameInput.value.length <= 1)
+      setPlayerNameInput(prev => ({ ...prev, blocking: true }));
+    else if (!playerNameInput.blocking) savePlayerScore();
+  };
 
   return (
-    <Wrapper onSubmit={savePlayerScore}>
+    <Wrapper onSubmit={handleSubmit}>
       <HitScore />
       <Time />
-      <PlayerNameInput onChange={handlePlayerName} />
+      <PlayerNameInput
+        playerNameInput={playerNameInput}
+        setPlayerNameInput={setPlayerNameInput}
+      />
       <ButtonWrapper>
         <CloseButton
           className="text-button"
           color="white"
+          type="button"
           onClick={resetGameState}
         >
           Try again
@@ -25,7 +43,8 @@ function Presenter(props: PresenterProps) {
         <CloseButton
           className="text-button"
           color={yellow}
-          onSubmit={savePlayerScore}
+          type="submit"
+          onSubmit={handleSubmit}
         >
           Save Score
         </CloseButton>
@@ -35,11 +54,6 @@ function Presenter(props: PresenterProps) {
 }
 
 export default Presenter;
-
-const PlayerNameInput = styled.input`
-  width: 100px;
-  height: 24px;
-`;
 
 const Wrapper = styled.form`
   width: 100%;
