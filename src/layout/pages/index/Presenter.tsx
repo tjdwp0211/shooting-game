@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../default/Layout";
-import useCheckStorageItems from "../../../customhook/useCheckStorageItems";
 import { RecentlyGames, UserInteraction } from "./elements";
 import { PresenterProps } from "../../../type/pages/indexType";
+import { useCheckStorageItems } from "../../../customhook";
 import { UseCheckStorageItems } from "../../../type/customhook/useCheckStorageItemsType";
 
 function Presenter(props: PresenterProps) {
