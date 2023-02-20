@@ -1,14 +1,25 @@
 import React, { Dispatch } from "react";
 import { GameProgress } from "../pages/indexType";
 
+interface PlayerName {
+  value: string;
+  blocking: boolean;
+}
+
 interface ContainerProps {
   setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
 }
 
 interface PresenterProps {
-  handlePlayerName: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  savePlayerScore: (e: React.FormEvent | React.MouseEvent) => void;
+  playerNameInput: PlayerName;
+  setPlayerNameInput: Dispatch<React.SetStateAction<PlayerName>>;
+  savePlayerScore: () => void;
   resetGameState: () => void;
 }
 
-export type { ContainerProps, PresenterProps };
+interface PlayerNameInputProps {
+  playerNameInput: PlayerName;
+  setPlayerNameInput: Dispatch<React.SetStateAction<PlayerName>>;
+}
+
+export type { ContainerProps, PresenterProps, PlayerNameInputProps };

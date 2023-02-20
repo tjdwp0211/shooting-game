@@ -18,6 +18,9 @@ const globalStyle = css`
     }
     ${regularFont}
   }
+  input:focus {
+    outline: none !important;
+  }
   a,
   button {
     cursor: pointer;
