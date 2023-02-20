@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import Presenter from "./Presenter";
 import { useDispatch, useSelector } from "react-redux";
 import { clearGameState, Store } from "../../redux/root";
@@ -10,31 +10,39 @@ function Container({ setGameProgress }: ContainerProps) {
     (state: Store) => state.gameState
   );
   const localStorageItems = JSON.parse(localStorage.getItem("dashboard")) || [];
+  const [playerName, setPlayerName] = useState("");
+  const handlePlayerName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPlayerName(e.target.value);
+  };
 
-  const date = new Date();
-  const playTimes = `${date.getHours()}:${date.getMinutes()}`;
+  const resetGameState = () => {
+    dispatch(clearGameState());
+    setGameProgress(prev => ({ ...prev, start: false, checkScore: false }));
+  };
 
-  useEffect(() => {
+  const savePlayerScore = (e: React.MouseEvent) => {
+    e.preventDefault();
     const { length } = stackingScore.filter(el => el);
     const newItem = [
       ...localStorageItems,
       {
-        playTimes: playTimes,
+        playerName: playerName,
         timeToClear: timeToClear,
         stackingScore: stackingScore.reduce((prev, cur) => prev + cur, 0),
         makeHit: length,
       },
     ];
-    return () => localStorage.setItem("dashboard", JSON.stringify(newItem));
-  }, []);
-
-  const resetGameState = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    dispatch(clearGameState());
-    setGameProgress(prev => ({ ...prev, start: false, checkScore: false }));
+    localStorage.setItem("dashboard", JSON.stringify(newItem));
+    resetGameState();
   };
 
-  return <Presenter resetGameState={resetGameState} />;
+  return (
+    <Presenter
+      savePlayerScore={savePlayerScore}
+      handlePlayerName={handlePlayerName}
+      resetGameState={resetGameState}
+    />
+  );
 }
 
 export default Container;

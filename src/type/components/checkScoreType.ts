@@ -6,7 +6,9 @@ interface ContainerProps {
 }
 
 interface PresenterProps {
-  resetGameState: (e: React.MouseEvent) => void;
+  handlePlayerName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  savePlayerScore: (e: React.FormEvent | React.MouseEvent) => void;
+  resetGameState: () => void;
 }
 
 export type { ContainerProps, PresenterProps };
