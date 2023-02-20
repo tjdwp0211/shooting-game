@@ -20,7 +20,7 @@ function useCheckStorageItems(): UseCheckStorageItems {
           key === "makeHit" ||
           key === "stackingScore" ||
           key === "timeToClear" ||
-          key === "playTimes"
+          key === "playerName"
       );
       if (keyArrayLength === 4) return item;
     })
@@ -30,24 +30,24 @@ function useCheckStorageItems(): UseCheckStorageItems {
 
   const validateValues = validateKeys
     .map(item => {
-      const { makeHit, stackingScore, timeToClear, playTimes } = item;
+      const { makeHit, stackingScore, timeToClear, playerName } = item;
       if (
         makeHit >= 0 &&
         makeHit <= 30 &&
         stackingScore >= 0 &&
         stackingScore <= 300 &&
         timeToClear &&
-        playTimes
+        playerName
       )
         return item;
     })
     .filter(item => item);
 
-  const { timeToClear, makeHit, stackingScore, playTimes } = {
+  const { timeToClear, makeHit, stackingScore, playerNames } = {
     timeToClear: validateValues.map(item => item.timeToClear),
     makeHit: validateValues.map(item => item.makeHit),
     stackingScore: validateValues.map(item => item.stackingScore),
-    playTimes: validateValues.map(item => item.playTimes),
+    playerNames: validateValues.map(item => item.playerName),
   };
 
   localStorage.setItem("dashboard", JSON.stringify(validateValues));
@@ -62,13 +62,13 @@ function useCheckStorageItems(): UseCheckStorageItems {
       timeToClear: timeToClear,
       makeHit: makeHit,
       stackingScore: stackingScore,
-      playTimes: playTimes,
+      playerNames: playerNames,
     },
     recentlyTrys: {
       timeToClear: recentlyFifthTrys(timeToClear) as number[] | [],
       makeHit: recentlyFifthTrys(makeHit) as number[] | [],
       stackingScore: recentlyFifthTrys(stackingScore) as number[] | [],
-      playTimes: recentlyFifthTrys(playTimes) as string[],
+      playerNames: recentlyFifthTrys(playerNames) as string[],
     },
   };
 }

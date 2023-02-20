@@ -4,7 +4,7 @@ interface StorageItems {
   makeHit: number;
   stackingScore: number;
   timeToClear: number;
-  playTimes: string;
+  playerName: string;
 }
 
 interface UseCheckStorageItems {
@@ -12,13 +12,13 @@ interface UseCheckStorageItems {
     timeToClear: number[] | [];
     makeHit: number[] | [];
     stackingScore: number[] | [];
-    playTimes: string[];
+    playerNames: string[];
   };
   recentlyTrys: {
     timeToClear: number[] | [];
     makeHit: number[] | [];
     stackingScore: number[] | [];
-    playTimes: string[];
+    playerNames: string[];
   };
 }
 
