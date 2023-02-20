@@ -10,23 +10,22 @@ function Container({ setGameProgress }: ContainerProps) {
     (state: Store) => state.gameState
   );
   const localStorageItems = JSON.parse(localStorage.getItem("dashboard")) || [];
-  const [playerName, setPlayerName] = useState("");
-  const handlePlayerName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPlayerName(e.target.value);
-  };
+  const [playerNameInput, setPlayerNameInput] = useState({
+    value: "",
+    blocking: false,
+  });
 
   const resetGameState = () => {
     dispatch(clearGameState());
     setGameProgress(prev => ({ ...prev, start: false, checkScore: false }));
   };
 
-  const savePlayerScore = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const savePlayerScore = () => {
     const { length } = stackingScore.filter(el => el);
     const newItem = [
       ...localStorageItems,
       {
-        playerName: playerName,
+        playerName: playerNameInput.value,
         timeToClear: timeToClear,
         stackingScore: stackingScore.reduce((prev, cur) => prev + cur, 0),
         makeHit: length,
@@ -38,8 +37,9 @@ function Container({ setGameProgress }: ContainerProps) {
 
   return (
     <Presenter
+      playerNameInput={playerNameInput}
       savePlayerScore={savePlayerScore}
-      handlePlayerName={handlePlayerName}
+      setPlayerNameInput={setPlayerNameInput}
       resetGameState={resetGameState}
     />
   );
