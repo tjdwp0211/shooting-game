@@ -15,9 +15,13 @@ import {
 import { Line } from "react-chartjs-2";
 import { lightBlack } from "../../style/palette/palette";
 import { ChartProps } from "../../type/components/chartType";
+import { useSelector } from "react-redux";
+import { Store } from "../../redux/root";
 
 function Chart(props: ChartProps) {
   const { size, labelsForLineX, chartDatas } = props;
+  const { fontSize } = useSelector((state: Store) => state.responsiveChart);
+
   const chartOptionsProps = {
     responsive: true,
     color: lightBlack,
@@ -26,8 +30,12 @@ function Chart(props: ChartProps) {
       legend: {
         position: "top" as "top",
         usePointStyle: true,
-        labels: { font: { size: 10 } },
+        labels: { font: { size: fontSize } },
       },
+    },
+    scales: {
+      x: { ticks: { font: { size: fontSize } } },
+      y: { ticks: { font: { size: fontSize } } },
     },
     interaction: { mode: "index" as "index", intersect: false },
     y: {
