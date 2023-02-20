@@ -18,7 +18,6 @@ import { ChartProps } from "../../type/components/chartType";
 
 function Chart(props: ChartProps) {
   const { size, labelsForLineX, chartDatas } = props;
-  console.log(labelsForLineX);
   const chartOptionsProps = {
     responsive: true,
     color: lightBlack,

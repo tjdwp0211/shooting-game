@@ -20,7 +20,7 @@ interface UserInteractionProps {
 
 interface RecentlyGamesProps {
   dataForChart: ChartDatas[];
-  playTimes: string[];
+  playerNames: string[];
 }
 
 export type {

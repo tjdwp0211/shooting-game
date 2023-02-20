@@ -13,7 +13,7 @@ function Presenter(props: PresenterProps) {
   }, [gameProgress.checkScore]);
 
   const recentlyGamesProps = {
-    playTimes: storageItems ? storageItems.recentlyTrys.playTimes : [],
+    playerNames: storageItems ? storageItems.recentlyTrys.playerNames : [],
     dataForChart: [
       {
         type: "line" as "line",
