@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { white } from "../../style/palette/palette";
 
 interface MainProps {
   children: React.ReactNode;
@@ -12,9 +13,7 @@ function Main({ children, indexPage }: MainProps) {
       {indexPage ? (
         <IndexWrapper>{children}</IndexWrapper>
       ) : (
-        <Wrapper>
-          <div className="container">{children}</div>
-        </Wrapper>
+        <BoardWrapper>{children}</BoardWrapper>
       )}
     </>
   );
@@ -27,15 +26,17 @@ const IndexWrapper = styled.main`
   height: calc(100vh - 48px);
 `;
 
-const Wrapper = styled.main`
+const BoardWrapper = styled.main`
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  max-height: 1024px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  .container {
-    width: 90vw;
-    height: calc(100vh - 48px);
-    position: relative;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 0px 5vw;
+  background-color: ${white};
+  @media (orientation: landscape) {
+    height: 105vh;
   }
 `;
