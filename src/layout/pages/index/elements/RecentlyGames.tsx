@@ -70,8 +70,8 @@ const BoxWrapper = styled.div`
       height: 50vw !important;
     }
     canvas {
-      width: 192px !important;
-      height: 192px !important;
+      width: 204px !important;
+      height: 204px !important;
     }
   }
 `;
