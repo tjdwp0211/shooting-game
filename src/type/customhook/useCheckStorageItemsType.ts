@@ -8,7 +8,7 @@ interface StorageItems {
 }
 
 interface UseCheckStorageItems {
-  allTrys: {
+  allTries: {
     timeToClear: number[] | [];
     makeHit: number[] | [];
     stackingScore: number[] | [];

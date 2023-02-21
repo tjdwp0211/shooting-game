@@ -58,7 +58,7 @@ function useCheckStorageItems(): UseCheckStorageItems {
   };
 
   return {
-    allTrys: {
+    allTries: {
       timeToClear: timeToClear,
       makeHit: makeHit,
       stackingScore: stackingScore,
