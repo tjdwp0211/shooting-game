@@ -9,9 +9,9 @@ function useCheckDeviceSize() {
       resizing(
         (() => {
           const { innerWidth: width } = window;
-          if (width < 768) return { fontSize: 8, chartLength: 10 };
-          if (width < 1024) return { fontSize: 10, chartLength: 12 };
-          else return { fontSize: 12, chartLength: 15 };
+          if (width < 768) return 8;
+          if (width < 1024) return 10;
+          else return 12;
         })()
       )
     );
