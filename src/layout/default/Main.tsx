@@ -28,8 +28,8 @@ const IndexWrapper = styled.main`
 
 const BoardWrapper = styled.main`
   width: 100%;
-  min-height: 100vh;
-  max-height: 1024px;
+  height: 1024px;
+  min-height: calc(100vh - 48px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,6 +37,9 @@ const BoardWrapper = styled.main`
   padding: 0px 5vw;
   background-color: ${white};
   @media (orientation: landscape) {
-    height: 105vh;
+    @media (width < 1024px) {
+      justify-content: baseline;
+      height: 140vh;
+    }
   }
 `;
