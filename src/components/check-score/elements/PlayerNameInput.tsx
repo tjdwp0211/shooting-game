@@ -43,7 +43,7 @@ function PlayerNameInput({
 export default PlayerNameInput;
 
 const Wrapper = styled.div<{ blocking: boolean }>`
-  width: 40%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,10 +56,8 @@ const Wrapper = styled.div<{ blocking: boolean }>`
 `;
 
 const StyledInput = styled.input<{ blocking: boolean }>`
-  width: 50%;
-  max-width: 204px;
+  width: 204px;
   height: 32px;
-
   border: none;
   border-bottom-left-radius: 6px;
   border-left: 2px solid ${props => (props.blocking ? yellow : white)};
