@@ -31,23 +31,23 @@ function Presenter(props: PresenterProps) {
         setPlayerNameInput={setPlayerNameInput}
       />
       <ButtonWrapper>
-        <CloseButton
+        <TextButton
           className="text-button"
           color="white"
           type="button"
           onClick={resetGameState}
         >
           Try again
-        </CloseButton>
+        </TextButton>
         <VerticalLine />
-        <CloseButton
+        <TextButton
           className="text-button"
           color={yellow}
           type="submit"
           onSubmit={handleSubmit}
         >
           Save Score
-        </CloseButton>
+        </TextButton>
       </ButtonWrapper>
     </Wrapper>
   );
@@ -63,7 +63,8 @@ const Wrapper = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 4%;
 `;
 
 const VerticalLine = styled.hr`
@@ -80,10 +81,10 @@ const ButtonWrapper = styled.div`
   gap: 4px;
 `;
 
-const CloseButton = styled.button<{ color: string }>`
+const TextButton = styled.button<{ color: string }>`
   background-color: white;
   background-color: inherit;
   color: ${props => props.color};
-  font-size: 16px;
+  font-size: 20px;
   ${regularFont}
 `;
