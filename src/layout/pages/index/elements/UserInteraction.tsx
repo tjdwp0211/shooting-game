@@ -50,8 +50,8 @@ export default UserInteraction;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: calc(100vh - 48px);
-  max-height: 500px;
+  height: calc(80vh - 48px);
+  min-height: 300px;
   position: relative;
 `;
 
