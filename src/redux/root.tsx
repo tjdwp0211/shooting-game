@@ -5,14 +5,14 @@ import {
   actions as gameStateAction,
 } from "./gameState/reducer";
 import {
-  reducer as responsiveChartReducer,
-  actions as responsiveChartAction,
-} from "./responsiveChart/reducer";
+  reducer as deviceSizeReducer,
+  actions as deviceSizeAction,
+} from "./deviceSize/reducer";
 
 const store = configureStore({
   reducer: {
     gameState: gameStateReducer,
-    responsiveChart: responsiveChartReducer,
+    deviceSize: deviceSizeReducer,
   },
 });
 
@@ -22,5 +22,5 @@ export type Store = ReturnType<typeof store.getState>;
 export default store;
 
 const { pullTrigger, clearGameState, timeTickTock } = gameStateAction;
-const { resizing } = responsiveChartAction;
-export { pullTrigger, clearGameState, timeTickTock, resizing };
+const { getDeviceSize } = deviceSizeAction;
+export { pullTrigger, clearGameState, timeTickTock, getDeviceSize };
