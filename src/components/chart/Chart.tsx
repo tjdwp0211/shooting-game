@@ -20,7 +20,12 @@ import { Store } from "../../redux/root";
 
 function Chart(props: ChartProps) {
   const { size, labelsForLineX, chartDatas } = props;
-  const { fontSize } = useSelector((state: Store) => state.responsiveChart);
+  const { deviceWidth } = useSelector((state: Store) => state.deviceSize);
+  const fontSize = () => {
+    if (deviceWidth < 768) return 8;
+    if (deviceWidth < 1024) return 10;
+    else return 12;
+  };
 
   const chartOptionsProps = {
     responsive: true,
@@ -30,12 +35,12 @@ function Chart(props: ChartProps) {
       legend: {
         position: "top" as "top",
         usePointStyle: true,
-        labels: { font: { size: fontSize } },
+        labels: { font: { size: fontSize() } },
       },
     },
     scales: {
-      x: { ticks: { font: { size: fontSize } } },
-      y: { ticks: { font: { size: fontSize } } },
+      x: { ticks: { font: { size: fontSize() } } },
+      y: { ticks: { font: { size: fontSize() } } },
     },
     interaction: { mode: "index" as "index", intersect: false },
     y: {
