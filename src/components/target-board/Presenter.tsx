@@ -9,6 +9,8 @@ import {
   white,
   yellow,
 } from "../../style/palette/palette";
+import { useSelector } from "react-redux";
+import { Store } from "../../redux/root";
 
 function Presenter(props: PresenterProps) {
   const {
@@ -17,12 +19,20 @@ function Presenter(props: PresenterProps) {
     handleCoordinates,
     handleStackingScore,
   } = props;
+  const { deviceWidth, deviceHeight } = useSelector(
+    (state: Store) => state.deviceSize
+  );
 
   const waitingForGameStart = (children: React.ReactNode) => {
     return !gameProgress.start ? (
       <CoordinatesFixer>{children}</CoordinatesFixer>
     ) : (
-      <CoordinatesChanger x={targetCoordinates.x} y={targetCoordinates.y}>
+      <CoordinatesChanger
+        x={targetCoordinates.x}
+        y={targetCoordinates.y}
+        deviceHeight={deviceHeight}
+        deviceWidth={deviceWidth}
+      >
         {children}
       </CoordinatesChanger>
     );
@@ -71,27 +81,18 @@ const Root = styled.div`
 const CoordinatesChanger = styled(Root)<{
   x: number;
   y: number;
+  deviceWidth: number;
+  deviceHeight: number;
 }>`
-  @media (width > 1100px) {
-    transform: translateX(${props => props.x * 1000}px)
-      translateY(${porps => porps.y * 200}px) scaleX(1) scaleY(1);
-  }
-  @media (830px < width < 1100px) {
-    transform: translateX(${props => props.x * 700}px)
-      translateY(${porps => porps.y * 200}px) scaleX(1) scaleY(1);
-  }
-  @media (500px < width < 830px) {
-    transform: translateX(${props => props.x * 500}px)
-      translateY(${porps => porps.y * 200}px) scaleX(1) scaleY(1);
-  }
-  @media (width < 524px) {
-    transform: translateX(${props => props.x * 300}px)
-      translateY(${porps => porps.y * 200}px) scaleX(1) scaleY(1);
-  }
+  transform: translateX(
+      ${props => props.x * ((props.deviceWidth * 80) / 100)}px
+    )
+    translateY(${props => props.y * ((props.deviceHeight * 50) / 100)}px)
+    scaleX(1) scaleY(1);
 `;
 
 const CoordinatesFixer = styled(Root)`
   top: 55%;
   left: 50%;
-  transform: translate(-50%, -10%);
+  transform: translate(-50%, 0%);
 `;
