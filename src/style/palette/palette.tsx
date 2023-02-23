@@ -2,9 +2,10 @@ import React from "react";
 
 const {
   white,
-  beige,
   red,
+  pink,
   yellow,
+  green,
   blue,
   lightBlue,
   gray,
@@ -13,11 +14,12 @@ const {
   lightBlack,
 } = {
   white: "#f2f5f5",
-  beige: "#D9CDB8",
   red: "#fc1212",
+  pink: "rgb(255, 99, 132)",
   yellow: "#edea26",
+  green: "#76914a",
   blue: "#1a21ed",
-  lightBlue: "#3279A6",
+  lightBlue: "rgb(75, 192, 192)",
   gray: "#3B3C40",
   lightGray: "#B2B2B6",
   black: "#00010D",
@@ -26,9 +28,10 @@ const {
 
 export {
   white,
-  beige,
   red,
+  pink,
   yellow,
+  green,
   blue,
   lightBlue,
   gray,
