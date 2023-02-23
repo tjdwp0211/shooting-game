@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 import { regularFont } from "./fonts/inedx";
-import { black, white } from "./palette/palette";
+import { black, green, white } from "./palette/palette";
 
 const globalStyle = css`
   * {
@@ -9,7 +9,7 @@ const globalStyle = css`
   }
   body {
     margin: 0px;
-    background-color: #76914a;
+    background-color: ${green};
     color: ${white};
     overflow-x: hidden;
     @media (prefers-color-scheme: dark) {
