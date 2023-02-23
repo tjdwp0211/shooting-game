@@ -12,14 +12,16 @@ interface ContainerProps {
 
 interface PresenterProps {
   playerNameInput: PlayerName;
-  setPlayerNameInput: Dispatch<React.SetStateAction<PlayerName>>;
-  savePlayerScore: () => void;
   resetGameState: () => void;
+  handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (
+    e: React.FormEvent<Element> | React.MouseEvent<Element, MouseEvent>
+  ) => void;
 }
 
 interface PlayerNameInputProps {
   playerNameInput: PlayerName;
-  setPlayerNameInput: Dispatch<React.SetStateAction<PlayerName>>;
+  handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export type { ContainerProps, PresenterProps, PlayerNameInputProps };
