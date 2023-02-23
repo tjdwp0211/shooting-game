@@ -6,21 +6,8 @@ import { regularFont } from "../../style/fonts/inedx";
 import { PresenterProps } from "../../type/components/checkScoreType";
 
 function Presenter(props: PresenterProps) {
-  const {
-    playerNameInput,
-    setPlayerNameInput,
-    resetGameState,
-    savePlayerScore,
-  } = props;
-
-  const handleSubmit = (
-    e: React.FormEvent<Element> | React.MouseEvent<Element, MouseEvent>
-  ) => {
-    e.preventDefault();
-    if (playerNameInput.value.length <= 1)
-      setPlayerNameInput(prev => ({ ...prev, blocking: true }));
-    else if (!playerNameInput.blocking) savePlayerScore();
-  };
+  const { playerNameInput, resetGameState, handleOnChange, handleSubmit } =
+    props;
 
   return (
     <Wrapper onSubmit={handleSubmit}>
@@ -28,7 +15,7 @@ function Presenter(props: PresenterProps) {
       <Time />
       <PlayerNameInput
         playerNameInput={playerNameInput}
-        setPlayerNameInput={setPlayerNameInput}
+        handleOnChange={handleOnChange}
       />
       <ButtonWrapper>
         <TextButton

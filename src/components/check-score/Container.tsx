@@ -15,6 +15,31 @@ function Container({ setGameProgress }: ContainerProps) {
     blocking: false,
   });
 
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value: eventValue } = e.target;
+    if (eventValue.length <= 6)
+      setPlayerNameInput(prev => ({
+        ...prev,
+        value: eventValue,
+        blocking: false,
+      }));
+    else
+      setPlayerNameInput(prev => ({
+        ...prev,
+        value: eventValue,
+        blocking: true,
+      }));
+  };
+
+  const handleSubmit = (
+    e: React.FormEvent<Element> | React.MouseEvent<Element, MouseEvent>
+  ) => {
+    e.preventDefault();
+    if (playerNameInput.value.length <= 1)
+      setPlayerNameInput(prev => ({ ...prev, blocking: true }));
+    else if (!playerNameInput.blocking) savePlayerScore();
+  };
+
   const resetGameState = () => {
     dispatch(clearGameState());
     setGameProgress(prev => ({ ...prev, start: false, checkScore: false }));
@@ -38,9 +63,9 @@ function Container({ setGameProgress }: ContainerProps) {
   return (
     <Presenter
       playerNameInput={playerNameInput}
-      savePlayerScore={savePlayerScore}
-      setPlayerNameInput={setPlayerNameInput}
       resetGameState={resetGameState}
+      handleOnChange={handleOnChange}
+      handleSubmit={handleSubmit}
     />
   );
 }

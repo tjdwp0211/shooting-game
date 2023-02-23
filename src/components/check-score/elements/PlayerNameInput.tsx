@@ -5,26 +5,8 @@ import { white, yellow } from "../../../style/palette/palette";
 import { boldFont } from "../../../style/fonts/inedx";
 import Text from "../../text/Text";
 
-function PlayerNameInput({
-  playerNameInput,
-  setPlayerNameInput,
-}: PlayerNameInputProps) {
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value: eventValue } = e.target;
-    if (eventValue.length <= 6)
-      setPlayerNameInput(prev => ({
-        ...prev,
-        value: eventValue,
-        blocking: false,
-      }));
-    else
-      setPlayerNameInput(prev => ({
-        ...prev,
-        value: eventValue,
-        blocking: true,
-      }));
-  };
-
+function PlayerNameInput(props: PlayerNameInputProps) {
+  const { playerNameInput, handleOnChange } = props;
   return (
     <Wrapper blocking={playerNameInput.blocking}>
       <Text size={20} weight={boldFont}>
@@ -42,7 +24,7 @@ function PlayerNameInput({
 
 export default PlayerNameInput;
 
-const Wrapper = styled.div<{ blocking: boolean }>`
+const Wrapper = styled.article<{ blocking: boolean }>`
   width: 70%;
   display: flex;
   flex-direction: column;
