@@ -20,6 +20,7 @@ function AllTriesCharts(props: AllTriesChartsProps) {
     ],
     size: ["300", "300"],
   };
+
   return (
     <ChartWrapper>
       {filterComponent}
@@ -40,26 +41,49 @@ const ChartWrapper = styled.article`
   grid-template-areas:
     "timeChart filter"
     "hitChart scoreChart";
-  grid-template-columns: repeat(2, 1fr);
-  div:nth-of-type(1) {
+  grid-template-columns: repeat(2, 50%);
+  article:nth-of-type(1) {
     grid-area: filter;
   }
-  article:nth-of-type(1) {
+  article:nth-of-type(2) {
     grid-area: timeChart;
   }
-  article:nth-of-type(2) {
+  article:nth-of-type(3) {
     grid-area: hitChart;
   }
-  article:nth-of-type(3) {
+  article:nth-of-type(4) {
     grid-area: scoreChart;
   }
-  & > * {
+  & > article {
     justify-self: center;
-    align-self: center;
+    align-items: center;
     width: 100%;
     min-width: 204px;
     height: 100%;
     min-height: 204px;
+  }
+
+  @media (orientation: landscape) or (max-width: 1024px) {
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-areas:
+      "timeChart filter"
+      "hitChart scoreChart";
+    & > article {
+      max-width: 560px;
+      max-height: 560px;
+    }
+    article:nth-of-type(1) {
+      justify-self: start;
+    }
+    article:nth-of-type(2) {
+      justify-self: end;
+    }
+    article:nth-of-type(3) {
+      justify-self: end;
+    }
+    article:nth-of-type(4) {
+      justify-self: start;
+    }
   }
   @media (max-width: 640px) {
     grid-template-columns: repeat(1, 1fr);
@@ -71,16 +95,6 @@ const ChartWrapper = styled.article`
     & > * {
       max-width: 192px;
       max-height: 192px;
-    }
-  }
-  @media (orientation: landscape) or (max-width: 1024) {
-    grid-template-columns: repeat(2, 2fr);
-    grid-template-areas:
-      "timeChart filter"
-      "hitChart scoreChart";
-    & > * {
-      max-width: 100%;
-      max-height: 100%;
     }
   }
 `;
