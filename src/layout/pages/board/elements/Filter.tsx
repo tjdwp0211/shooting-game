@@ -1,14 +1,25 @@
 import React, { useCallback, useState } from "react";
 import styled from "@emotion/styled";
 import { SelectBox } from "../../../../components";
-import { green, lightBlue, pink } from "../../../../style/palette/palette";
+import {
+  black,
+  green,
+  lightBlue,
+  pink,
+} from "../../../../style/palette/palette";
+import { PlayerNameInput } from "../../../../components/check-score/elements";
 
 function Filter() {
+  const [searchValue, setSearchValue] = useState("");
   const [{ timeSelect, scoreSelect, hitsSelect }, setSelectBoxView] = useState({
     timeSelect: false,
     scoreSelect: false,
     hitsSelect: false,
   });
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+  };
 
   const handleOptionsView = useCallback((key: string) => {
     const closeAllSelectView = {
@@ -37,7 +48,11 @@ function Filter() {
 
   return (
     <SelectBoxWrapper>
-      <input />
+      <PlayerNameInput
+        mainColor={black}
+        inputState={{ value: searchValue }}
+        handleOnChange={handleOnChange}
+      />
       <SelectBox
         view={timeSelect}
         mainColor={lightBlue}
@@ -73,18 +88,32 @@ const SelectBoxWrapper = styled.article`
   height: 80%;
   padding: 24px 0px;
   display: grid;
-  grid-template-rows: 20px 20% 20% 20%;
+  grid-template-rows: 56px 20% 2vw 20% 2vw 20%;
   align-items: center;
   justify-items: center;
-  gap: 2vw;
+  column-gap: 16px;
+  & > div:nth-of-type(1) {
+    grid-area: 2;
+  }
+  & > div:nth-of-type(2) {
+    grid-area: 4;
+  }
+  & > div:nth-of-type(3) {
+    grid-area: 6;
+  }
 
   @media (width < 1024px) {
     align-content: center;
-    @media (width < 640px) {
-      align-content: start;
-      padding: 0;
-      & > div {
-        width: 50%;
+    @media (max-width: 820px) {
+      input {
+        height: 24px;
+      }
+      @media (width < 640px) {
+        align-content: start;
+        padding: 0;
+        & > div {
+          width: 50%;
+        }
       }
     }
   }
