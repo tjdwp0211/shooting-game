@@ -1,11 +1,6 @@
-import styled from "@emotion/styled";
 import React from "react";
-
-interface ArrowButtonProps {
-  view: boolean;
-  mainColor: string;
-  handleOnClick: () => void;
-}
+import styled from "@emotion/styled";
+import { ArrowButtonProps } from "../../../type/components/selectBoxTypes";
 
 function ArrowButton({ view, mainColor, handleOnClick }: ArrowButtonProps) {
   return (

@@ -1,17 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Text from "../text/Text";
 import { ArrowButton, Options } from "./elements";
 import { gray } from "../../style/palette/palette";
-import { regularFont } from "../../style/fonts/inedx";
-
-interface SelectBoxProps {
-  view: boolean;
-  options: string[];
-  mainColor: string;
-  children: React.ReactNode;
-  handleOnClick: () => void;
-}
+import { SelectBoxProps } from "../../type/components/selectBoxTypes";
 
 function SelectBox(props: SelectBoxProps) {
   const {
@@ -37,14 +28,13 @@ export default SelectBox;
 
 const SelectBoxWrapper = styled.div<{ view: boolean }>`
   width: 80%;
-  height: 80%;
+  height: 70%;
   display: flex;
   justify-content: space-between;
   background-color: white;
   box-shadow: 0px 0px 4px 0px ${props => !props.view && gray};
   position: relative;
   border-radius: 12px;
-  /* overflow: hidden; */
   & > p {
     width: 80%;
     height: 100%;

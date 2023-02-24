@@ -3,12 +3,7 @@ import styled from "@emotion/styled";
 import Text from "../../text/Text";
 import { regularFont } from "../../../style/fonts/inedx";
 import { gray } from "../../../style/palette/palette";
-
-interface OptionsProps {
-  view: boolean;
-  options: string[];
-  mainColor: string;
-}
+import { OptionsProps } from "../../../type/components/selectBoxTypes";
 
 function Options({ view, options, mainColor }: OptionsProps) {
   const createOptionElements = () => {
