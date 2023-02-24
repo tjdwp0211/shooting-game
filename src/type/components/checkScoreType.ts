@@ -1,10 +1,6 @@
 import React, { Dispatch } from "react";
 import { GameProgress } from "../pages/indexType";
-
-interface PlayerName {
-  value: string;
-  blocking?: boolean;
-}
+import { PlayerName } from "./playerNameInputType";
 
 interface ContainerProps {
   setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
@@ -19,10 +15,4 @@ interface PresenterProps {
   ) => void;
 }
 
-interface PlayerNameInputProps {
-  mainColor: string;
-  inputState: PlayerName;
-  handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-export type { ContainerProps, PresenterProps, PlayerNameInputProps };
+export type { ContainerProps, PresenterProps };

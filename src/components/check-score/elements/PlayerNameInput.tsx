@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { PlayerNameInputProps } from "../../../type/components/checkScoreType";
 import { yellow } from "../../../style/palette/palette";
+import { PlayerNameInputProps } from "../../../type/components/playerNameInputType";
 
 function PlayerNameInput(props: PlayerNameInputProps) {
   const { mainColor, inputState, handleOnChange } = props;
