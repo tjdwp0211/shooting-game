@@ -5,14 +5,7 @@ import { black } from "../../../style/palette/palette";
 import { Text } from "../../../components";
 import { boldFont } from "../../../style/fonts/inedx";
 import { AllTriesCharts, GridWrapper, Filter } from "./elements";
-import { ChartDatas } from "../../../type/components/chartType";
-
-interface PresenterProps {
-  allTriesChartsProps: {
-    playerNames: string[];
-    dataForChart: ChartDatas[];
-  };
-}
+import { PresenterProps } from "../../../type/pages/boardType";
 
 function Presenter({ allTriesChartsProps }: PresenterProps) {
   return (

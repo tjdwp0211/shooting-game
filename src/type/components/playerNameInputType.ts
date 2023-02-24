@@ -1,3 +1,5 @@
+import React from "react";
+
 interface PlayerName {
   value: string;
   blocking?: boolean;
