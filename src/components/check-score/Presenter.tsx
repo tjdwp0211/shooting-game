@@ -2,24 +2,24 @@ import React from "react";
 import styled from "@emotion/styled";
 import Text from "../text/Text";
 import { HitScore, Time, PlayerNameInput } from "./elements/";
-import { yellow } from "../../style/palette/palette";
+import { white, yellow } from "../../style/palette/palette";
 import { boldFont, regularFont } from "../../style/fonts/inedx";
 import { PresenterProps } from "../../type/components/checkScoreType";
 
 function Presenter(props: PresenterProps) {
-  const { playerNameInput, resetGameState, handleOnChange, handleSubmit } =
-    props;
+  const { inputState, resetGameState, handleOnChange, handleSubmit } = props;
 
   return (
     <Wrapper onSubmit={handleSubmit}>
       <HitScore />
       <Time />
-      <InputWrapper blocking={playerNameInput.blocking}>
+      <InputWrapper blocking={inputState.blocking}>
         <Text size={20} weight={boldFont}>
           Must be between 2 and 6 in length
         </Text>
         <PlayerNameInput
-          playerNameInput={playerNameInput}
+          mainColor={white}
+          inputState={inputState}
           handleOnChange={handleOnChange}
         />
       </InputWrapper>
