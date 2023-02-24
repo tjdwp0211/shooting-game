@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { PlayerNameInputProps } from "../../../type/components/checkScoreType";
-import { white, yellow } from "../../../style/palette/palette";
+import { yellow } from "../../../style/palette/palette";
 
 function PlayerNameInput(props: PlayerNameInputProps) {
-  const { playerNameInput, handleOnChange } = props;
+  const { mainColor, inputState, handleOnChange } = props;
   return (
     <StyledInput
-      blocking={playerNameInput.blocking}
+      mainColor={mainColor}
+      blocking={inputState.blocking}
       placeholder="Save score as your name"
-      value={playerNameInput.value}
+      value={inputState.value}
       onChange={handleOnChange}
     />
   );
@@ -17,20 +18,21 @@ function PlayerNameInput(props: PlayerNameInputProps) {
 
 export default PlayerNameInput;
 
-const StyledInput = styled.input<{ blocking: boolean }>`
+const StyledInput = styled.input<{ blocking: boolean; mainColor: string }>`
   width: 204px;
   height: 32px;
   border: none;
   border-bottom-left-radius: 6px;
-  border-left: 2px solid ${props => (props.blocking ? yellow : white)};
-  border-bottom: 2px solid ${props => (props.blocking ? yellow : white)};
+  border-left: 2px solid ${props => (props.blocking ? yellow : props.mainColor)};
+  border-bottom: 2px solid
+    ${props => (props.blocking ? yellow : props.mainColor)};
   padding-left: 12px;
   background-color: inherit;
   animation: ${props => props.blocking && "shake"} 0.2s;
   -webkit-animation: ${props => props.blocking && "shake"} 0.2s;
   &,
   &::placeholder {
-    color: ${props => (props.blocking ? yellow : white)};
+    color: ${props => (props.blocking ? yellow : props.mainColor)};
   }
   @keyframes shake {
     0% {

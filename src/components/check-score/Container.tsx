@@ -10,7 +10,7 @@ function Container({ setGameProgress }: ContainerProps) {
     (state: Store) => state.gameState
   );
   const localStorageItems = JSON.parse(localStorage.getItem("dashboard")) || [];
-  const [playerNameInput, setPlayerNameInput] = useState({
+  const [inputState, setInputState] = useState({
     value: "",
     blocking: false,
   });
@@ -18,26 +18,18 @@ function Container({ setGameProgress }: ContainerProps) {
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value: eventValue } = e.target;
     if (eventValue.length <= 6)
-      setPlayerNameInput(prev => ({
-        ...prev,
-        value: eventValue,
-        blocking: false,
-      }));
+      setInputState(prev => ({ ...prev, value: eventValue, blocking: false }));
     else
-      setPlayerNameInput(prev => ({
-        ...prev,
-        value: eventValue,
-        blocking: true,
-      }));
+      setInputState(prev => ({ ...prev, value: eventValue, blocking: true }));
   };
 
   const handleSubmit = (
     e: React.FormEvent<Element> | React.MouseEvent<Element, MouseEvent>
   ) => {
     e.preventDefault();
-    if (playerNameInput.value.length <= 1)
-      setPlayerNameInput(prev => ({ ...prev, blocking: true }));
-    else if (!playerNameInput.blocking) savePlayerScore();
+    if (inputState.value.length <= 1)
+      setInputState(prev => ({ ...prev, blocking: true }));
+    else if (!inputState.blocking) savePlayerScore();
   };
 
   const resetGameState = () => {
@@ -50,7 +42,7 @@ function Container({ setGameProgress }: ContainerProps) {
     const newItem = [
       ...localStorageItems,
       {
-        playerName: playerNameInput.value,
+        playerName: inputState.value,
         timeToClear: timeToClear,
         stackingScore: stackingScore.reduce((prev, cur) => prev + cur, 0),
         makeHit: length,
@@ -62,7 +54,7 @@ function Container({ setGameProgress }: ContainerProps) {
 
   return (
     <Presenter
-      playerNameInput={playerNameInput}
+      inputState={inputState}
       resetGameState={resetGameState}
       handleOnChange={handleOnChange}
       handleSubmit={handleSubmit}
