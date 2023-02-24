@@ -3,7 +3,7 @@ import { GameProgress } from "../pages/indexType";
 
 interface PlayerName {
   value: string;
-  blocking: boolean;
+  blocking?: boolean;
 }
 
 interface ContainerProps {
@@ -11,7 +11,7 @@ interface ContainerProps {
 }
 
 interface PresenterProps {
-  playerNameInput: PlayerName;
+  inputState: PlayerName;
   resetGameState: () => void;
   handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (
@@ -20,7 +20,8 @@ interface PresenterProps {
 }
 
 interface PlayerNameInputProps {
-  playerNameInput: PlayerName;
+  mainColor: string;
+  inputState: PlayerName;
   handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
