@@ -12,7 +12,7 @@ function Presenter({ allTriesChartsProps }: PresenterProps) {
     <Layout indexPage={false}>
       <TitleWrapper>
         <Text size={36} weight={boldFont}>
-          Dashboard
+          DASHBOARD
         </Text>
       </TitleWrapper>
       <GridWrapper>
