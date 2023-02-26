@@ -8,7 +8,7 @@ import { OptionsProps } from "../../../type/components/selectBoxTypes";
 function Options({ view, options, mainColor }: OptionsProps) {
   const createOptionElements = () => {
     return options.map((option, i) => (
-      <Text size={24} weight={regularFont} key={i}>
+      <Text size={20} weight={regularFont} key={i}>
         {option}
       </Text>
     ));
@@ -46,6 +46,6 @@ const OptionsWrapper = styled.div<{ view: boolean; mainColor: string }>`
     display: flex;
     align-items: center;
     height: ${props => (props.view ? 100 : 0)}%;
-    border-radius: 12px 0 0 12px;
+    border-radius: 0 0 0 12px;
   }
 `;
