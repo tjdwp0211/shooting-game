@@ -7,7 +7,16 @@ import { boldFont } from "../../../style/fonts/inedx";
 import { AllTriesCharts, GridWrapper, Filter } from "./elements";
 import { PresenterProps } from "../../../type/pages/boardType";
 
-function Presenter({ allTriesChartsProps }: PresenterProps) {
+function Presenter(props: PresenterProps) {
+  const {
+    allTriesChartsProps,
+    increasingSorting,
+    descendingSorting,
+    drawByPlayerName,
+    defaultSorting,
+    storageItems,
+  } = props;
+
   return (
     <Layout indexPage={false}>
       <TitleWrapper>
@@ -16,7 +25,13 @@ function Presenter({ allTriesChartsProps }: PresenterProps) {
         </Text>
       </TitleWrapper>
       <GridWrapper>
-        <Filter />
+        <Filter
+          increasingSorting={increasingSorting}
+          descendingSorting={descendingSorting}
+          drawByPlayerName={drawByPlayerName}
+          defaultSorting={defaultSorting}
+          storageItems={storageItems}
+        />
         <AllTriesCharts {...allTriesChartsProps} />
       </GridWrapper>
     </Layout>

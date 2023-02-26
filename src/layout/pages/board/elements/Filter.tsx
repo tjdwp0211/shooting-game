@@ -8,8 +8,16 @@ import {
   pink,
 } from "../../../../style/palette/palette";
 import { PlayerNameInput } from "../../../../components/check-score/elements";
+import { FilterProps } from "../../../../type/pages/boardType";
 
-function Filter() {
+function Filter(props: FilterProps) {
+  const {
+    increasingSorting,
+    descendingSorting,
+    drawByPlayerName,
+    defaultSorting,
+    storageItems,
+  } = props;
   const [searchValue, setSearchValue] = useState("");
   const [{ timeSelect, scoreSelect, hitsSelect }, setSelectBoxView] = useState({
     timeSelect: false,
@@ -46,13 +54,26 @@ function Filter() {
     },
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    drawByPlayerName(searchValue);
+  };
+
   return (
     <SelectBoxWrapper>
-      <PlayerNameInput
-        mainColor={black}
-        inputState={{ value: searchValue }}
-        handleOnChange={handleOnChange}
-      />
+      <form onSubmit={handleSubmit}>
+        <PlayerNameInput
+          mainColor={black}
+          inputState={{ value: searchValue }}
+          handleOnChange={handleOnChange}
+        />
+        <button type="submit" onSubmit={handleSubmit}>
+          search
+        </button>
+        <button type="button" onClick={defaultSorting}>
+          default
+        </button>
+      </form>
       <SelectBox
         view={timeSelect}
         mainColor={lightBlue}
