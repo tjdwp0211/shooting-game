@@ -58,13 +58,14 @@ function useCheckStorageItems(): UseCheckStorageItems {
   };
 
   return {
+    getItems: validateValues,
     allTries: {
       timeToClear: timeToClear,
       makeHit: makeHit,
       stackingScore: stackingScore,
       playerNames: playerNames,
     },
-    recentlyTrys: {
+    recentlyTries: {
       timeToClear: recentlyFifthTrys(timeToClear) as number[] | [],
       makeHit: recentlyFifthTrys(makeHit) as number[] | [],
       stackingScore: recentlyFifthTrys(stackingScore) as number[] | [],

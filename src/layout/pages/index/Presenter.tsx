@@ -13,26 +13,26 @@ function Presenter(props: PresenterProps) {
   }, [gameProgress.checkScore]);
 
   const recentlyGamesProps = {
-    playerNames: storageItems ? storageItems.recentlyTrys.playerNames : [],
+    playerNames: storageItems ? storageItems.recentlyTries.playerNames : [],
     dataForChart: [
       {
         type: "line" as "line",
         label: "Time To Clear",
-        data: storageItems && storageItems.recentlyTrys.timeToClear,
+        data: storageItems && storageItems.recentlyTries.timeToClear,
         borderColor: "rgb(75, 192, 192)",
         backgroundColor: "rgb(75, 192, 192)",
       },
       {
         type: "bar" as "line",
         label: "Hit",
-        data: storageItems && storageItems.recentlyTrys.makeHit,
+        data: storageItems && storageItems.recentlyTries.makeHit,
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgb(255, 99, 132)",
       },
       {
         type: "bar" as "line",
         label: "Score",
-        data: storageItems && storageItems.recentlyTrys.stackingScore,
+        data: storageItems && storageItems.recentlyTries.stackingScore,
         borderColor: "#76914a",
         backgroundColor: "#76914a",
       },
