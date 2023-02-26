@@ -7,19 +7,17 @@ interface StorageItems {
   playerName: string;
 }
 
-interface UseCheckStorageItems {
-  allTries: {
-    timeToClear: number[] | [];
-    makeHit: number[] | [];
-    stackingScore: number[] | [];
-    playerNames: string[];
-  };
-  recentlyTrys: {
-    timeToClear: number[] | [];
-    makeHit: number[] | [];
-    stackingScore: number[] | [];
-    playerNames: string[];
-  };
+interface SortStorageItemsByKey {
+  timeToClear: number[] | [];
+  makeHit: number[] | [];
+  stackingScore: number[] | [];
+  playerNames: string[] | [];
 }
 
-export type { StorageItems, UseCheckStorageItems };
+interface UseCheckStorageItems {
+  allTries: SortStorageItemsByKey;
+  recentlyTries: SortStorageItemsByKey;
+  getItems: StorageItems[];
+}
+
+export type { StorageItems, SortStorageItemsByKey, UseCheckStorageItems };
