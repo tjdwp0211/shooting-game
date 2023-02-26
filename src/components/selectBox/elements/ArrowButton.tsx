@@ -13,7 +13,7 @@ function ArrowButton({ view, mainColor, handleOnClick }: ArrowButtonProps) {
 export default ArrowButton;
 
 const ArrowImgWrapper = styled.div<{ view: boolean; mainColor: string }>`
-  width: 10%;
+  width: calc(10% - 1px);
   height: 100%;
   display: flex;
   align-items: center;
@@ -23,6 +23,7 @@ const ArrowImgWrapper = styled.div<{ view: boolean; mainColor: string }>`
   background-color: ${props => (props.view ? "white" : props.mainColor)};
   transition: background-color 0.5s;
   border-radius: 0 12px 12px 0;
+  z-index: 1;
 `;
 
 const Arrow = styled.div<{ view: boolean; mainColor: string }>`
