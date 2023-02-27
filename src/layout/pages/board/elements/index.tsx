@@ -1,5 +1,5 @@
 import GridWrapper from "./GridWrapper";
 import AllTriesCharts from "./AllTrysCharts";
-import Filter from "./Filter";
+import Container from "./filter/Container";
 
-export { GridWrapper, AllTriesCharts, Filter };
+export { GridWrapper, AllTriesCharts, Container as Filter };

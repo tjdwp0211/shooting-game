@@ -14,7 +14,6 @@ function Presenter(props: PresenterProps) {
     descendingSorting,
     drawByPlayerName,
     defaultSorting,
-    storageItems,
   } = props;
 
   return (
@@ -30,7 +29,6 @@ function Presenter(props: PresenterProps) {
           descendingSorting={descendingSorting}
           drawByPlayerName={drawByPlayerName}
           defaultSorting={defaultSorting}
-          storageItems={storageItems}
         />
         <AllTriesCharts {...allTriesChartsProps} />
       </GridWrapper>

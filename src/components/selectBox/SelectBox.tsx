@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Text from "../text/Text";
 import { ArrowButton, Options } from "./elements";
 import { black, gray } from "../../style/palette/palette";
 import { SelectBoxProps } from "../../type/components/selectBoxTypes";
-import Text from "../text/Text";
 import { regularFont } from "../../style/fonts/inedx";
 
 function SelectBox(props: SelectBoxProps) {
