@@ -5,5 +5,15 @@ import Chart from "./chart/Chart";
 import Box from "./box/Box";
 import Text from "./text/Text";
 import SelectBox from "./selectBox/SelectBox";
+import Filter from "./filter/Container";
 
-export { TargetBoard, CurGameState, CheckScore, Chart, Box, Text, SelectBox };
+export {
+  TargetBoard,
+  CurGameState,
+  CheckScore,
+  Chart,
+  Box,
+  Text,
+  SelectBox,
+  Filter,
+};

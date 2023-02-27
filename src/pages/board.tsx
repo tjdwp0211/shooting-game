@@ -37,9 +37,8 @@ function Board() {
   const drawByPlayerName = (input: string) => {
     const { getItems } = storageItems;
     const filteringArr = getItems
-      .map(item => item.playerName === input && item)
+      .map(item => item.playerName.includes(input) && item)
       .filter(elementIsDefined => elementIsDefined);
-
     setStorageItems(prev => ({ ...prev, allTries: newAllTries(filteringArr) }));
   };
 
