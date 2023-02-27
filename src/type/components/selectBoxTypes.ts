@@ -2,7 +2,7 @@ import React from "react";
 
 interface SelectBoxProps {
   view: boolean;
-  options: string[];
+  options: { innerText: string; func: () => void }[];
   mainColor: string;
   children: React.ReactNode;
   handleOnClick: () => void;
@@ -10,7 +10,7 @@ interface SelectBoxProps {
 
 interface OptionsProps {
   view: boolean;
-  options: string[];
+  options: { innerText: string; func: () => void }[];
   mainColor: string;
 }
 
