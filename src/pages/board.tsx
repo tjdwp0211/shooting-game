@@ -22,15 +22,15 @@ function Board() {
     };
   };
 
-  const increasingSorting = (key: keyof SortStorageItemsByKey[]) => {
+  const increasingSorting = (key: keyof SortStorageItemsByKey) => {
     const { getItems } = storageItems;
-    const sortingArray = [...getItems].sort((a, b) => a[key] - b[key]);
+    const sortingArray = getItems.sort((a, b) => a[key] - b[key]);
     setStorageItems(prev => ({ ...prev, allTries: newAllTries(sortingArray) }));
   };
 
-  const descendingSorting = (key: keyof SortStorageItemsByKey[]) => {
+  const descendingSorting = (key: keyof SortStorageItemsByKey) => {
     const { getItems } = storageItems;
-    const sortingArray = [...getItems].sort((a, b) => b[key] - a[key]);
+    const sortingArray = getItems.sort((a, b) => b[key] - a[key]);
     setStorageItems(prev => ({ ...prev, allTries: newAllTries(sortingArray) }));
   };
 
@@ -76,7 +76,6 @@ function Board() {
 
   return (
     <Presenter
-      storageItems={storageItems}
       allTriesChartsProps={allTriesChartsProps}
       increasingSorting={increasingSorting}
       descendingSorting={descendingSorting}
