@@ -8,8 +8,10 @@ import { OptionsProps } from "../../../type/components/selectBoxTypes";
 function Options({ view, options, mainColor }: OptionsProps) {
   const createOptionElements = () => {
     return options.map((option, i) => (
-      <Text size={20} weight={regularFont} key={i}>
-        {option}
+      <Text size={16} weight={regularFont} key={i}>
+        <OptionContainer onClick={option.func} className="text-button">
+          {option.innerText}
+        </OptionContainer>
       </Text>
     ));
   };
@@ -38,9 +40,6 @@ const OptionsWrapper = styled.div<{ view: boolean; mainColor: string }>`
   p {
     width: 100%;
     height: 33%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   @media (max-width: 640px) {
     display: flex;
@@ -48,4 +47,12 @@ const OptionsWrapper = styled.div<{ view: boolean; mainColor: string }>`
     height: ${props => (props.view ? 100 : 0)}%;
     border-radius: 0 0 0 12px;
   }
+`;
+
+const OptionContainer = styled.span`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
