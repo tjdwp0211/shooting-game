@@ -2,9 +2,9 @@ import React from "react";
 import styled from "@emotion/styled";
 import { ArrowButtonProps } from "../../../type/components/selectBoxTypes";
 
-function ArrowButton({ view, mainColor, handleOnClick }: ArrowButtonProps) {
+function ArrowButton({ view, mainColor, handleOpener }: ArrowButtonProps) {
   return (
-    <ArrowImgWrapper view={view} mainColor={mainColor} onClick={handleOnClick}>
+    <ArrowImgWrapper view={view} mainColor={mainColor} onClick={handleOpener}>
       <Arrow view={view} mainColor={mainColor} />
     </ArrowImgWrapper>
   );

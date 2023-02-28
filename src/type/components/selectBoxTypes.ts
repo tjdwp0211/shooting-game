@@ -4,20 +4,22 @@ interface SelectBoxProps {
   view: boolean;
   options: { innerText: string; func: () => void }[];
   mainColor: string;
-  children: React.ReactNode;
-  handleOnClick: () => void;
+  innerText: string;
+  handleOpener: () => void;
 }
 
 interface OptionsProps {
   view: boolean;
   options: { innerText: string; func: () => void }[];
   mainColor: string;
+  handleOpener: () => void;
+  handlePlaceholder: (e: React.MouseEvent) => void;
 }
 
 interface ArrowButtonProps {
   view: boolean;
   mainColor: string;
-  handleOnClick: () => void;
+  handleOpener: () => void;
 }
 
 export type { SelectBoxProps, OptionsProps, ArrowButtonProps };
