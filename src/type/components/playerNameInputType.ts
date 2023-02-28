@@ -8,6 +8,7 @@ interface PlayerName {
 interface PlayerNameInputProps {
   mainColor: string;
   inputState: PlayerName;
+  placeholder: string;
   handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

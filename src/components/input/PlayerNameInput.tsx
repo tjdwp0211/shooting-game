@@ -4,12 +4,12 @@ import { yellow } from "../../style/palette/palette";
 import { PlayerNameInputProps } from "../../type/components/playerNameInputType";
 
 function PlayerNameInput(props: PlayerNameInputProps) {
-  const { mainColor, inputState, handleOnChange } = props;
+  const { mainColor, inputState, placeholder, handleOnChange } = props;
   return (
     <StyledInput
       mainColor={mainColor}
       blocking={inputState.blocking}
-      placeholder="Save score as your name"
+      placeholder={placeholder}
       value={inputState.value}
       onChange={handleOnChange}
     />
