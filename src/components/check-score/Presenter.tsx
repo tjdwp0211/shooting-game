@@ -22,6 +22,7 @@ function Presenter(props: PresenterProps) {
           mainColor={white}
           inputState={inputState}
           handleOnChange={handleOnChange}
+          placeholder="Save score as your name"
         />
       </InputWrapper>
       <ButtonsWrapper>
