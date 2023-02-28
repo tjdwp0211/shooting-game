@@ -17,27 +17,24 @@ function SelectBoxs(props: SelectBoxsProps) {
       <SelectBox
         mainColor={lightBlue}
         options={timeSelectBox}
+        innerText={"Time To Clear"}
         view={selectBoxView.timeSelect}
-        handleOnClick={handleTimeSelectBoxView}
-      >
-        Time To Clear
-      </SelectBox>
+        handleOpener={handleTimeSelectBoxView}
+      />
       <SelectBox
         mainColor={green}
         options={scoreSelectBox}
+        innerText={"Score"}
         view={selectBoxView.scoreSelect}
-        handleOnClick={handleScoreSelectBoxView}
-      >
-        Score
-      </SelectBox>
+        handleOpener={handleScoreSelectBoxView}
+      />
       <SelectBox
         mainColor={pink}
         options={hitsSelectBox}
+        innerText={"Hits"}
         view={selectBoxView.hitsSelect}
-        handleOnClick={handleHitsSelectBoxView}
-      >
-        Hits
-      </SelectBox>
+        handleOpener={handleHitsSelectBoxView}
+      />
     </>
   );
 }
