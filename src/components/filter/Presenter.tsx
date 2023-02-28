@@ -20,8 +20,8 @@ function Presenter(props: PresenterProps) {
       />
       <SelectBoxs
         optionsProps={optionsProps}
-        selectBoxViewHandlers={selectBoxViewHandlers}
         selectBoxView={selectBoxView}
+        selectBoxViewHandlers={selectBoxViewHandlers}
       />
     </SelectBoxWrapper>
   );
@@ -50,16 +50,11 @@ const SelectBoxWrapper = styled.article`
 
   @media (width < 1024px) {
     align-content: center;
-    @media (max-width: 820px) {
-      input {
-        height: 24px;
-      }
-      @media (width < 640px) {
-        align-content: start;
-        padding: 0;
-        & > div {
-          width: 50%;
-        }
+    @media (width < 640px) {
+      align-content: start;
+      padding: 0;
+      & > div {
+        width: 50%;
       }
     }
   }
