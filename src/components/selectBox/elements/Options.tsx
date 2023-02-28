@@ -1,15 +1,26 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import styled from "@emotion/styled";
 import Text from "../../text/Text";
 import { regularFont } from "../../../style/fonts/inedx";
 import { gray } from "../../../style/palette/palette";
 import { OptionsProps } from "../../../type/components/selectBoxTypes";
 
-function Options({ view, options, mainColor }: OptionsProps) {
+function Options(props: OptionsProps) {
+  const { view, options, mainColor, handleOpener, handlePlaceholder } = props;
+
+  const selectOption = (e: MouseEvent, filtering: (e: MouseEvent) => void) => {
+    filtering(e);
+    handleOpener();
+    handlePlaceholder(e);
+  };
+
   const createOptionElements = () => {
     return options.map((option, i) => (
       <Text size={16} weight={regularFont} key={i}>
-        <OptionContainer onClick={option.func} className="text-button">
+        <OptionContainer
+          onClick={e => selectOption(e, option.func)}
+          className="text-button"
+        >
           {option.innerText}
         </OptionContainer>
       </Text>
@@ -41,7 +52,7 @@ const OptionsWrapper = styled.div<{ view: boolean; mainColor: string }>`
     width: 100%;
     height: 33%;
   }
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     display: flex;
     align-items: center;
     height: ${props => (props.view ? 100 : 0)}%;
