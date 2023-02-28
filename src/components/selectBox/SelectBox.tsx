@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Text from "../text/Text";
 import { ArrowButton, Options } from "./elements";
@@ -7,25 +7,31 @@ import { SelectBoxProps } from "../../type/components/selectBoxTypes";
 import { regularFont } from "../../style/fonts/inedx";
 
 function SelectBox(props: SelectBoxProps) {
-  const {
-    options,
-    view,
-    mainColor,
-    children: placeholder,
-    handleOnClick,
-  } = props;
+  const { options, view, mainColor, innerText, handleOpener } = props;
+  const [placeholder, setPlaceholder] = useState(innerText);
+  const handlePlaceholder = (e: React.MouseEvent) => {
+    const { textContent } = e.currentTarget;
+    setPlaceholder(textContent === "Reset" ? innerText : textContent);
+  };
+
   return (
     <SelectBoxWrapper view={view}>
       <Text size={16} weight={regularFont}>
         {placeholder}
       </Text>
       <OptionsWrapper view={view}>
-        <Options options={options} view={view} mainColor={mainColor} />
+        <Options
+          options={options}
+          view={view}
+          mainColor={mainColor}
+          handleOpener={handleOpener}
+          handlePlaceholder={handlePlaceholder}
+        />
       </OptionsWrapper>
       <ArrowButton
         view={view}
         mainColor={mainColor}
-        handleOnClick={handleOnClick}
+        handleOpener={handleOpener}
       />
     </SelectBoxWrapper>
   );
@@ -60,9 +66,6 @@ const SelectBoxWrapper = styled.div<{ view: boolean }>`
     }
     @media (width < 640px) {
       padding: 0;
-      & > p {
-        padding-top: 4px;
-      }
     }
   }
 `;
