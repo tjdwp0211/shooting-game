@@ -32,12 +32,13 @@ const GridContainer = styled.article`
   article:nth-of-type(4) {
     grid-area: scoreChart;
   }
-  & > article {
+  & > article,
+  canvas {
     justify-self: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
     min-width: 204px;
-    height: 100%;
+    height: 80%;
     min-height: 204px;
   }
 
@@ -46,21 +47,18 @@ const GridContainer = styled.article`
     grid-template-areas:
       "timeChart filter"
       "hitChart scoreChart";
-    & > article {
-      max-width: 560px;
-      max-height: 560px;
+    & > article,
+    canvas {
+      max-width: 420px;
+      max-height: 420px;
     }
-    article:nth-of-type(1) {
-      justify-self: start;
-    }
-    article:nth-of-type(2) {
-      justify-self: end;
-    }
-    article:nth-of-type(3) {
-      justify-self: end;
-    }
+    article:nth-of-type(1),
     article:nth-of-type(4) {
       justify-self: start;
+    }
+    article:nth-of-type(2),
+    article:nth-of-type(3) {
+      justify-self: end;
     }
   }
   @media (max-width: 640px) {
@@ -70,6 +68,12 @@ const GridContainer = styled.article`
       "timeChart"
       "hitChart"
       "scoreChart";
+    article:nth-of-type(1),
+    article:nth-of-type(4),
+    article:nth-of-type(2),
+    article:nth-of-type(3) {
+      justify-self: center;
+    }
     & > * {
       max-width: 192px;
       max-height: 192px;

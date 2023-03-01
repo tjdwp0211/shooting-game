@@ -2,8 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Box, Chart, Text } from "../../../../components";
 import { boldFont } from "../../../../style/fonts/inedx";
-import { RecentlyGamesProps } from "../../../../type/pages/indexType";
 import { lightBlack } from "../../../../style/palette/palette";
+import { RecentlyGamesProps } from "../../../../type/pages/indexType";
 
 function RecentlyGames({ dataForChart, playerNames }: RecentlyGamesProps) {
   const nullLabel = Array.from({ length: 5 }).fill("-") as string[];
@@ -37,8 +37,8 @@ export default RecentlyGames;
 
 const RecentlyGamesWrapper = styled.div`
   width: 100%;
-  height: 50%;
-  max-height: 600px;
+  height: 80%;
+  max-height: 640px;
   min-height: 436px;
   background-color: white;
   color: ${lightBlack};
@@ -55,23 +55,27 @@ const BoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   background-color: white;
+  canvas {
+    max-width: 488px;
+    max-height: 488px;
+  }
   @media (width > 642px) {
     align-items: center;
   }
   @media (width < 1024px) {
-    & > * {
-      width: 80% !important;
+    & > article {
+      width: 35vw !important;
       height: 35vw !important;
     }
   }
   @media (width < 642px) {
     & > * {
-      width: 50vw !important;
-      height: 50vw !important;
+      width: 70vw;
+      height: 70vw;
     }
     canvas {
-      width: 204px !important;
-      height: 204px !important;
+      max-width: 216px;
+      max-height: 216px;
     }
   }
 `;

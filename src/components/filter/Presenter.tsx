@@ -54,7 +54,7 @@ const SelectBoxWrapper = styled.article`
       align-content: start;
       padding: 0;
       & > div {
-        width: 50%;
+        width: 60%;
       }
     }
   }

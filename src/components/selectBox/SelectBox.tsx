@@ -40,7 +40,7 @@ function SelectBox(props: SelectBoxProps) {
 export default SelectBox;
 
 const SelectBoxWrapper = styled.div<{ view: boolean }>`
-  width: 80%;
+  width: 90%;
   height: 70%;
   display: flex;
   justify-content: space-between;
