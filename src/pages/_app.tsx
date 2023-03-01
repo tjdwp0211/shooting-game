@@ -10,6 +10,8 @@ function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Test Your Click</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Global styles={globalStyle} />
       <Provider store={store}>
