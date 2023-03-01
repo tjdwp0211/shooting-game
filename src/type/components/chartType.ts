@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ChartDatas {
-  type: "line";
+  type: "bar";
   label: string;
   data: number[];
   borderColor?: string;

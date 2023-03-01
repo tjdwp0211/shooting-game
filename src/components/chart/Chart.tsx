@@ -12,7 +12,7 @@ import {
   BarElement,
   ChartData,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { lightBlack } from "../../style/palette/palette";
 import { ChartProps } from "../../type/components/chartType";
 import { useSelector } from "react-redux";
@@ -51,14 +51,14 @@ function Chart(props: ChartProps) {
     },
   };
 
-  const chartDataProps: ChartData<"line", number[], string> = {
+  const chartDataProps: ChartData<"bar", number[], string> = {
     labels: labelsForLineX,
     datasets: chartDatas,
   };
 
   return (
     <Wrapper>
-      <Line
+      <Bar
         options={chartOptionsProps}
         data={chartDataProps}
         width={size[0]}
