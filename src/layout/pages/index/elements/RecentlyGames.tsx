@@ -58,24 +58,22 @@ const BoxWrapper = styled.div`
   canvas {
     max-width: 488px;
     max-height: 488px;
+    min-width: 216px;
+    min-height: 216px;
   }
   @media (width > 642px) {
     align-items: center;
   }
   @media (width < 1024px) {
-    & > article {
+    *:not(div) {
       width: 35vw !important;
       height: 35vw !important;
     }
   }
   @media (width < 642px) {
-    & > * {
+    *:not(div) {
       width: 70vw;
       height: 70vw;
-    }
-    canvas {
-      max-width: 216px;
-      max-height: 216px;
     }
   }
 `;
