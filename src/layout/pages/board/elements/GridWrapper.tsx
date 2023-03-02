@@ -16,6 +16,7 @@ const GridContainer = styled.article`
   height: 90%;
   padding-bottom: 24px;
   display: grid;
+  column-gap: 12px;
   grid-template-areas:
     "timeChart filter"
     "hitChart scoreChart";
