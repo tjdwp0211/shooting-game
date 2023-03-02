@@ -24,6 +24,7 @@ export default Main;
 const IndexWrapper = styled.main`
   width: 100vw;
   height: calc(100vh - 48px);
+  overflow-x: hidden;
 `;
 
 const BoardWrapper = styled.main`
@@ -36,6 +37,7 @@ const BoardWrapper = styled.main`
   flex-direction: column;
   padding: 0px 5vw;
   background-color: ${white};
+  overflow-x: hidden;
   @media (orientation: landscape) {
     @media (width < 1024px) {
       justify-content: baseline;

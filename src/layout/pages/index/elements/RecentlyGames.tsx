@@ -67,16 +67,10 @@ const BoxWrapper = styled.div`
   @media (width > 642px) {
     align-items: center;
   }
-  @media (width < 1024px) {
-    *:not(div) {
-      width: 45vw !important;
-      height: 45vw !important;
-    }
-  }
-  @media (width < 642px) {
-    *:not(div) {
-      width: 70vw;
-      height: 70vw;
+  *:not(div) {
+    @media (width < 1024px) {
+      width: 40vw;
+      height: 40vw;
     }
   }
 `;
