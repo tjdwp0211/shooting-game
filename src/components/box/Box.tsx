@@ -24,10 +24,11 @@ const BoxContainer = styled.div<{ bgColor: string }>`
   justify-content: space-around;
   -webkit-align-items: center;
   -webkit-justify-content: space-around;
-  @media (width < 768px) or (-webkit-width < 768px) {
+  @media (max-width < 768px) or (-webkit-max-width < 768px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    -webkit-box-orient: vertical;
     -webkit-flex-direction: column;
     -webkit-align-items: center;
     -webkit-justify-content: center;
