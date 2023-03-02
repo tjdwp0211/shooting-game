@@ -19,7 +19,11 @@ const BoxContainer = styled.div<{ bgColor: string }>`
   background-color: ${props => props.bgColor};
   color: ${black};
   display: flex;
+  align-items: center;
+  justify-content: space-around;
   @media (width < 642px) {
     flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
   }
 `;
