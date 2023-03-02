@@ -19,13 +19,19 @@ const BoxContainer = styled.div<{ bgColor: string }>`
   background-color: ${props => props.bgColor};
   color: ${black};
   display: flex;
+  display: -webkit-flex;
   align-items: center;
   justify-content: space-around;
+  -webkit-align-items: center;
+  -webkit-justify-content: space-around;
   @media (width < 768px) {
     flex-direction: column;
-    -webkit-flex-direction: column;
     align-items: center;
     justify-content: center;
+    -webkit-flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+
     @media (max-height: 375px) or (orientation: landscape) {
       flex-direction: row;
       align-items: center;
