@@ -58,7 +58,6 @@ const SelectBoxWrapper = styled.div<{ view: boolean }>`
     padding-left: 10%;
     color: ${black};
   }
-
   @media (max-width: 820px) {
     height: 50%;
     & > p {
