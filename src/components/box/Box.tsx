@@ -31,4 +31,9 @@ const BoxContainer = styled.div<{ bgColor: string }>`
       justify-content: space-around;
     }
   }
+  @media only screen and (min-width: 932px) and (orientation: portrait) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;

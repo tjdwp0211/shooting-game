@@ -32,7 +32,7 @@ function Chart(props: ChartProps) {
   const chartOptionsProps = {
     responsive: true,
     color: lightBlack,
-    borderWidth: 4,
+    borderWidth: 0,
     plugins: {
       legend: {
         position: "top" as "top",
