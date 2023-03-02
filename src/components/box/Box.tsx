@@ -21,7 +21,7 @@ const BoxContainer = styled.div<{ bgColor: string }>`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  @media (width < 768px) {
+  /* @media (width < 768px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -30,5 +30,20 @@ const BoxContainer = styled.div<{ bgColor: string }>`
       align-items: center;
       justify-content: space-around;
     }
+  } */
+  @media (orientation: portrait) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
+  @media (orientation: landscape) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  /* @media only screen and (min-width: 932px) and (orientation: portrait) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } */
 `;
