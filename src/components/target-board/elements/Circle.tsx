@@ -2,15 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 import { CircleProps } from "../../../type/components/targetBoardType";
 
-function Circle({ point, radius, background, handleCircleClick }: CircleProps) {
-  return (
-    <CircleElement
-      id={point}
-      size={radius}
-      background={background}
-      onMouseDown={handleCircleClick}
-    />
-  );
+function Circle({ point, radius, background }: CircleProps) {
+  return <CircleElement id={point} size={radius} background={background} />;
 }
 
 export default React.memo(Circle);
