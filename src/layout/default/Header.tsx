@@ -8,20 +8,20 @@ import { Text } from "../../components";
 function Header() {
   return (
     <HeaderContainer>
-      <Link href={"/"}>
-        <TextButton className="text-button">
-          <Text size={20} weight={boldFont}>
-            What About Your Click
-          </Text>
-        </TextButton>
-      </Link>
-      <Link href={"/board"}>
-        <TextButton className="text-button">
-          <Text size={20} weight={boldFont}>
-            DASHBOARD
-          </Text>
-        </TextButton>
-      </Link>
+      {/* <Link href={"/"}> */}
+      <TextButton className="text-button">
+        <Text size={20} weight={boldFont}>
+          What About Your Click
+        </Text>
+      </TextButton>
+      {/* </Link> */}
+      {/* <Link href={"/board"}> */}
+      <TextButton className="text-button">
+        <Text size={20} weight={boldFont}>
+          DASHBOARD
+        </Text>
+      </TextButton>
+      {/* </Link> */}
     </HeaderContainer>
   );
 }
