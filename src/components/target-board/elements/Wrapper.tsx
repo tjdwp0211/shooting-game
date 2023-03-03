@@ -3,9 +3,9 @@ import styled from "@emotion/styled";
 import { WrapperProps } from "../../../type/components/targetBoardType";
 
 function Wrapper(props: WrapperProps) {
-  const { children } = props;
+  const { children, handleTargetBoardClick } = props;
 
-  return <Container>{children}</Container>;
+  return <Container onMouseDown={handleTargetBoardClick}>{children}</Container>;
 }
 
 export default React.memo(Wrapper);
