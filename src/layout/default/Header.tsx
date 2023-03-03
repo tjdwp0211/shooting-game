@@ -39,6 +39,7 @@ const HeaderContainer = styled.header`
   z-index: 1;
   position: relative;
   box-shadow: 0px 0px 12px 0px ${gray};
+  color: inherit;
   &,
   * {
     background-color: ${white};
