@@ -21,9 +21,9 @@ function Container({ gameProgress, handleStackingScore }: ContainerProps) {
     []
   );
 
-  const handleCoordinates = () => {
+  const handleCoordinates = useCallback(() => {
     setTargetCoordinates({ ...randomCoordinates() });
-  };
+  }, [randomCoordinates]);
 
   return (
     <Presenter

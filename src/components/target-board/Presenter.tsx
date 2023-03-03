@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "@emotion/styled";
 import { Circle, Wrapper } from "./elements/";
 import { PresenterProps } from "../../type/components/targetBoardType";
@@ -38,10 +38,13 @@ function Presenter(props: PresenterProps) {
     );
   };
 
-  const handleTargetBoardClick = (e: React.MouseEvent) => {
-    handleCoordinates();
-    handleStackingScore(e);
-  };
+  const handleTargetBoardClick = useCallback(
+    (e: React.MouseEvent) => {
+      handleCoordinates();
+      handleStackingScore(e);
+    },
+    [handleCoordinates, handleStackingScore]
+  );
 
   const circleProps = (point: string, radius: number, color: string) => {
     return {
