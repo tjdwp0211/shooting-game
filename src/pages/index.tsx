@@ -13,11 +13,12 @@ function Home() {
   const { start, checkScore } = gameProgress;
 
   const handleStackingScore = useCallback(
-    (e: React.MouseEvent) => {
+    (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
       if (!start && !checkScore)
         setGameProgress(prev => ({ ...prev, start: !prev.start }));
-      else if (start) dispatch(pullTrigger(Number(e.currentTarget.id)));
+      else if (start)
+        dispatch(pullTrigger(Number((e.target as HTMLDivElement).id)));
     },
     [start, checkScore, dispatch]
   );
