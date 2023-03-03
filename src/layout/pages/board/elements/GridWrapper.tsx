@@ -48,7 +48,7 @@ const GridContainer = styled.article`
     grid-template-areas:
       "timeChart filter"
       "hitChart scoreChart";
-    article:not(article:nth-of-type(1)),
+    article,
     canvas {
       max-width: 420px;
       max-height: 420px;

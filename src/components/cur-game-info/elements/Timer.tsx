@@ -47,7 +47,6 @@ const Container = styled.div<{ ticktock: boolean }>`
     padding: 4px 0px 0px 2px;
   }
   font-size: 30px;
-  position: relative;
   animation: ${props => props.ticktock && "focus 1s infinite"};
   -webkit-animation: ${props => props.ticktock && "focus 1s infinite"};
   @keyframes focus {
