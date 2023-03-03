@@ -12,10 +12,10 @@ export default React.memo(Wrapper);
 
 const Container = styled.div`
   width: 10vw;
-  max-width: 100px;
+  max-width: 88px;
   min-width: 72px;
   height: 10vw;
-  max-height: 100px;
+  max-height: 88px;
   min-height: 72px;
   display: flex;
   align-items: center;

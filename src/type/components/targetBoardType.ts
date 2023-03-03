@@ -20,6 +20,7 @@ interface PresenterProps {
 
 interface WrapperProps {
   children: React.ReactNode;
+  handleTargetBoardClick: (e: React.MouseEvent) => void;
 }
 
 interface LineProps {
@@ -30,7 +31,6 @@ interface CircleProps {
   radius: number;
   background: string;
   point: string;
-  handleCircleClick: (e: React.MouseEvent) => void;
 }
 
 export type {
