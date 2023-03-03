@@ -24,18 +24,21 @@ const BoxContainer = styled.div<{ bgColor: string }>`
   justify-content: space-around;
   -webkit-align-items: center;
   -webkit-justify-content: space-around;
-  @media (max-width < 768px) or (-webkit-max-width < 768px) {
+  @media only screen and (max-width: 768px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    -webkit-box-orient: vertical;
     -webkit-flex-direction: column;
     -webkit-align-items: center;
     -webkit-justify-content: center;
-    @media (max-height: 375px) or (-webkit-max-height: 375px) or (orientation: landscape) {
+    @media (min-height: 375px) or (orientation: landscape) {
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
     }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
