@@ -8,6 +8,7 @@ import {
 } from "../../../../components";
 import { boldFont, regularFont } from "../../../../style/fonts/inedx";
 import { UserInteractionProps } from "../../../../type/pages/indexType";
+import { green } from "../../../../style/palette/palette";
 
 function UserInteraction(props: UserInteractionProps) {
   const { gameProgress, setGameProgress, handleStackingScore } = props;
@@ -26,7 +27,7 @@ function UserInteraction(props: UserInteractionProps) {
   }, []);
 
   return (
-    <>
+    <GreenBoard>
       <CurGameState
         gameProgress={gameProgress}
         setGameProgress={setGameProgress}
@@ -42,11 +43,15 @@ function UserInteraction(props: UserInteractionProps) {
           />
         )}
       </Wrapper>
-    </>
+    </GreenBoard>
   );
 }
 
 export default UserInteraction;
+
+const GreenBoard = styled.div`
+  background-color: ${green};
+`;
 
 const Wrapper = styled.div`
   width: 100%;
