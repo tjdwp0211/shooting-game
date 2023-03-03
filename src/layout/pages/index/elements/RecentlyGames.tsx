@@ -64,11 +64,11 @@ const BoxWrapper = styled.div`
     min-width: 216px;
     min-height: 216px;
   }
-  @media (width > 642px) {
+  @media (max-width: 642px) {
     align-items: center;
   }
   *:not(div) {
-    @media (width < 1024px) {
+    @media (max-width: 1024px) {
       width: 40vw;
       height: 40vw;
     }
