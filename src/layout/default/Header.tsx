@@ -8,20 +8,20 @@ import { Text } from "../../components";
 function Header() {
   return (
     <HeaderContainer>
-      {/* <Link href={"/"}> */}
-      <TextButton className="text-button">
-        <Text size={20} weight={boldFont}>
-          What About Your Click
-        </Text>
-      </TextButton>
-      {/* </Link> */}
-      {/* <Link href={"/board"}> */}
-      <TextButton className="text-button">
-        <Text size={20} weight={boldFont}>
-          DASHBOARD
-        </Text>
-      </TextButton>
-      {/* </Link> */}
+      <Link href={"/"} passHref legacyBehavior>
+        <StyledLink className="text-button">
+          <Text size={20} weight={boldFont}>
+            What About Your Click
+          </Text>
+        </StyledLink>
+      </Link>
+      <Link href={"/board"} passHref legacyBehavior>
+        <StyledLink className="text-button">
+          <Text size={20} weight={boldFont}>
+            DASHBOARD
+          </Text>
+        </StyledLink>
+      </Link>
     </HeaderContainer>
   );
 }
@@ -46,6 +46,7 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const TextButton = styled.button`
+const StyledLink = styled.a`
+  color: ${black};
   padding: 4px 6px;
 `;
