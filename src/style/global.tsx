@@ -4,6 +4,9 @@ import { regularFont } from "./fonts/inedx";
 import { black, green, white } from "./palette/palette";
 
 const globalStyle = css`
+  #__next {
+    overflow: hidden;
+  }
   * {
     box-sizing: border-box;
   }
