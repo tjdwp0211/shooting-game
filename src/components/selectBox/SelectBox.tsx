@@ -41,7 +41,9 @@ export default SelectBox;
 
 const SelectBoxWrapper = styled.div<{ view: boolean }>`
   width: 90%;
+  max-width: 280px;
   height: 70%;
+  min-height: 24px;
   display: flex;
   justify-content: space-between;
   background-color: white;
