@@ -13,10 +13,10 @@ export default Wrapper;
 const Container = styled.div`
   width: 10vw;
   max-width: 100px;
-  min-width: 52px;
+  min-width: 72px;
   height: 10vw;
   max-height: 100px;
-  min-height: 52px;
+  min-height: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
