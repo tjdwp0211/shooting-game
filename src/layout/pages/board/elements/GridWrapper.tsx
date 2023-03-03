@@ -43,7 +43,8 @@ const GridContainer = styled.article`
     min-height: 204px;
   }
 
-  @media (orientation: landscape) or (max-width: 1024px) {
+  @media only screen and (orientation: landscape),
+    only screen and (max-width: 1024px) {
     grid-template-columns: repeat(2, 2fr);
     grid-template-areas:
       "timeChart filter"
@@ -62,7 +63,7 @@ const GridContainer = styled.article`
       justify-self: end;
     }
   }
-  @media (max-width: 640px) {
+  @media only screen and (max-width: 640px) {
     grid-template-columns: repeat(1, 1fr);
     grid-template-areas:
       "filter"
