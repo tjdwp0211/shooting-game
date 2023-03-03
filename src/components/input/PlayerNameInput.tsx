@@ -26,6 +26,7 @@ const StyledInput = styled.input<{ blocking: boolean; mainColor: string }>`
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
+  border-radius: 0px;
   border-bottom-left-radius: 6px;
   border-left: 2px solid ${props => (props.blocking ? yellow : props.mainColor)};
   border-bottom: 2px solid
