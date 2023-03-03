@@ -25,20 +25,14 @@ const BoxContainer = styled.div<{ bgColor: string }>`
   -webkit-align-items: center;
   -webkit-justify-content: space-around;
   @media only screen and (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    -webkit-flex-direction: column;
-    -webkit-align-items: center;
-    -webkit-justify-content: center;
-    @media (min-height: 375px) or (orientation: landscape) {
+    @media (max-height: 375px) or (orientation: landscape) {
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
     }
-  }
-  @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+    -webkit-flex-direction: column;
+    -webkit-align-items: center;
   }
 `;
