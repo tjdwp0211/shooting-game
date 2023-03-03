@@ -13,7 +13,7 @@ function Circle({ point, radius, background, handleCircleClick }: CircleProps) {
   );
 }
 
-export default Circle;
+export default React.memo(Circle);
 
 const CircleElement = styled.div<{ size: number; background: string }>`
   width: ${props => props.size}%;

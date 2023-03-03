@@ -8,7 +8,7 @@ function Wrapper(props: WrapperProps) {
   return <Container>{children}</Container>;
 }
 
-export default Wrapper;
+export default React.memo(Wrapper);
 
 const Container = styled.div`
   width: 10vw;
