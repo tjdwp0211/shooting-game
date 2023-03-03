@@ -8,20 +8,20 @@ import { Text } from "../../components";
 function Header() {
   return (
     <HeaderContainer>
-      <StyledLink href={"/"}>
+      <Link href={"/"}>
         <TextButton className="text-button">
           <Text size={20} weight={boldFont}>
             What About Your Click
           </Text>
         </TextButton>
-      </StyledLink>
-      <StyledLink href={"/board"}>
+      </Link>
+      <Link href={"/board"}>
         <TextButton className="text-button">
           <Text size={20} weight={boldFont}>
             DASHBOARD
           </Text>
         </TextButton>
-      </StyledLink>
+      </Link>
     </HeaderContainer>
   );
 }
@@ -39,14 +39,11 @@ const HeaderContainer = styled.header`
   position: relative;
   box-shadow: 0px 0px 12px 0px ${gray};
   color: inherit;
+  -webkit-text-fill-color: ${black};
   &,
   * {
     background-color: ${white};
   }
-`;
-
-const StyledLink = styled(Link)`
-  color: ${black};
 `;
 
 const TextButton = styled.button`
