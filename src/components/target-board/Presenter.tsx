@@ -39,31 +39,22 @@ function Presenter(props: PresenterProps) {
   };
 
   const handleTargetBoardClick = useCallback(
-    (e: React.MouseEvent) => {
+    (e: React.MouseEvent<HTMLDivElement>) => {
       handleCoordinates();
       handleStackingScore(e);
     },
     [handleCoordinates, handleStackingScore]
   );
 
-  const circleProps = (point: string, radius: number, color: string) => {
-    return {
-      handleCircleClick: handleTargetBoardClick,
-      point: point,
-      radius: radius,
-      background: color,
-    };
-  };
-
   return (
     <>
       {waitingForGameStart(
-        <Wrapper>
-          <Circle {...circleProps("2", 100, white)} />
-          <Circle {...circleProps("4", 90, lightBlack)} />
-          <Circle {...circleProps("6", 65, blue)} />
-          <Circle {...circleProps("8", 40, red)} />
-          <Circle {...circleProps("10", 20, yellow)} />
+        <Wrapper handleTargetBoardClick={handleTargetBoardClick}>
+          <Circle point={"2"} radius={100} background={white} />
+          <Circle point={"4"} radius={90} background={lightBlack} />
+          <Circle point={"6"} radius={65} background={blue} />
+          <Circle point={"8"} radius={40} background={red} />
+          <Circle point={"10"} radius={20} background={yellow} />
         </Wrapper>
       )}
     </>
