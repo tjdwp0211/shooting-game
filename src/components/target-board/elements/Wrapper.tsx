@@ -24,6 +24,12 @@ const Container = styled.div`
   -webkit-animation: come-out-motion 0.2s ease;
   opacity: 0.9;
   cursor: pointer;
+  &,
+  & > * {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
   :active {
     animation: slip-away-motion 0.2s ease;
