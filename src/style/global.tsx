@@ -22,6 +22,10 @@ const globalStyle = css`
     outline: none !important;
   }
   a,
+  link {
+    color: ${black};
+  }
+  a,
   button {
     cursor: pointer;
     border: none;

@@ -22,7 +22,6 @@ const StyledInput = styled.input<{ blocking: boolean; mainColor: string }>`
   width: 204px;
   height: 32px;
   border: none;
-  outline: none;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
