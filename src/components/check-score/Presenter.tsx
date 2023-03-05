@@ -16,7 +16,7 @@ function Presenter(props: PresenterProps) {
       <Time />
       <InputWrapper blocking={inputState.blocking}>
         <Text size={20} weight={boldFont}>
-          Must be between 2 and 6 in length
+          Must be between 2~6 in length
         </Text>
         <PlayerNameInput
           mainColor={white}

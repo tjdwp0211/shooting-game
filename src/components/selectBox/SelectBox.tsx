@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Text from "../text/Text";
 import { ArrowButton, Options } from "./elements";
+import { regularFont } from "../../style/fonts/inedx";
 import { black, gray } from "../../style/palette/palette";
 import { SelectBoxProps } from "../../type/components/selectBoxTypes";
-import { regularFont } from "../../style/fonts/inedx";
 
 function SelectBox(props: SelectBoxProps) {
   const { options, view, mainColor, innerText, handleOpener } = props;
@@ -41,7 +41,7 @@ export default SelectBox;
 
 const SelectBoxWrapper = styled.div<{ view: boolean }>`
   width: 90%;
-  max-width: 280px;
+  max-width: 292px;
   height: 70%;
   min-height: 24px;
   display: flex;

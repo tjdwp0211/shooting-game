@@ -13,6 +13,6 @@ const CircleElement = styled.div<{ size: number; background: string }>`
   height: ${props => props.size}%;
   position: absolute;
   border-radius: 50%;
-  border: 3px solid white;
+  border: 2px solid white;
   background-color: ${props => props.background};
 `;
