@@ -16,13 +16,13 @@ function Text({ size, weight, children }: TextProps) {
   );
 }
 
-export default Text;
+export default React.memo(Text);
 
 const Container = styled.p<TextProps>`
-  font-size: ${(props) => props.size}px;
-  ${(props) => props.weight}
+  font-size: ${props => props.size}px;
+  ${props => props.weight}
   margin: 0;
   @media (max-width: 768px) or (max-height: 420px) {
-    font-size: ${(props) => props.size / 1.3}px;
+    font-size: ${props => props.size / 1.3}px;
   }
 `;
