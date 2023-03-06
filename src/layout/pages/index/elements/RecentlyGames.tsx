@@ -58,14 +58,14 @@ const BoxWrapper = styled.div`
   canvas {
     width: calc(90% - 24px);
     height: calc(90% - 24px);
-    max-width: 536px;
-    max-height: 536px;
+    max-width: 524px;
+    max-height: 524px;
     min-width: 212px;
     min-height: 212px;
   }
   article {
     width: 90%;
-    height: 90%;
+    height: 100%;
     max-width: 584px;
     max-height: 584px;
     min-width: 216px;
