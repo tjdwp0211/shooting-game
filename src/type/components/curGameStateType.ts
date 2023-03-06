@@ -10,8 +10,12 @@ interface BulletsProps {
   setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
 }
 
+interface BulletImgs {
+  remainBullets: number;
+}
+
 interface TimerProps {
   gameProgress: GameProgress;
 }
 
-export type { CurGameStateProps, BulletsProps, TimerProps };
+export type { CurGameStateProps, BulletImgs, BulletsProps, TimerProps };

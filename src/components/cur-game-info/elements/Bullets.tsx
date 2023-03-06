@@ -15,7 +15,7 @@ function Bullets({ setGameProgress }: BulletsProps) {
       return () => {
         setGameProgress({ start: false, checkScore: true });
       };
-  }, [remainBullets]);
+  }, [remainBullets, setGameProgress]);
 
   return (
     <Container>
@@ -27,7 +27,7 @@ function Bullets({ setGameProgress }: BulletsProps) {
           / 30
         </Text>
       </RemainWrapper>
-      <BulletImgs />
+      <BulletImgs remainBullets={remainBullets} />
     </Container>
   );
 }

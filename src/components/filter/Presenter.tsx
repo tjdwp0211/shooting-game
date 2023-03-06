@@ -34,7 +34,7 @@ const SelectBoxWrapper = styled.article`
   height: 80%;
   padding: 24px 0px;
   display: grid;
-  grid-template-rows: 56px 20% 2vw 20% 2vw 20%;
+  grid-template-rows: 56px 20% 1.5vw 20% 1.5vw 20%;
   align-items: center;
   justify-items: center;
   column-gap: 16px;
