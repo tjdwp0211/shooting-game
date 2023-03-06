@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { useSelector } from "react-redux";
-import { Store } from "../../../redux/root";
 import { gray } from "../../../style/palette/palette";
+import { BulletImgs } from "../../../type/components/curGameStateType";
 
-function BulletImgs() {
-  const { remainBullets } = useSelector((state: Store) => state.gameState);
-
+function BulletImgs({ remainBullets }: BulletImgs) {
   const createImgs = () => {
     return Array.from({ length: remainBullets }).map((_, i) => <Img key={i} />);
   };
@@ -14,7 +11,7 @@ function BulletImgs() {
   return <ImgsWrapper>{createImgs()}</ImgsWrapper>;
 }
 
-export default BulletImgs;
+export default React.memo(BulletImgs);
 
 const ImgsWrapper = styled.div`
   display: flex;
