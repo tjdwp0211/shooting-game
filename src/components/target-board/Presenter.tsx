@@ -3,10 +3,10 @@ import styled from "@emotion/styled";
 import { Circle, Wrapper } from "./elements/";
 import { PresenterProps } from "../../type/components/targetBoardType";
 import {
-  blue,
-  lightBlack,
-  red,
   white,
+  lightBlack,
+  blue,
+  red,
   yellow,
 } from "../../style/palette/palette";
 import { useSelector } from "react-redux";
@@ -51,10 +51,10 @@ function Presenter(props: PresenterProps) {
       {waitingForGameStart(
         <Wrapper handleTargetBoardClick={handleTargetBoardClick}>
           <Circle point={"2"} radius={100} background={white} />
-          <Circle point={"4"} radius={90} background={lightBlack} />
-          <Circle point={"6"} radius={65} background={blue} />
-          <Circle point={"8"} radius={40} background={red} />
-          <Circle point={"10"} radius={20} background={yellow} />
+          <Circle point={"4"} radius={85} background={lightBlack} />
+          <Circle point={"6"} radius={60} background={blue} />
+          <Circle point={"8"} radius={35} background={red} />
+          <Circle point={"10"} radius={15} background={yellow} />
         </Wrapper>
       )}
     </>
