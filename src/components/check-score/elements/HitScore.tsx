@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Text from "../../text/Text";
 import { useSelector } from "react-redux";
 import { Store } from "../../../redux/root";
-import { boldFont, regularFont } from "../../../style/fonts/inedx";
+import { boldFont, lightFont, regularFont } from "../../../style/fonts/inedx";
 import { white, lightBlack } from "../../../style/palette/palette";
 
 function HitScore() {
@@ -21,6 +21,7 @@ function HitScore() {
 
   const checkShootingHistory = stackingScore.reduce(
     (prev, cur, i) => {
+      prev = { ...prev, score: prev.score + cur };
       prev.history.push(
         <Block bgColor={returnColorByPoint(cur)} key={i}>
           <p>{cur}</p>
@@ -29,17 +30,31 @@ function HitScore() {
       if (cur) return { ...prev, num: prev.num + 1 };
       else return { ...prev, num: prev.num };
     },
-    { num: 0, history: [] }
+    { num: 0, history: [], score: 0 }
   );
 
   return (
     <Wrapper>
       <TextWrapper>
-        <Text size={32} weight={boldFont}>
-          Hits : {checkShootingHistory.num}
+        <Text size={24} weight={regularFont}>
+          Hits :
         </Text>
-        <Text size={16} weight={regularFont}>
+        <Text size={32} weight={boldFont}>
+          {checkShootingHistory.num}
+        </Text>
+        <Text size={16} weight={lightFont}>
           / 30
+        </Text>
+      </TextWrapper>
+      <TextWrapper>
+        <Text size={24} weight={regularFont}>
+          Score :
+        </Text>
+        <Text size={32} weight={boldFont}>
+          {checkShootingHistory.score}
+        </Text>
+        <Text size={16} weight={lightFont}>
+          / 300
         </Text>
       </TextWrapper>
       <HistoryBoard>{checkShootingHistory.history}</HistoryBoard>
@@ -61,7 +76,10 @@ const TextWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  p:nth-last-of-type(1) {
+  p:nth-of-type(1) {
+    padding: 4px 0px 0px 0px;
+  }
+  p:nth-of-type(3) {
     padding: 8px 0px 0px 0px;
   }
 `;
