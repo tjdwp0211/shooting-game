@@ -56,8 +56,8 @@ const BoxWrapper = styled.div`
   justify-content: center;
   background-color: ${white};
   canvas {
-    width: calc(90% - 24px);
-    height: calc(90% - 24px);
+    width: calc(80% - 24px);
+    height: calc(80% - 24px);
     max-width: 524px;
     max-height: 524px;
     min-width: 212px;
@@ -73,11 +73,5 @@ const BoxWrapper = styled.div`
   }
   @media (max-width: 642px) {
     align-items: center;
-  }
-  *:not(div) {
-    @media (max-width: 1024px) {
-      width: 40vw;
-      height: 40vw;
-    }
   }
 `;
