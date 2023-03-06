@@ -55,9 +55,16 @@ const BoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   background-color: ${white};
-  canvas,
+  canvas {
+    width: 90%;
+    height: 90%;
+    max-width: 572px;
+    max-height: 572px;
+    min-width: 212px;
+    min-height: 212px;
+  }
   article {
-    width: 80%;
+    width: 90%;
     height: 90%;
     max-width: 584px;
     max-height: 584px;
