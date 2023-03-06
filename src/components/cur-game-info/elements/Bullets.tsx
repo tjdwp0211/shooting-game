@@ -8,7 +8,9 @@ import { BulletsProps } from "../../../type/components/curGameStateType";
 import { boldFont, regularFont } from "../../../style/fonts/inedx";
 
 function Bullets({ setGameProgress }: BulletsProps) {
-  const { remainBullets } = useSelector((state: Store) => state.gameState);
+  const remainBullets = useSelector(
+    (state: Store) => state.gameState.remainBullets
+  );
 
   useEffect(() => {
     if (remainBullets === 1)

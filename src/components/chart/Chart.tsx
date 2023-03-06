@@ -20,7 +20,9 @@ import { Store } from "../../redux/root";
 
 function Chart(props: ChartProps) {
   const { size, labelsForLineX, chartDatas } = props;
-  const { deviceWidth } = useSelector((state: Store) => state.deviceSize);
+  const deviceWidth = useSelector(
+    (state: Store) => state.deviceSize.deviceWidth
+  );
   const responsiveStyling = () => {
     if (deviceWidth < 648) return { fontSize: 6, boxWidth: 12 };
     if (deviceWidth < 768) return { fontSize: 8, boxWidth: 20 };

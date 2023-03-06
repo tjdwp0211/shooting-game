@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "@emotion/styled";
 import Text from "../../text/Text";
 import { useSelector } from "react-redux";
@@ -7,15 +7,17 @@ import { boldFont, regularFont } from "../../../style/fonts/inedx";
 import { white, lightBlack } from "../../../style/palette/palette";
 
 function HitScore() {
-  const { stackingScore } = useSelector((state: Store) => state.gameState);
+  const stackingScore = useSelector(
+    (state: Store) => state.gameState.stackingScore
+  );
 
-  const returnColorByPoint = (point: number) => {
+  const returnColorByPoint = useCallback((point: number) => {
     if (point === 2) return "#f2f5f5bf";
     if (point === 4) return "#2f3030bf";
     if (point === 6) return "#1a21edbf";
     if (point === 8) return "#fc1212bf";
     if (point === 10) return "#edea26bf";
-  };
+  }, []);
 
   const checkShootingHistory = stackingScore.reduce(
     (prev, cur, i) => {
