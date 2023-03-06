@@ -91,4 +91,7 @@ const Wrapper = styled.article`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
+  border-radius: 6px;
+  padding: 12px 0px;
 `;
