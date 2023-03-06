@@ -11,7 +11,7 @@ function SelectBox(props: SelectBoxProps) {
   const [placeholder, setPlaceholder] = useState(innerText);
   const handlePlaceholder = (e: React.MouseEvent) => {
     const { textContent } = e.currentTarget;
-    setPlaceholder(textContent === "Reset" ? innerText : textContent);
+    setPlaceholder(textContent === "Recent" ? innerText : textContent);
   };
 
   return (

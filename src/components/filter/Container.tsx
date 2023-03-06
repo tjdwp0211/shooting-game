@@ -32,17 +32,17 @@ function Container(props: ContainerProps) {
 
   const optionsPropsBasket = {
     timeSelectBox: [
-      { innerText: "Reset", func: defaultSorting },
+      { innerText: "Recent", func: defaultSorting },
       { innerText: "Faster", func: () => descendingSorting("timeToClear") },
       { innerText: "Slower", func: () => increasingSorting("timeToClear") },
     ],
     scoreSelectBox: [
-      { innerText: "Reset", func: defaultSorting },
+      { innerText: "Recent", func: defaultSorting },
       { innerText: "Higher", func: () => descendingSorting("stackingScore") },
       { innerText: "Lower", func: () => increasingSorting("stackingScore") },
     ],
     hitsSelectBox: [
-      { innerText: "Reset", func: defaultSorting },
+      { innerText: "Recent", func: defaultSorting },
       { innerText: "Higher", func: () => descendingSorting("makeHit") },
       { innerText: "Lower", func: () => increasingSorting("makeHit") },
     ],
