@@ -28,7 +28,6 @@ class MyDocument extends Document {
             name="google-site-verification"
             content="5wAsgsnNWjftOr94sJMP5Iso_9nvPPZvnXUCFnZv_-0"
           />
-          <meta name="description" content="Test your aiming" />
         </Head>
         <body>
           <Main />

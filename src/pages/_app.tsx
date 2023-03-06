@@ -11,6 +11,7 @@ function App({ Component, pageProps }) {
       <Head>
         <title>Aiming Trainer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Test your aim" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Global styles={globalStyle} />
