@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Box, Chart, Text } from "../../../../components";
 import { boldFont } from "../../../../style/fonts/inedx";
-import { lightBlack } from "../../../../style/palette/palette";
+import { lightBlack, white } from "../../../../style/palette/palette";
 import { RecentlyGamesProps } from "../../../../type/pages/indexType";
 
 function RecentlyGames({ dataForChart, playerNames }: RecentlyGamesProps) {
@@ -21,7 +21,7 @@ function RecentlyGames({ dataForChart, playerNames }: RecentlyGamesProps) {
         Recently 5 Games
       </Text>
       <BoxWrapper>
-        <Box bgColor="white">
+        <Box bgColor={white}>
           <Chart
             {...defaultChartProps}
             chartDatas={[dataForChart[0], dataForChart[1]]}
@@ -40,7 +40,7 @@ const RecentlyGamesWrapper = styled.div`
   height: 80%;
   max-height: 640px;
   min-height: 436px;
-  background-color: white;
+  background-color: ${white};
   color: ${lightBlack};
   p {
     text-align: center;
@@ -54,7 +54,7 @@ const BoxWrapper = styled.div`
   padding: 0px 24px 24px 24px;
   display: flex;
   justify-content: center;
-  background-color: white;
+  background-color: ${white};
   canvas,
   article {
     width: 80%;
@@ -66,11 +66,5 @@ const BoxWrapper = styled.div`
   }
   @media (max-width: 642px) {
     align-items: center;
-  }
-  *:not(div) {
-    @media (max-width: 1024px) {
-      width: 40vw;
-      height: 40vw;
-    }
   }
 `;
