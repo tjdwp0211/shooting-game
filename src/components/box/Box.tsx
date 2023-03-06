@@ -24,6 +24,7 @@ const BoxContainer = styled.div<{ bgColor: string }>`
   justify-content: space-around;
   -webkit-align-items: center;
   -webkit-justify-content: space-around;
+  gap: 12px;
   @media only screen and (max-width: 768px) {
     @media (max-height: 375px) or (orientation: landscape) {
       flex-direction: row;
