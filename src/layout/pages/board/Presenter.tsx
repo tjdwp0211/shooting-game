@@ -39,9 +39,12 @@ function Presenter(props: PresenterProps) {
 export default Presenter;
 
 const TitleWrapper = styled.div`
-  width: 100%;
-  height: 76px;
   p {
+    width: 100%;
+    height: 104px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 12px 0px;
     color: ${black};

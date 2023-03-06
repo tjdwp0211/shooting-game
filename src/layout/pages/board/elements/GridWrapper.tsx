@@ -23,6 +23,8 @@ const GridContainer = styled.article`
   grid-template-columns: repeat(2, 50%);
   article:nth-of-type(1) {
     grid-area: filter;
+    background-color: white;
+    border-radius: 6px;
   }
   article:nth-of-type(2) {
     grid-area: timeChart;
@@ -37,21 +39,29 @@ const GridContainer = styled.article`
   canvas {
     justify-self: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
     min-width: 204px;
-    height: 80%;
+    height: 100%;
     min-height: 204px;
   }
+  gap: 12px;
   @media only screen and (orientation: landscape),
     only screen and (max-width: 1024px) {
     grid-template-columns: repeat(2, 2fr);
     grid-template-areas:
       "timeChart filter"
       "hitChart scoreChart";
-    article,
+    article {
+      max-width: 432px;
+      max-height: 432px;
+    }
     canvas {
       max-width: 420px;
       max-height: 420px;
+    }
+    article:nth-of-type(1),
+    article:nth-of-type(2) {
+      align-self: end;
     }
     article:nth-of-type(1),
     article:nth-of-type(4) {
@@ -75,7 +85,13 @@ const GridContainer = styled.article`
     article:nth-of-type(3) {
       justify-self: center;
     }
-    article:not(article:nth-of-type(1)),
+    article:nth-of-type(1) {
+      background-color: inherit;
+    }
+    article:not(article:nth-of-type(1)) {
+      max-width: 212px;
+      max-height: 212px;
+    }
     canvas {
       max-width: 204px;
       max-height: 204px;
