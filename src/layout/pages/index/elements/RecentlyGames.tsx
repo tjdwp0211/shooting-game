@@ -56,10 +56,10 @@ const BoxWrapper = styled.div`
   justify-content: center;
   background-color: ${white};
   canvas {
-    width: 90%;
-    height: 90%;
-    max-width: 572px;
-    max-height: 572px;
+    width: calc(90% - 24px);
+    height: calc(90% - 24px);
+    max-width: 536px;
+    max-height: 536px;
     min-width: 212px;
     min-height: 212px;
   }
