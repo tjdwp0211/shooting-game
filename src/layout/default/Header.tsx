@@ -11,7 +11,7 @@ function Header() {
       <Link href={"/"} passHref legacyBehavior>
         <StyledLink className="text-button">
           <Text size={20} weight={boldFont}>
-            What About Your Click
+            Aiming Trainer
           </Text>
         </StyledLink>
       </Link>
