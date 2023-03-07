@@ -16,7 +16,6 @@ function App({ Component, pageProps }) {
         />
         <meta property="og:title" content="Test your aim" />
         <meta
-          property="og:title"
           name="description"
           content="If you click center of target, you can get more score! Test your aim and check your score for Free."
         />
