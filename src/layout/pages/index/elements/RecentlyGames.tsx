@@ -55,14 +55,6 @@ const BoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   background-color: ${white};
-  canvas {
-    width: calc(80% - 24px);
-    height: calc(80% - 24px);
-    max-width: 524px;
-    max-height: 524px;
-    min-width: 212px;
-    min-height: 212px;
-  }
   article {
     width: 40vw;
     height: 40vw;
@@ -70,6 +62,14 @@ const BoxWrapper = styled.div`
     max-height: 584px;
     min-width: 264px;
     min-height: 264px;
+    canvas {
+      width: calc(80% - 24px);
+      height: calc(80% - 24px);
+      max-width: 524px;
+      max-height: 524px;
+      min-width: 212px;
+      min-height: 212px;
+    }
   }
   @media (max-width: 642px) {
     align-items: center;
