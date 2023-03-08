@@ -14,6 +14,10 @@ function App({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no"
         />
+        <meta
+          name="keyword"
+          content="aim, aiming, aiming test, aim trainer, aiming trainer, 에임 연습, 에임 테스트"
+        />
         <meta property="og:title" content="Test your aim" />
         <meta
           name="description"
