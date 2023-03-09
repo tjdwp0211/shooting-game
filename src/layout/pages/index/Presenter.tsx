@@ -4,6 +4,7 @@ import { RecentlyGames, UserInteraction } from "./elements";
 import { PresenterProps } from "../../../type/pages/indexType";
 import { useCheckStorageItems } from "../../../customhook";
 import { UseCheckStorageItems } from "../../../type/customhook/useCheckStorageItemsType";
+import { lightBlue } from "../../../style/palette/palette";
 
 function Presenter(props: PresenterProps) {
   const { gameProgress } = props;
@@ -19,8 +20,8 @@ function Presenter(props: PresenterProps) {
         type: "bar" as "bar",
         label: "Time To Clear",
         data: storageItems && storageItems.recentlyTries.timeToClear,
-        borderColor: "rgb(75, 192, 192)",
-        backgroundColor: "rgb(75, 192, 192)",
+        borderColor: lightBlue,
+        backgroundColor: lightBlue,
       },
       {
         type: "bar" as "bar",
