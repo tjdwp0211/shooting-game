@@ -4,7 +4,7 @@ import { RecentlyGames, UserInteraction } from "./elements";
 import { PresenterProps } from "../../../type/pages/indexType";
 import { useCheckStorageItems } from "../../../customhook";
 import { UseCheckStorageItems } from "../../../type/customhook/useCheckStorageItemsType";
-import { lightBlue } from "../../../style/palette/palette";
+import { lightBlue, pink } from "../../../style/palette/palette";
 
 function Presenter(props: PresenterProps) {
   const { gameProgress } = props;
@@ -27,8 +27,8 @@ function Presenter(props: PresenterProps) {
         type: "bar" as "bar",
         label: "Hit",
         data: storageItems && storageItems.recentlyTries.makeHit,
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: pink,
+        backgroundColor: pink,
       },
       {
         type: "bar" as "bar",
