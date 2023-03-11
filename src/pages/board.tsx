@@ -6,6 +6,7 @@ import {
   SortStorageItemsByKey,
   UseCheckStorageItems,
 } from "../type/customhook/useCheckStorageItemsType";
+import { green } from "../style/palette/palette";
 
 function Board() {
   const [storageItems, setStorageItems] = useState<UseCheckStorageItems>();
@@ -67,8 +68,8 @@ function Board() {
         type: "bar" as "bar",
         label: "Score",
         data: storageItems && storageItems.allTries.stackingScore,
-        borderColor: "#76914a",
-        backgroundColor: "#76914a",
+        borderColor: green,
+        backgroundColor: green,
       },
     ],
   };
