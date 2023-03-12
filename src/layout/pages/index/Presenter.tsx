@@ -4,7 +4,7 @@ import { RecentlyGames, UserInteraction } from "./elements";
 import { PresenterProps } from "../../../type/pages/indexType";
 import { useCheckStorageItems } from "../../../customhook";
 import { UseCheckStorageItems } from "../../../type/customhook/useCheckStorageItemsType";
-import { lightBlue, pink } from "../../../style/palette/palette";
+import { green, lightBlue, pink } from "../../../style/palette/palette";
 
 function Presenter(props: PresenterProps) {
   const { gameProgress } = props;
@@ -34,8 +34,8 @@ function Presenter(props: PresenterProps) {
         type: "bar" as "bar",
         label: "Score",
         data: storageItems && storageItems.recentlyTries.stackingScore,
-        borderColor: "#76914a",
-        backgroundColor: "#76914a",
+        borderColor: green,
+        backgroundColor: green,
       },
     ],
   };
