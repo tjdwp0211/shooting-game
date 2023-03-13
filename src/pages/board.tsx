@@ -6,7 +6,7 @@ import {
   SortStorageItemsByKey,
   UseCheckStorageItems,
 } from "../type/customhook/useCheckStorageItemsType";
-import { green } from "../style/palette/palette";
+import { green, lightBlue } from "../style/palette/palette";
 
 function Board() {
   const [storageItems, setStorageItems] = useState<UseCheckStorageItems>();
@@ -54,8 +54,8 @@ function Board() {
         type: "bar" as "bar",
         label: "Time To Clear",
         data: storageItems && storageItems.allTries.timeToClear,
-        borderColor: "rgb(75, 192, 192)",
-        backgroundColor: "rgb(75, 192, 192)",
+        borderColor: lightBlue,
+        backgroundColor: lightBlue,
       },
       {
         type: "bar" as "bar",
