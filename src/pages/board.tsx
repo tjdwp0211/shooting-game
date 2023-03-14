@@ -6,7 +6,7 @@ import {
   SortStorageItemsByKey,
   UseCheckStorageItems,
 } from "../type/customhook/useCheckStorageItemsType";
-import { green, lightBlue } from "../style/palette/palette";
+import { green, lightBlue, pink } from "../style/palette/palette";
 
 function Board() {
   const [storageItems, setStorageItems] = useState<UseCheckStorageItems>();
@@ -62,7 +62,7 @@ function Board() {
         label: "Hit",
         data: storageItems && storageItems.allTries.makeHit,
         borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgb(255, 99, 132)",
+        backgroundColor: pink,
       },
       {
         type: "bar" as "bar",
