@@ -61,7 +61,7 @@ function Board() {
         type: "bar" as "bar",
         label: "Hit",
         data: storageItems && storageItems.allTries.makeHit,
-        borderColor: "rgb(255, 99, 132)",
+        borderColor: pink,
         backgroundColor: pink,
       },
       {
