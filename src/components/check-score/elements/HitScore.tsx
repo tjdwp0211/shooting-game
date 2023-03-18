@@ -12,7 +12,7 @@ function HitScore() {
   );
 
   const returnColorByPoint = useCallback((point: number) => {
-    if (point === 2) return white;
+    if (point === 2) return white + "bf";
     if (point === 4) return "#2f3030bf";
     if (point === 6) return "#1a21edbf";
     if (point === 8) return "#fc1212bf";
