@@ -4,7 +4,7 @@ import Text from "../../text/Text";
 import { useSelector } from "react-redux";
 import { Store } from "../../../redux/root";
 import { boldFont, lightFont, regularFont } from "../../../style/fonts/inedx";
-import { white, lightBlack } from "../../../style/palette/palette";
+import { white, lightBlack, blue } from "../../../style/palette/palette";
 
 function HitScore() {
   const stackingScore = useSelector(
@@ -14,7 +14,7 @@ function HitScore() {
   const returnColorByPoint = useCallback((point: number) => {
     if (point === 2) return white + "bf";
     if (point === 4) return lightBlack + "bf";
-    if (point === 6) return "#1a21edbf";
+    if (point === 6) return blue + "bf";
     if (point === 8) return "#fc1212bf";
     if (point === 10) return "#edea26bf";
   }, []);
