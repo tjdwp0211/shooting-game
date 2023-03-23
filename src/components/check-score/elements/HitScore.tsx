@@ -4,7 +4,13 @@ import Text from "../../text/Text";
 import { useSelector } from "react-redux";
 import { Store } from "../../../redux/root";
 import { boldFont, lightFont, regularFont } from "../../../style/fonts/inedx";
-import { white, lightBlack, blue, red } from "../../../style/palette/palette";
+import {
+  white,
+  lightBlack,
+  blue,
+  red,
+  yellow,
+} from "../../../style/palette/palette";
 
 function HitScore() {
   const stackingScore = useSelector(
@@ -16,7 +22,7 @@ function HitScore() {
     if (point === 4) return lightBlack + "bf";
     if (point === 6) return blue + "bf";
     if (point === 8) return red + "bf";
-    if (point === 10) return "#edea26bf";
+    if (point === 10) return yellow + "bf";
   }, []);
 
   const checkShootingHistory = stackingScore.reduce(
