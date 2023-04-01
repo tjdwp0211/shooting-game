@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { gray } from "../../../style/palette/palette";
+import { gray, orange } from "../../../style/palette/palette";
 import { BulletImgs } from "../../../type/components/curGameStateType";
 
 function BulletImgs({ remainBullets }: BulletImgs) {
@@ -29,7 +29,7 @@ const Img = styled.div`
   height: 0.7vw;
   max-height: 24px;
   min-height: 8px;
-  background-color: #f3bc5b;
+  background-color: ${orange};
   border-radius: 100% 100% 0px 0px;
   position: relative;
   ::after {
