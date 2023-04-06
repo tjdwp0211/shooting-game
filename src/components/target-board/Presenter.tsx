@@ -13,12 +13,8 @@ import { useSelector } from "react-redux";
 import { Store } from "../../redux/root";
 
 function Presenter(props: PresenterProps) {
-  const {
-    targetCoordinates,
-    gameProgress,
-    handleCoordinates,
-    handleStackingScore,
-  } = props;
+  const { coordinates, gameProgress, handleCoordinates, handleStackingScore } =
+    props;
   const { deviceWidth, deviceHeight } = useSelector(
     (state: Store) => state.deviceSize
   );
@@ -28,8 +24,8 @@ function Presenter(props: PresenterProps) {
       <CoordinatesFixer>{children}</CoordinatesFixer>
     ) : (
       <CoordinatesChanger
-        x={targetCoordinates.x}
-        y={targetCoordinates.y}
+        x={coordinates.targetX}
+        y={coordinates.targetY}
         deviceHeight={deviceHeight}
         deviceWidth={deviceWidth}
       >
@@ -39,9 +35,9 @@ function Presenter(props: PresenterProps) {
   };
 
   const handleTargetBoardClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      handleCoordinates();
-      handleStackingScore(e);
+    async (e: React.MouseEvent<HTMLDivElement>) => {
+      handleCoordinates(e);
+      handleStackingScore(e as React.MouseEvent);
     },
     [handleCoordinates, handleStackingScore]
   );
