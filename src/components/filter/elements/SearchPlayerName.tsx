@@ -17,6 +17,7 @@ function SearchPlayerName(props: SearchPlayerNameProps) {
     e.preventDefault();
     drawByPlayerName(searchValue);
   };
+
   return (
     <FormWrapper onSubmit={handleSubmit}>
       <PlayerNameInput
@@ -65,12 +66,10 @@ const SearchButton = styled.button`
   background-color: inherit;
   border-bottom: 2px solid ${black};
   border-right: 2px solid ${black};
-  padding: 0px 8px;
 `;
 
 const ResetButton = styled.button`
   height: 32px;
   background-color: inherit;
   border-bottom: 2px solid ${black};
-  padding: 0px 8px;
 `;
