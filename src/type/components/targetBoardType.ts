@@ -1,9 +1,11 @@
 import React from "react";
 import { GameProgress } from "../pages/indexType";
 
-interface TargetCoordinates {
-  x: number;
-  y: number;
+interface Coordinates {
+  targetX: number;
+  targetY: number;
+  userClickX: number;
+  userClickY: number;
 }
 
 interface ContainerProps {
@@ -12,9 +14,9 @@ interface ContainerProps {
 }
 
 interface PresenterProps {
-  targetCoordinates: TargetCoordinates;
+  coordinates: Coordinates;
   gameProgress: GameProgress;
-  handleCoordinates: () => void;
+  handleCoordinates: (e: React.MouseEvent) => void;
   handleStackingScore: (e: React.MouseEvent) => void;
 }
 
@@ -34,7 +36,7 @@ interface CircleProps {
 }
 
 export type {
-  TargetCoordinates,
+  Coordinates,
   ContainerProps,
   PresenterProps,
   WrapperProps,
