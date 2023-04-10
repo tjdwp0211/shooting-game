@@ -1,23 +1,23 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import { GameProgress } from "../pages/indexType";
 
 interface Coordinates {
   targetX: number;
   targetY: number;
-  userClickX: number;
-  userClickY: number;
+  calcX: number;
+  calcY: number;
 }
 
 interface ContainerProps {
   gameProgress: GameProgress;
-  handleStackingScore: (e: React.MouseEvent) => void;
+  setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
 }
 
 interface PresenterProps {
   coordinates: Coordinates;
   gameProgress: GameProgress;
   handleCoordinates: (e: React.MouseEvent) => void;
-  handleStackingScore: (e: React.MouseEvent) => void;
+  setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
 }
 
 interface WrapperProps {
