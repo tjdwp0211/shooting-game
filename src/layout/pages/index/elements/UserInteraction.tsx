@@ -9,9 +9,12 @@ import {
 import { boldFont, regularFont } from "../../../../style/fonts/inedx";
 import { UserInteractionProps } from "../../../../type/pages/indexType";
 import { green } from "../../../../style/palette/palette";
+import { useDispatch } from "react-redux";
+import { pullTrigger } from "../../../../redux/root";
 
 function UserInteraction(props: UserInteractionProps) {
-  const { gameProgress, setGameProgress, handleStackingScore } = props;
+  const dispatch = useDispatch();
+  const { gameProgress, setGameProgress } = props;
   const { start, checkScore } = gameProgress;
   const containTexts = useMemo(() => {
     return (
@@ -26,20 +29,25 @@ function UserInteraction(props: UserInteractionProps) {
     );
   }, []);
 
+  const zeroPointDispatcher = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    gameProgress.start && dispatch(pullTrigger({ x: null, y: null }));
+  };
+
   return (
     <GreenBoard>
       <CurGameState
         gameProgress={gameProgress}
         setGameProgress={setGameProgress}
       />
-      <Wrapper onMouseDown={handleStackingScore} id="0">
+      <Wrapper onMouseDown={zeroPointDispatcher}>
         {!start && !checkScore && containTexts}
         {checkScore ? (
           <CheckScore setGameProgress={setGameProgress} />
         ) : (
           <TargetBoard
             gameProgress={gameProgress}
-            handleStackingScore={handleStackingScore}
+            setGameProgress={setGameProgress}
           />
         )}
       </Wrapper>
