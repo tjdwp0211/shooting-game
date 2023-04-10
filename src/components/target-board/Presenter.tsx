@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { Circle, Wrapper } from "./elements/";
 import { PresenterProps } from "../../type/components/targetBoardType";
@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import { Store } from "../../redux/root";
 
 function Presenter(props: PresenterProps) {
-  const { coordinates, gameProgress, handleCoordinates, handleStackingScore } =
+  const { coordinates, gameProgress, handleCoordinates, setGameProgress } =
     props;
   const { deviceWidth, deviceHeight } = useSelector(
     (state: Store) => state.deviceSize
@@ -34,13 +34,14 @@ function Presenter(props: PresenterProps) {
     );
   };
 
-  const handleTargetBoardClick = useCallback(
-    async (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleTargetBoardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    if (!gameProgress.start && !gameProgress.checkScore) {
+      setGameProgress(prev => ({ ...prev, start: !prev.start }));
+    } else if (gameProgress.start) {
       handleCoordinates(e);
-      handleStackingScore(e as React.MouseEvent);
-    },
-    [handleCoordinates, handleStackingScore]
-  );
+    }
+  };
 
   return (
     <>
