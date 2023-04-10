@@ -17,6 +17,7 @@ export default CurGameState;
 
 const Wrapper = styled.div`
   display: flex;
+  height: 48px;
   justify-content: space-between;
   padding: 2px 16px;
   cursor: default;
