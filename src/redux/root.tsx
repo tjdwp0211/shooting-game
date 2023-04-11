@@ -5,14 +5,14 @@ import {
   actions as gameStateAction,
 } from "./gameState/reducer";
 import {
-  reducer as deviceSizeReducer,
-  actions as deviceSizeAction,
-} from "./deviceSize/reducer";
+  reducer as deviceInfomationReducer,
+  actions as deviceInfomationAction,
+} from "./deviceInfo/reducer";
 
 const store = configureStore({
   reducer: {
     gameState: gameStateReducer,
-    deviceSize: deviceSizeReducer,
+    deviceInfomation: deviceInfomationReducer,
   },
 });
 
@@ -22,5 +22,5 @@ export type Store = ReturnType<typeof store.getState>;
 export default store;
 
 const { pullTrigger, clearGameState, timeTickTock } = gameStateAction;
-const { getDeviceSize } = deviceSizeAction;
-export { pullTrigger, clearGameState, timeTickTock, getDeviceSize };
+const { deviceSize, isMobile } = deviceInfomationAction;
+export { pullTrigger, clearGameState, timeTickTock, deviceSize, isMobile };

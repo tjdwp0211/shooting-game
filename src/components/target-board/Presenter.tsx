@@ -16,7 +16,7 @@ function Presenter(props: PresenterProps) {
   const { coordinates, gameProgress, handleCoordinates, setGameProgress } =
     props;
   const { deviceWidth, deviceHeight } = useSelector(
-    (state: Store) => state.deviceSize
+    (state: Store) => state.deviceInfomation
   );
 
   const waitingForGameStart = (children: React.ReactNode) => {
@@ -34,7 +34,9 @@ function Presenter(props: PresenterProps) {
     );
   };
 
-  const handleTargetBoardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleTargetBoardClick = (
+    e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
+  ) => {
     e.stopPropagation();
     if (!gameProgress.start && !gameProgress.checkScore) {
       setGameProgress(prev => ({ ...prev, start: !prev.start }));
@@ -47,11 +49,11 @@ function Presenter(props: PresenterProps) {
     <>
       {waitingForGameStart(
         <Wrapper handleTargetBoardClick={handleTargetBoardClick}>
-          <Circle point={"2"} radius={100} background={white} />
-          <Circle point={"4"} radius={85} background={lightBlack} />
-          <Circle point={"6"} radius={60} background={blue} />
-          <Circle point={"8"} radius={35} background={red} />
-          <Circle point={"10"} radius={15} background={yellow} />
+          <Circle radius={100} background={white} />
+          <Circle radius={85} background={lightBlack} />
+          <Circle radius={60} background={blue} />
+          <Circle radius={35} background={red} />
+          <Circle radius={15} background={yellow} />
         </Wrapper>
       )}
     </>

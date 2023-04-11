@@ -15,13 +15,13 @@ interface ContainerProps {
 interface PresenterProps {
   coordinates: Coordinates;
   gameProgress: GameProgress;
-  handleCoordinates: (e: React.MouseEvent) => void;
+  handleCoordinates: (e: React.MouseEvent | React.TouchEvent) => void;
   setGameProgress: Dispatch<React.SetStateAction<GameProgress>>;
 }
 
 interface WrapperProps {
   children: React.ReactNode;
-  handleTargetBoardClick: (e: React.MouseEvent) => void;
+  handleTargetBoardClick: (e: React.MouseEvent | React.TouchEvent) => void;
 }
 
 interface LineProps {
@@ -31,7 +31,6 @@ interface LineProps {
 interface CircleProps {
   radius: number;
   background: string;
-  point: string;
 }
 
 export type {

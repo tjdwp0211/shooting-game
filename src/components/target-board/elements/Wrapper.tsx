@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { WrapperProps } from "../../../type/components/targetBoardType";
+import { useSelector } from "react-redux";
 
 function Wrapper(props: WrapperProps) {
   const { children, handleTargetBoardClick } = props;
 
-  return <Container onMouseDown={handleTargetBoardClick}>{children}</Container>;
+  return (
+    <Container onTouchStart={handleTargetBoardClick}>{children}</Container>
+  );
 }
 
 export default React.memo(Wrapper);

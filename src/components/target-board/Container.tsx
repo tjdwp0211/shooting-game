@@ -9,8 +9,8 @@ import {
 
 function Container({ gameProgress, setGameProgress }: ContainerProps) {
   const dispatch = useDispatch();
-  const { deviceWidth, deviceHeight } = useSelector(
-    (state: Store) => state.deviceSize
+  const { deviceWidth, deviceHeight, isMobile } = useSelector(
+    (state: Store) => state.deviceInfomation
   );
   const [coordinates, setTargetCoordinates] = useState<Coordinates>({
     targetX: Math.random(),
@@ -22,16 +22,22 @@ function Container({ gameProgress, setGameProgress }: ContainerProps) {
     return Math.pow(Math.abs(dot1 / 100 - (dot2 - 44)), 2);
   };
 
-  const handleCoordinates = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleCoordinates = (
+    e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
+  ) => {
     e.stopPropagation();
     setTargetCoordinates(prev => {
       const calcX = calculateDotToDot(
         prev.targetX * (deviceWidth * 80),
-        e.clientX
+        isMobile
+          ? (e as React.TouchEvent).touches[0].clientX
+          : (e as React.MouseEvent).clientX
       );
       const calcY = calculateDotToDot(
         prev.targetY * (deviceHeight * 50),
-        e.clientY - 96
+        isMobile
+          ? (e as React.TouchEvent).touches[0].clientX - 96
+          : (e as React.MouseEvent).clientY - 96
       );
       const calcResult = Math.sqrt(calcX + calcY);
 

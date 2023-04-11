@@ -1,4 +1,4 @@
 import useCheckStorageItems from "./useCheckStorageItems";
-import useCheckDeviceSize from "./useCheckDeviceSize";
+import useDeviceInfo from "./useDeviceInfo";
 
-export { useCheckStorageItems, useCheckDeviceSize };
+export { useCheckStorageItems, useDeviceInfo };
