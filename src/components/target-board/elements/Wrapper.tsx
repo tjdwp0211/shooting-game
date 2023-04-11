@@ -2,13 +2,18 @@ import React from "react";
 import styled from "@emotion/styled";
 import { WrapperProps } from "../../../type/components/targetBoardType";
 import { useSelector } from "react-redux";
+import { Store } from "../../../redux/root";
 
 function Wrapper(props: WrapperProps) {
   const { children, handleTargetBoardClick } = props;
+  const { isMobile } = useSelector((state: Store) => state.deviceInfomation);
+  const eventHandlerProperty = () => {
+    return isMobile
+      ? { onTouchStart: handleTargetBoardClick }
+      : { onMouseDown: handleTargetBoardClick };
+  };
 
-  return (
-    <Container onTouchStart={handleTargetBoardClick}>{children}</Container>
-  );
+  return <Container {...eventHandlerProperty()}>{children}</Container>;
 }
 
 export default React.memo(Wrapper);

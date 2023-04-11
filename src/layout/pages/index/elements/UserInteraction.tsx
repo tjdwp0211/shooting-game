@@ -9,29 +9,23 @@ import {
 import { boldFont, regularFont } from "../../../../style/fonts/inedx";
 import { UserInteractionProps } from "../../../../type/pages/indexType";
 import { green } from "../../../../style/palette/palette";
-import { useDispatch } from "react-redux";
-import { pullTrigger } from "../../../../redux/root";
+import { useDispatch, useSelector } from "react-redux";
+import { Store, pullTrigger } from "../../../../redux/root";
 
 function UserInteraction(props: UserInteractionProps) {
   const dispatch = useDispatch();
   const { gameProgress, setGameProgress } = props;
   const { start, checkScore } = gameProgress;
-  const containTexts = useMemo(() => {
-    return (
-      <TextsWrapper>
-        <Text size={40} weight={boldFont}>
-          Accurate Aim, Fast Hit
-        </Text>
-        <Text size={20} weight={regularFont}>
-          Click the target to game start
-        </Text>
-      </TextsWrapper>
-    );
-  }, []);
+  const { isMobile } = useSelector((state: Store) => state.deviceInfomation);
 
-  const zeroPointDispatcher = (e: React.TouchEvent) => {
+  const zeroPointDispatcher = (e: React.MouseEvent | React.TouchEvent) => {
     e.stopPropagation();
     gameProgress.start && dispatch(pullTrigger({ distanceDotToDot: null }));
+  };
+  const eventHandlerProperty = () => {
+    return isMobile
+      ? { onTouchStart: zeroPointDispatcher }
+      : { onMouseDown: zeroPointDispatcher };
   };
 
   return (
@@ -40,8 +34,17 @@ function UserInteraction(props: UserInteractionProps) {
         gameProgress={gameProgress}
         setGameProgress={setGameProgress}
       />
-      <Wrapper onTouchStart={zeroPointDispatcher}>
-        {!start && !checkScore && containTexts}
+      <Wrapper {...eventHandlerProperty()}>
+        {!start && !checkScore && (
+          <TextsWrapper>
+            <Text size={40} weight={boldFont}>
+              Accurate Aim, Fast Hit
+            </Text>
+            <Text size={20} weight={regularFont}>
+              Click the target to game start
+            </Text>
+          </TextsWrapper>
+        )}
         {checkScore ? (
           <CheckScore setGameProgress={setGameProgress} />
         ) : (
