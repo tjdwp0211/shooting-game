@@ -31,7 +31,7 @@ function UserInteraction(props: UserInteractionProps) {
 
   const zeroPointDispatcher = (e: React.MouseEvent) => {
     e.stopPropagation();
-    gameProgress.start && dispatch(pullTrigger({ x: null, y: null }));
+    gameProgress.start && dispatch(pullTrigger({ distanceDotToDot: null }));
   };
 
   return (
