@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Presenter from "./Presenter";
 import { useDispatch, useSelector } from "react-redux";
 import { Store, pullTrigger } from "../../redux/root";
@@ -15,27 +15,39 @@ function Container({ gameProgress, setGameProgress }: ContainerProps) {
   const [coordinates, setTargetCoordinates] = useState<Coordinates>({
     targetX: Math.random(),
     targetY: Math.random(),
-    calcX: 0,
-    calcY: 0,
+    distanceDotToDot: 0,
   });
+
+  const calculateDotToDot = (dot1: number, dot2: number) => {
+    return Math.pow(Math.abs(dot1 / 100 - (dot2 - 44)), 2);
+  };
 
   const handleCoordinates = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    setTargetCoordinates(prev => ({
-      ...prev,
-      targetX: Math.random() * (1 - 0.2) + 0.2,
-      targetY: Math.random() * (1 - 0.2) + 0.2,
-      calcX: Math.round(
-        Math.abs(prev.targetX * ((deviceWidth * 80) / 100) - (e.clientX - 44))
-      ),
-      calcY: Math.round(
-        Math.abs(
-          prev.targetY * ((deviceHeight * 50) / 100) - (e.clientY - 44 - 96)
-        )
-      ),
-    }));
-    dispatch(pullTrigger({ x: coordinates.calcX, y: coordinates.calcY }));
+    setTargetCoordinates(prev => {
+      const calcX = calculateDotToDot(
+        prev.targetX * (deviceWidth * 80),
+        e.clientX
+      );
+      const calcY = calculateDotToDot(
+        prev.targetY * (deviceHeight * 50),
+        e.clientY - 96
+      );
+      const calcResult = Math.sqrt(calcX + calcY);
+
+      return {
+        ...prev,
+        targetX: Math.random() * (1 - 0.2) + 0.2,
+        targetY: Math.random() * (1 - 0.2) + 0.2,
+        distanceDotToDot: calcResult,
+      };
+    });
   };
+
+  useEffect(() => {
+    if (gameProgress.start)
+      dispatch(pullTrigger({ distanceDotToDot: coordinates.distanceDotToDot }));
+  }, [coordinates.distanceDotToDot]);
 
   return (
     <Presenter
