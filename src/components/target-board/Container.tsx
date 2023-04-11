@@ -36,10 +36,11 @@ function Container({ gameProgress, setGameProgress }: ContainerProps) {
       const calcY = calculateDotToDot(
         prev.targetY * (deviceHeight * 50),
         isMobile
-          ? (e as React.TouchEvent).touches[0].clientX - 96
+          ? (e as React.TouchEvent).touches[0].clientY - 96
           : (e as React.MouseEvent).clientY - 96
       );
       const calcResult = Math.sqrt(calcX + calcY);
+      alert(calcResult);
 
       return {
         ...prev,
