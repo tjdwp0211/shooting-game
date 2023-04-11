@@ -40,7 +40,6 @@ function Container({ gameProgress, setGameProgress }: ContainerProps) {
           : (e as React.MouseEvent).clientY - 96
       );
       const calcResult = Math.sqrt(calcX + calcY);
-      alert(calcResult);
 
       return {
         ...prev,
