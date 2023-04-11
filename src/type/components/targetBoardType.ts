@@ -4,8 +4,7 @@ import { GameProgress } from "../pages/indexType";
 interface Coordinates {
   targetX: number;
   targetY: number;
-  calcX: number;
-  calcY: number;
+  distanceDotToDot: number;
 }
 
 interface ContainerProps {
