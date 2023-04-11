@@ -29,7 +29,7 @@ function UserInteraction(props: UserInteractionProps) {
     );
   }, []);
 
-  const zeroPointDispatcher = (e: React.MouseEvent) => {
+  const zeroPointDispatcher = (e: React.TouchEvent) => {
     e.stopPropagation();
     gameProgress.start && dispatch(pullTrigger({ distanceDotToDot: null }));
   };
@@ -40,7 +40,7 @@ function UserInteraction(props: UserInteractionProps) {
         gameProgress={gameProgress}
         setGameProgress={setGameProgress}
       />
-      <Wrapper onMouseDown={zeroPointDispatcher}>
+      <Wrapper onTouchStart={zeroPointDispatcher}>
         {!start && !checkScore && containTexts}
         {checkScore ? (
           <CheckScore setGameProgress={setGameProgress} />
