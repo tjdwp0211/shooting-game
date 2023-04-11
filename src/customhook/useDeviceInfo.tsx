@@ -4,7 +4,7 @@ import { deviceSize, isMobile } from "../redux/root";
 
 function useDeviceInfo() {
   const dispatch = useDispatch();
-  const detectingDevice = () => {
+  const detectingDeviceType = () => {
     if (
       window.navigator.userAgent.match(
         /iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i
@@ -30,11 +30,11 @@ function useDeviceInfo() {
 
   useEffect(() => {
     changeDeviceSize();
-    detectingDevice();
+    detectingDeviceType();
     window.addEventListener("resize", changeDeviceSize);
     return () => {
       changeDeviceSize();
-      detectingDevice();
+      detectingDeviceType();
       window.removeEventListener("resize", changeDeviceSize);
     };
   });
