@@ -23,17 +23,19 @@ const gameStatus = createSlice({
       state.remainBullets = state.remainBullets - 1;
       const { distanceDotToDot } = action.payload;
 
-      if (distanceDotToDot === null) state.stackingScore.push(0);
-      else if (0 <= distanceDotToDot && distanceDotToDot <= 6.2)
+      if (distanceDotToDot === null) {
+        state.stackingScore.push(0);
+      } else if (0 <= distanceDotToDot && distanceDotToDot <= 6.2) {
         state.stackingScore.push(10);
-      else if (6.3 <= distanceDotToDot && distanceDotToDot <= 15)
+      } else if (6.2 <= distanceDotToDot && distanceDotToDot <= 16) {
         state.stackingScore.push(8);
-      else if (16 <= distanceDotToDot && distanceDotToDot <= 26)
+      } else if (16 <= distanceDotToDot && distanceDotToDot <= 27) {
         state.stackingScore.push(6);
-      else if (27 <= distanceDotToDot && distanceDotToDot <= 36)
+      } else if (27 <= distanceDotToDot && distanceDotToDot <= 36) {
         state.stackingScore.push(4);
-      else if (36 <= distanceDotToDot && distanceDotToDot <= 45)
+      } else if (36 <= distanceDotToDot && distanceDotToDot <= 45) {
         state.stackingScore.push(2);
+      }
     },
     clearGameState(state) {
       state.remainBullets = 30;

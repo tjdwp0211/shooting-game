@@ -37,10 +37,9 @@ function Presenter(props: PresenterProps) {
   const handleTargetBoardClick = (
     e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
   ) => {
-    e.stopPropagation();
     if (!gameProgress.start && !gameProgress.checkScore) {
       setGameProgress(prev => ({ ...prev, start: !prev.start }));
-    } else if (gameProgress.start) {
+    } else {
       handleCoordinates(e);
     }
   };

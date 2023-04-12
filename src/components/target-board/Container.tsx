@@ -51,9 +51,10 @@ function Container({ gameProgress, setGameProgress }: ContainerProps) {
   };
 
   useEffect(() => {
-    if (gameProgress.start)
+    if (gameProgress.start) {
       dispatch(pullTrigger({ distanceDotToDot: coordinates.distanceDotToDot }));
-  }, [coordinates.distanceDotToDot]);
+    }
+  }, [coordinates.distanceDotToDot, dispatch]);
 
   return (
     <Presenter

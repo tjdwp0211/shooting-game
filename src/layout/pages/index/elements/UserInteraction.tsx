@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import {
   CheckScore,
@@ -22,6 +22,7 @@ function UserInteraction(props: UserInteractionProps) {
     e.stopPropagation();
     gameProgress.start && dispatch(pullTrigger({ distanceDotToDot: null }));
   };
+
   const eventHandlerProperty = () => {
     return isMobile
       ? { onTouchStart: zeroPointDispatcher }
