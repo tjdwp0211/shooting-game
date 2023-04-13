@@ -6,11 +6,12 @@ interface TextProps {
   size: number;
   weight: SerializedStyles;
   children: React.ReactNode;
+  className?: string;
 }
 
-function Text({ size, weight, children }: TextProps) {
+function Text({ size, weight, children, className }: TextProps) {
   return (
-    <Container size={size} weight={weight}>
+    <Container size={size} weight={weight} className={className}>
       {children}
     </Container>
   );
