@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Circle, Wrapper } from "./elements/";
+import { Circle, Wrapper, Tooltip } from "./elements/";
 import { PresenterProps } from "../../type/components/targetBoardType";
 import {
   white,
@@ -29,6 +29,7 @@ function Presenter(props: PresenterProps) {
         deviceHeight={deviceHeight}
         deviceWidth={deviceWidth}
       >
+        <Tooltip></Tooltip>
         {children}
       </CoordinatesChanger>
     );
@@ -81,6 +82,7 @@ const CoordinatesChanger = styled(Root)<{
     )
     translateY(${props => props.y * ((props.deviceHeight * 50) / 100)}px)
     scaleX(1) scaleY(1);
+  position: relative;
 `;
 
 const CoordinatesFixer = styled(Root)`
