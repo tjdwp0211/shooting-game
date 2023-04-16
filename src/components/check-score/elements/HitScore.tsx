@@ -1,35 +1,23 @@
-import React, { useCallback } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import Text from "../../text/Text";
 import { useSelector } from "react-redux";
 import { Store } from "../../../redux/root";
 import { boldFont, lightFont, regularFont } from "../../../style/fonts/inedx";
-import {
-  white,
-  lightBlack,
-  blue,
-  red,
-  yellow,
-} from "../../../style/palette/palette";
+import { white, lightBlack } from "../../../style/palette/palette";
+import { useSpitOutColor } from "../../../customhook";
 
 function HitScore() {
   const stackingScore = useSelector(
     (state: Store) => state.gameState.stackingScore
   );
-
-  const returnColorByPoint = useCallback((point: number) => {
-    if (point === 2) return white + "bf";
-    if (point === 4) return lightBlack + "bf";
-    if (point === 6) return blue + "bf";
-    if (point === 8) return red + "bf";
-    if (point === 10) return yellow + "bf";
-  }, []);
+  const spitOutColor = useSpitOutColor;
 
   const checkShootingHistory = stackingScore.reduce(
     (prev, cur, i) => {
       prev = { ...prev, score: prev.score + cur };
       prev.history.push(
-        <Block bgColor={returnColorByPoint(cur)} key={i}>
+        <Block bgColor={spitOutColor(cur)} key={i}>
           <p>{cur}</p>
         </Block>
       );

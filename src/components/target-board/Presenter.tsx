@@ -15,21 +15,14 @@ import { Store } from "../../redux/root";
 function Presenter(props: PresenterProps) {
   const { coordinates, gameProgress, handleCoordinates, setGameProgress } =
     props;
-  const { deviceWidth, deviceHeight } = useSelector(
-    (state: Store) => state.deviceInfomation
-  );
+  const deviceSize = useSelector((state: Store) => state.deviceInfomation);
 
   const waitingForGameStart = (children: React.ReactNode) => {
     return !gameProgress.start ? (
       <CoordinatesFixer>{children}</CoordinatesFixer>
     ) : (
-      <CoordinatesChanger
-        x={coordinates.targetX}
-        y={coordinates.targetY}
-        deviceHeight={deviceHeight}
-        deviceWidth={deviceWidth}
-      >
-        <Tooltip></Tooltip>
+      <CoordinatesChanger {...coordinates} {...deviceSize}>
+        <Tooltip />
         {children}
       </CoordinatesChanger>
     );
@@ -72,15 +65,15 @@ const Root = styled.div`
 `;
 
 const CoordinatesChanger = styled(Root)<{
-  x: number;
-  y: number;
+  targetX: number;
+  targetY: number;
   deviceWidth: number;
   deviceHeight: number;
 }>`
   transform: translateX(
-      ${props => props.x * ((props.deviceWidth * 80) / 100)}px
+      ${props => props.targetX * ((props.deviceWidth * 80) / 100)}px
     )
-    translateY(${props => props.y * ((props.deviceHeight * 50) / 100)}px)
+    translateY(${props => props.targetY * ((props.deviceHeight * 50) / 100)}px)
     scaleX(1) scaleY(1);
   position: relative;
 `;
