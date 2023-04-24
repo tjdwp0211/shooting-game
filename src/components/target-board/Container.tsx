@@ -2,17 +2,14 @@ import React, { useEffect, useState } from "react";
 import Presenter from "./Presenter";
 import { useDispatch, useSelector } from "react-redux";
 import { Store, pullTrigger } from "../../redux/root";
-import {
-  ContainerProps,
-  Coordinates,
-} from "../../type/components/targetBoardType";
+import * as T from "../../type/components/targetBoardType";
 
-function Container({ gameProgress, setGameProgress }: ContainerProps) {
+function Container({ gameProgress, setGameProgress }: T.ContainerProps) {
   const dispatch = useDispatch();
   const { deviceWidth, deviceHeight, isMobile } = useSelector(
     (state: Store) => state.deviceInfomation
   );
-  const [coordinates, setTargetCoordinates] = useState<Coordinates>({
+  const [coordinates, setTargetCoordinates] = useState<T.Coordinates>({
     targetX: Math.random(),
     targetY: Math.random(),
     distanceDotToDot: 0,
