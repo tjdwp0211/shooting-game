@@ -2,13 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Circle, Wrapper, Tooltip } from "./elements/";
 import { PresenterProps } from "../../type/components/targetBoardType";
-import {
-  white,
-  lightBlack,
-  blue,
-  red,
-  yellow,
-} from "../../style/palette/palette";
+import * as PALETTE from "../../style/palette/palette";
 import { useSelector } from "react-redux";
 import { Store } from "../../redux/root";
 
@@ -42,11 +36,11 @@ function Presenter(props: PresenterProps) {
     <>
       {waitingForGameStart(
         <Wrapper handleTargetBoardClick={handleTargetBoardClick}>
-          <Circle radius={100} background={white} />
-          <Circle radius={85} background={lightBlack} />
-          <Circle radius={60} background={blue} />
-          <Circle radius={35} background={red} />
-          <Circle radius={15} background={yellow} />
+          <Circle radius={100} background={PALETTE.white} />
+          <Circle radius={85} background={PALETTE.lightBlack} />
+          <Circle radius={60} background={PALETTE.blue} />
+          <Circle radius={35} background={PALETTE.red} />
+          <Circle radius={15} background={PALETTE.yellow} />
         </Wrapper>
       )}
     </>
