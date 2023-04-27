@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import * as S from "./styled";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -61,14 +61,14 @@ function Chart(props: ChartProps) {
   };
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       <Bar
         options={chartOptionsProps}
         data={chartDataProps}
         width={size[0]}
         height={size[1]}
       />
-    </Wrapper>
+    </S.Wrapper>
   );
 }
 
@@ -84,14 +84,3 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
-const Wrapper = styled.article`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border-radius: 6px;
-  padding: 12px 0px;
-`;
