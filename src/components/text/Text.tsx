@@ -1,13 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { SerializedStyles } from "@emotion/react";
-
-interface TextProps {
-  size: number;
-  weight: SerializedStyles;
-  children: React.ReactNode;
-  className?: string;
-}
+import { TextProps } from "../../type/components/textType";
 
 function Text({ size, weight, children, className }: TextProps) {
   return (
