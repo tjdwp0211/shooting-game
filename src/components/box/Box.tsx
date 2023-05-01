@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { black } from "../../style/palette/palette";
+import * as PALETTE from "../../style/palette/palette";
 
 interface BoxProps {
   children: React.ReactNode;
@@ -17,7 +17,7 @@ const BoxContainer = styled.div<{ bgColor: string }>`
   width: 100%;
   height: 100%;
   background-color: ${props => props.bgColor};
-  color: ${black};
+  color: ${PALETTE.black};
   display: flex;
   display: -webkit-flex;
   align-items: center;
