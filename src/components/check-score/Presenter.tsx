@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Text from "../text/Text";
-import { HitScore, Time } from "./elements/";
+import { Time } from "./elements/";
+import HitScore from "../hitscore";
 import PlayerNameInput from "../input/PlayerNameInput";
 import { white, yellow } from "../../style/palette/palette";
 import { boldFont, regularFont } from "../../style/fonts/inedx";
