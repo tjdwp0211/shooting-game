@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Text from "../text/Text";
-import { Time } from "./elements/";
+import TimeToClear from "../TimeToClear";
 import HitScore from "../hitscore";
 import PlayerNameInput from "../input/PlayerNameInput";
 import { white, yellow } from "../../style/palette/palette";
@@ -14,7 +14,7 @@ function Presenter(props: PresenterProps) {
   return (
     <Wrapper onSubmit={handleSubmit}>
       <HitScore />
-      <Time />
+      <TimeToClear />
       <InputWrapper blocking={inputState.blocking}>
         <Text size={20} weight={boldFont}>
           Must be between 2~6 in length
