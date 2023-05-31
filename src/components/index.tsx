@@ -1,5 +1,5 @@
 import TargetBoard from "./target-board/Container";
-import CurGameState from "./cur-game-info/CurGameState";
+import CurGameState from "./cur-game-info";
 import CheckScore from "./check-score/Container";
 import Chart from "./chart";
 import Box from "./box";
